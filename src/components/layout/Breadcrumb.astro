@@ -1,0 +1,30 @@
+---
+import { breadcrumbSchema, type BreadcrumbItem } from '../../lib/schema';
+import { canonicalUrl } from '../../lib/seo';
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+const jsonLd = breadcrumbSchema(
+  items.map((item) => ({ ...item, url: canonicalUrl(item.url, Astro.site) })),
+);
+---
+
+<nav aria-label="現在の位置" class="mx-auto max-w-5xl px-4 py-4 text-sm text-navy-700 sm:px-6">
+  <ol class="flex flex-wrap items-center gap-1">
+    {items.map((item, index) => (
+      <li class="flex items-center gap-1">
+        {index > 0 && <span aria-hidden="true" class="mx-1 text-navy-100">/</span>}
+        {index === items.length - 1 ? (
+          <span aria-current="page" class="text-navy-950">{item.name}</span>
+        ) : (
+          <a href={item.url} class="hover:text-accent-600 hover:underline">{item.name}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

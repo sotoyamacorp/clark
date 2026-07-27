@@ -1,0 +1,18 @@
+---
+import { siteConfig } from '../../lib/site-config';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-16 border-t border-navy-100 bg-navy-50">
+  <div class="mx-auto max-w-5xl px-4 py-8 text-sm text-navy-800 sm:px-6">
+    <p class="mb-2">{siteConfig.tagline}</p>
+    <nav aria-label="フッターナビゲーション" class="mb-4">
+      <ul class="flex flex-wrap gap-4">
+        <li><a href="/about" class="hover:text-accent-600 hover:underline">私たちについて</a></li>
+        <li><a href="/contact" class="hover:text-accent-600 hover:underline">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <p>&copy; {year} {siteConfig.name}</p>
+  </div>
+</footer>

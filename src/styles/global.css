@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    Meiryo, system-ui, sans-serif;
+
+  /* ネイビー基調 */
+  --color-navy-950: #0f1f33;
+  --color-navy-900: #142943;
+  --color-navy-800: #1c3a5e;
+  --color-navy-700: #2a4d75;
+  --color-navy-100: #e8edf3;
+  --color-navy-50: #f5f7fa;
+
+  /* アクセント色（1色のみ） */
+  --color-accent-600: #a06a2c;
+  --color-accent-500: #bf8641;
+  --color-accent-100: #f3e6d3;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: var(--color-navy-950);
+  background-color: #ffffff;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* 読みやすさ優先：アニメーション・パララックスは使わない方針のため、
+   トランジションも最小限（フォーカス表示など機能的なものだけ）に留める */
+a {
+  text-underline-offset: 0.15em;
+}

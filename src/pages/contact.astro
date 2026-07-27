@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/layout/Breadcrumb.astro';
+import { siteConfig } from '../lib/site-config';
+
+const breadcrumbItems = [
+  { name: 'ホーム', url: '/' },
+  { name: 'お問い合わせ', url: '/contact' },
+];
+---
+
+<BaseLayout
+  title="お問い合わせ"
+  description="フィリピン・クラーク進出に関するご相談・お問い合わせはこちらから。"
+>
+  <Breadcrumb items={breadcrumbItems} />
+
+  <div class="mx-auto max-w-[720px] px-4 py-8 sm:px-6">
+    <h1 class="mb-4 text-3xl font-bold text-navy-950">お問い合わせ</h1>
+    <p class="mb-8 text-lg leading-relaxed text-navy-800">
+      フィリピン・クラークへの進出をご検討の方は、下記フォームよりお気軽にご相談ください。
+      情報収集の段階でも構いません。
+    </p>
+
+    {siteConfig.tallyFormUrl ? (
+      <iframe
+        src={siteConfig.tallyFormUrl}
+        width="100%"
+        height="600"
+        title="お問い合わせフォーム"
+        class="rounded-lg border border-navy-100"
+      />
+    ) : (
+      <div class="rounded-lg border border-navy-100 bg-navy-50 p-6">
+        <p class="mb-4 text-base leading-relaxed text-navy-800">
+          {/* TODO: Tally でフォームを作成し、src/lib/site-config.ts の tallyFormUrl に埋め込みURLを設定する */}
+          フォームの準備中です。お急ぎの場合は、メールにて直接ご連絡ください。
+        </p>
+        <a
+          href={`mailto:${siteConfig.contactEmail}`}
+          class="font-medium text-accent-600 hover:underline"
+        >
+          {siteConfig.contactEmail} へメールを送る →
+        </a>
+      </div>
+    )}
+  </div>
+</BaseLayout>

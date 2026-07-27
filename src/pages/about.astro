@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/layout/Breadcrumb.astro';
+import { founders } from '../lib/site-config';
+
+const breadcrumbItems = [
+  { name: 'ホーム', url: '/' },
+  { name: '私たちについて', url: '/about' },
+];
+---
+
+<BaseLayout
+  title="私たちについて"
+  description="なぜ私たちがクラーク進出情報データベースを作っているのか。運営者の経歴とフィリピン・クラークとの繋がりをご紹介します。"
+>
+  <Breadcrumb items={breadcrumbItems} />
+
+  <article class="mx-auto max-w-[720px] px-4 py-8 sm:px-6">
+    <h1 class="mb-6 text-3xl font-bold text-navy-950">私たちについて</h1>
+
+    <p class="mb-4 text-lg leading-relaxed text-navy-800">
+      {/* TODO: プレースホルダー。なぜこのデータベースを作っているのか、実体験に基づく文章に差し替える */}
+      このサイトは、日本の中小企業がフィリピン・クラークへ進出する際に本当に必要な一次情報を、
+      出典を明記した形で届けることを目的に運営しています。ここに、運営を始めた経緯についての文章が入ります。
+    </p>
+
+    <section class="mb-12 mt-10" aria-labelledby="founders-heading">
+      <h2 id="founders-heading" class="mb-6 text-2xl font-bold text-navy-950">
+        運営者について（兄弟の経歴）
+      </h2>
+
+      <div class="grid gap-8 sm:grid-cols-2">
+        {founders.map((founder) => (
+          <div class="rounded-lg border border-navy-100 p-6">
+            <div
+              class="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-navy-100 text-2xl font-bold text-navy-700"
+              aria-hidden="true"
+            >
+              {/* TODO: 顔写真に差し替える（例: <img src="/images/team/jio.jpg" alt={founder.name} class="h-24 w-24 rounded-full object-cover" />） */}
+              {founder.name.charAt(0)}
+            </div>
+            <h3 class="mb-1 text-lg font-bold text-navy-950">{founder.name}</h3>
+            <p class="mb-3 text-sm font-medium text-accent-600">{founder.role}</p>
+            <p class="text-base leading-relaxed text-navy-800">{founder.bio}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12" aria-labelledby="connection-heading">
+      <h2 id="connection-heading" class="mb-4 text-2xl font-bold text-navy-950">
+        現地との繋がり
+      </h2>
+      <p class="text-lg leading-relaxed text-navy-800">
+        {/* TODO: プレースホルダー。現地の拠点・パートナー企業・ネットワークとの関係性を具体的に記載する */}
+        ここに、フィリピン・クラーク現地でのネットワークや、現地パートナー企業との関係についての説明が入ります。
+        データの収集方法や信頼性の裏付けにも繋がる、重要なセクションです。
+      </p>
+    </section>
+
+    <section aria-labelledby="mission-heading">
+      <h2 id="mission-heading" class="mb-4 text-2xl font-bold text-navy-950">
+        このデータベースの方針
+      </h2>
+      <ul class="list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-800">
+        <li>すべての数値には出典・収集時期・最終確認日を明記します</li>
+        <li>推計値には必ず算出根拠を記載します</li>
+        <li>一般論だけの記事は掲載しません</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
