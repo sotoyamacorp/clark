@@ -4,15 +4,29 @@ import { siteConfig } from '../../lib/site-config';
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-16 border-t border-navy-100 bg-navy-50">
-  <div class="mx-auto max-w-5xl px-4 py-8 text-sm text-navy-800 sm:px-6">
-    <p class="mb-2">{siteConfig.tagline}</p>
-    <nav aria-label="フッターナビゲーション" class="mb-4">
-      <ul class="flex flex-wrap gap-4">
-        <li><a href="/about" class="hover:text-accent-600 hover:underline">私たちについて</a></li>
-        <li><a href="/contact" class="hover:text-accent-600 hover:underline">お問い合わせ</a></li>
-      </ul>
-    </nav>
-    <p>&copy; {year} {siteConfig.name}</p>
+<footer class="mt-24 bg-navy-950 text-navy-200">
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div class="grid gap-10 sm:grid-cols-3">
+      <div>
+        <p class="mb-3 text-lg font-bold text-white">{siteConfig.name}</p>
+        <p class="text-base leading-relaxed">{siteConfig.tagline}</p>
+      </div>
+      <div>
+        <p class="eyebrow mb-3 text-xs font-semibold uppercase text-accent-500">Navigation</p>
+        <ul class="space-y-2 text-base">
+          <li><a href="/about" class="hover:text-white">私たちについて</a></li>
+          <li><a href="/contact" class="hover:text-white">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow mb-3 text-xs font-semibold uppercase text-accent-500">Contact</p>
+        <a href={`mailto:${siteConfig.contactEmail}`} class="text-base hover:text-white">
+          {siteConfig.contactEmail}
+        </a>
+      </div>
+    </div>
+    <div class="mt-12 border-t border-navy-800 pt-6 text-sm text-navy-200">
+      &copy; {year} {siteConfig.name}
+    </div>
   </div>
 </footer>
