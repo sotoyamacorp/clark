@@ -33,7 +33,7 @@ Phase 1 は完全な静的サイト（SSRなし）なので、アダプタなし
    | Framework preset | Astro |
    | Build command | `pnpm build` |
    | Build output directory | `dist` |
-   | Root directory | `clark-site`（このリポジトリをサブディレクトリとして置いている場合） |
+   | Root directory | （空欄。このリポジトリのルート自体がAstroプロジェクト） |
    | Node version | 22 以上（`package.json` の `engines` を参照） |
 
 4. Pagesの「カスタムドメイン」で `ph.sotoyamacorp.com` を追加
