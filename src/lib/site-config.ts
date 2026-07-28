@@ -9,6 +9,7 @@ export const siteConfig = {
   url: 'https://ph.sotoyamacorp.com',
   gaMeasurementId: 'G-GE6054G80X',
   contactEmail: 'jio@sotoyamacorp.com',
+  twitterUrl: 'https://x.com/sotoyamafam',
   // TODO: Tally フォームのURLを発行後に差し替える
   tallyFormUrl: '',
   locale: 'ja-JP',
