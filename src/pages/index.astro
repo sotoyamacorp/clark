@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
 import { siteConfig } from '../lib/site-config';
 import { sortedArticles as posts } from '../lib/articles';
 
@@ -55,41 +56,11 @@ const principles = ['出典・収集時期を明記', '推計値には算出根�
     </div>
   </section>
 
-  <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20" aria-labelledby="articles-heading">
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20" aria-labelledby="articles-heading">
     <h2 id="articles-heading" class="mb-8 text-2xl font-bold text-navy-950">記事一覧</h2>
 
-    <div class="space-y-8">
-      {posts.map((post) => (
-        <article class="border-b border-navy-100 pb-8">
-          <div class="flex items-start justify-between gap-4">
-            <h3 class="text-xl font-semibold text-navy-950">
-              <a href={`/articles/${post.slug}`} class="hover:text-accent-700 transition-colors">
-                {post.title}
-              </a>
-            </h3>
-            <time class="shrink-0 whitespace-nowrap text-sm text-navy-500">
-              {post.publishedAt.toLocaleDateString('ja-JP')}
-            </time>
-          </div>
-
-          <p class="mt-2 mb-4 text-base leading-relaxed text-navy-700">{post.description}</p>
-
-          <div class="mb-4 flex flex-wrap gap-2">
-            <span class="inline-block rounded bg-accent-100 px-3 py-1 text-sm text-accent-800">
-              {post.category}
-            </span>
-            {post.tags.map((tag) => (
-              <span class="inline-block rounded bg-navy-50 px-3 py-1 text-sm text-navy-700">
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <a href={`/articles/${post.slug}`} class="font-semibold text-accent-700 hover:underline">
-            記事を読む →
-          </a>
-        </article>
-      ))}
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => <ArticleCard post={post} />)}
     </div>
   </section>
 

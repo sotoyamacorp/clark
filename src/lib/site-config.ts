@@ -4,9 +4,8 @@
 
 export const siteConfig = {
   name: 'クラーク通信',
-  tagline: 'フィリピン・クラークのあらゆる情報を、一次情報で。',
-  description:
-    'フィリピン・クラークに関するビジネス・生活・制度など、あらゆる情報を出典付きの一次情報で届けるメディアです。',
+  tagline: 'フィリピン・クラークのありとあらゆる情報まとめ',
+  description: 'ビジネス・生活・制度など、あらゆる情報を出典付きで届けるメディアです。',
   url: 'https://ph.sotoyamacorp.com',
   // ルートドメイン（sotoyamacorp.com）のGoogle Workspaceで受信する想定。
   // TODO: 実際に使うアドレスに差し替える
