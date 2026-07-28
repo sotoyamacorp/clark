@@ -94,18 +94,18 @@ npx wrangler deploy    # デプロイ(Cloudflare Workers)
 
 ## メール配信(ニュースレター)
 
-2026-07-28にJioの依頼で導入。読者がメール購読でき、新着記事を公開すると自動で通知メールが届く仕組み。
+2026-07-28にJioの依頼で導入。読者がメール購読でき、新着記事を公開すると通知メールが届く仕組み。
 
-### アーキテクチャ
-- **RSSフィード**: `src/pages/rss.xml.js`(日本語)/ `src/pages/en/rss.xml.js`(英語)。`@astrojs/rss` を使用し、`src/lib/articles.ts` の `sortedArticles` から自動生成される。新しい記事を配列に追加してビルド・デプロイすれば、フィードは自動的に更新される(RSS側の追加作業は不要)。
-- **配信サービス**: [Buttondown](https://buttondown.com/) を採用(RSS→メール自動配信が標準機能、無料枠あり)。**Claudeはアカウント作成ができないため、Jioが登録してユーザー名を発行する必要がある**。
-- **購読フォーム**: `src/components/NewsletterSignup.astro`。`siteConfig.buttondownUsername`(`src/lib/site-config.ts`)が空の間は「準備中」の文言のみを表示し、値が入ると実際のButtondown購読フォーム(embed)を表示する。トップページと記事一覧ページ(日英とも)に設置済み。
+### アーキテクチャ・現状(2026-07-28時点)
+- **購読フォーム**: `src/components/NewsletterSignup.astro`。[Buttondown](https://buttondown.com/)(ユーザー名 `jio`)の無料プランに接続済み・本番稼働中。トップページと記事一覧ページ(日英とも)に設置。購読者収集は無料プランの範囲内。
+- **RSSフィード**: `src/pages/rss.xml.js`(日本語)/ `src/pages/en/rss.xml.js`(英語)。`@astrojs/rss` を使用し、`src/lib/articles.ts` の `sortedArticles` から自動生成される。記事を配列に追加してビルド・デプロイすれば自動更新される。
+- **配信方式は「手動送信」**: ButtondownのRSS→メール自動配信機能(RSS-to-email)は有料プラン(Basic、月$9)限定であることが判明(2026-07-28確認)。MailerLiteなど他の主要サービスも同様にRSS自動配信は有料機能だったため、**無料プランのまま・手動送信で運用する方針**にした(Jio判断)。自動配信への切り替えを検討する場合は、まずJioに費用対効果を確認すること。
 
-### Jio側で必要な設定手順(未実施)
-1. https://buttondown.com/ でアカウントを作成し、ユーザー名を控える。
-2. Buttondownの管理画面で「RSS to Email」(または「Subscribe by RSS」)機能を有効化し、フィードURLに `https://ph.sotoyamacorp.com/rss.xml`(日本語)を設定する。英語版も配信する場合は別途 `https://ph.sotoyamacorp.com/en/rss.xml` を使う運用を検討する(Buttondownの1アカウントで複数フィードを扱う方法は要調査)。
-3. 発行されたユーザー名を `src/lib/site-config.ts` の `buttondownUsername` に設定し、ビルド・デプロイする(この作業はClaudeが代行可能)。
-4. 設定後は、記事を公開(ビルド・デプロイ)すればRSSフィードが自動更新され、Buttondown側が定期的にフィードを確認して自動でメール配信する。**Claudeが記事公開のたびに手動でメール送信操作をする必要はない。**
+### 記事公開時の運用手順(デイリータスク内で実施)
+新しい記事を公開したら、X投稿文と合わせて**通知メールの文面(件名+本文)もドラフトする**。
+1. `content-style.md`のトーンに沿って、件名(記事タイトルを踏まえた簡潔なもの)と本文(記事の要点+記事へのリンク)を作成する。日本語記事なら日本語で、英語記事も出した場合は英語版も用意する。
+2. JioがButtondown管理画面(https://buttondown.com/emails ）の「Compose」から、ドラフトした文面を貼り付けて手動送信する。
+3. 送信自体はJioが行うため、Claudeは文面のドラフトまで(X投稿文と同じ運用)。
 
 ## 注意事項
 - サイトのコンテンツ(文体・トーン)は `../.claude/rules/content-style.md` に従う。
