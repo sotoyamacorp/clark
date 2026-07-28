@@ -1,12 +1,18 @@
 ---
 import type { Article } from '../lib/articles';
-import { regionLabels } from '../lib/articles';
+import { regionLabels, categoryLabels } from '../lib/articles';
+import { localizedPath, useTranslations, type Locale } from '../lib/i18n';
 
 interface Props {
   post: Article;
+  locale: Locale;
 }
 
-const { post } = Astro.props;
+const { post, locale } = Astro.props;
+const t = useTranslations(locale);
+const content = post.translations[locale];
+const href = localizedPath(`/articles/${post.slug}`, locale);
+const dateLocale = locale === 'ja' ? 'ja-JP' : 'en-US';
 ---
 
 <article
@@ -16,34 +22,34 @@ const { post } = Astro.props;
   <div class="mb-3 flex items-center justify-between gap-3">
     <div class="flex flex-wrap items-center gap-2">
       <span class="inline-block rounded-full bg-navy-950 px-3 py-1 text-sm font-semibold text-accent-500">
-        {regionLabels[post.region]}
+        {regionLabels[locale][post.region]}
       </span>
       <span class="inline-block rounded bg-accent-100 px-3 py-1 text-sm font-semibold text-accent-700">
-        {post.category}
+        {categoryLabels[locale][post.category] ?? post.category}
       </span>
     </div>
     <time class="shrink-0 whitespace-nowrap text-sm text-navy-600">
-      {post.publishedAt.toLocaleDateString('ja-JP')}
+      {post.publishedAt.toLocaleDateString(dateLocale)}
     </time>
   </div>
 
   <h3 class="mb-2 text-lg font-bold leading-snug text-navy-950">
-    <a href={`/articles/${post.slug}`} class="hover:text-accent-700 transition-colors">
-      {post.title}
+    <a href={href} class="hover:text-accent-700 transition-colors">
+      {content.title}
     </a>
   </h3>
 
-  <p class="mb-4 flex-1 text-base leading-relaxed text-navy-700">{post.description}</p>
+  <p class="mb-4 flex-1 text-base leading-relaxed text-navy-700">{content.description}</p>
 
   <div class="mb-4 flex flex-wrap gap-2">
-    {post.tags.map((tag) => (
+    {content.tags.map((tag) => (
       <span class="inline-block rounded bg-navy-50 px-3 py-1 text-sm text-navy-700">
         {tag}
       </span>
     ))}
   </div>
 
-  <a href={`/articles/${post.slug}`} class="mt-auto font-semibold text-accent-700 hover:underline">
-    記事を読む →
+  <a href={href} class="mt-auto font-semibold text-accent-700 hover:underline">
+    {t.articleCard.readMore}
   </a>
 </article>

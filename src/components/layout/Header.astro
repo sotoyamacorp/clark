@@ -1,15 +1,24 @@
 ---
-import { siteConfig } from '../../lib/site-config';
+import { siteText } from '../../lib/site-config';
+import { useTranslations, localizedPath, type Locale } from '../../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  alternatePath: string;
+}
+
+const { locale, alternatePath } = Astro.props;
+const t = useTranslations(locale);
 
 const navItems = [
-  { href: '/articles', label: '記事' },
-  { href: '/about', label: '私たちについて' },
+  { href: localizedPath('/articles', locale), label: t.nav.articles },
+  { href: localizedPath('/about', locale), label: t.nav.about },
 ];
 ---
 
 <header class="border-b border-navy-100 bg-white">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:py-5 sm:px-6">
-    <a href="/" class="flex min-w-0 items-center gap-2 sm:gap-2.5">
+    <a href={localizedPath('/', locale)} class="flex min-w-0 items-center gap-2 sm:gap-2.5">
       <span
         class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-navy-950 text-xs font-bold text-accent-500 sm:h-9 sm:w-9 sm:text-sm"
         aria-hidden="true"
@@ -17,10 +26,10 @@ const navItems = [
         PH
       </span>
       <span class="truncate text-base font-bold tracking-tight text-navy-950 sm:text-lg">
-        {siteConfig.name}
+        {siteText[locale].name}
       </span>
     </a>
-    <nav aria-label="メインナビゲーション" class="flex shrink-0 items-center gap-3 sm:gap-6">
+    <nav aria-label={locale === 'ja' ? 'メインナビゲーション' : 'Main navigation'} class="flex shrink-0 items-center gap-3 sm:gap-6">
       <ul class="hidden gap-6 text-base sm:flex">
         {navItems.map((item) => (
           <li>
@@ -31,10 +40,17 @@ const navItems = [
         ))}
       </ul>
       <a
-        href="/contact"
+        href={alternatePath}
+        class="whitespace-nowrap text-sm font-semibold text-navy-700 hover:text-navy-950"
+        rel="alternate"
+      >
+        {t.language.switchTo}
+      </a>
+      <a
+        href={localizedPath('/contact', locale)}
         class="whitespace-nowrap rounded-full bg-navy-950 px-3.5 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-800 sm:px-5 sm:py-2.5"
       >
-        お問い合わせ
+        {t.nav.contact}
       </a>
     </nav>
   </div>

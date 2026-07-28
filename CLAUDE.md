@@ -36,9 +36,10 @@ clark-site/
 
 ### 新規記事を追加する手順
 1. `src/pages/articles/` に新しい `.mdx` ファイルを作成し、上記テンプレートに沿って執筆する(出典は必ず最低3つ、`content-style.md`のトーンに従う)。
-2. `src/lib/articles.ts` の `articles` 配列に同じ内容(`slug` / `title` / `description` / `publishedAt` / `category` / `region` / `tags`)を追加する。トップページと `/articles` 一覧はこの配列を共通で参照しているため、mdxファイルだけでは一覧に出てこない。`region` は `'clark'`(クラーク特化)か `'philippines'`(フィリピン全体のテーマ)のいずれかを必ず指定する(記事カードの地域バッジとフィルタータブ表示に使われる)。
-3. **OG画像を生成する**(下記「OG画像の生成方法」参照)。生成したPNGを `public/og/{slug}.png` に配置し、記事フロントマターに `ogImage: "/og/{slug}.png"` を追加する。省略した場合は `public/og/og-default.png` にフォールバックするが、記事ごとの専用画像を作るのが望ましい(SNSシェア時のプレビューに直結するため)。
-4. `npm run build` → ローカルプレビューで確認 → コミット・push → `npx wrangler deploy`。
+2. `src/lib/articles.ts` の `articles` 配列に**日本語・英語両方の翻訳データ**(`translations.ja` / `translations.en` に `title` / `description` / `tags`)を追加する。トップページと `/articles` 一覧はこの配列を共通で参照しているため、mdxファイルだけでは一覧に出てこない。`region` は `'clark'`(クラーク特化)か `'philippines'`(フィリピン全体のテーマ)のいずれかを必ず指定する(記事カードの地域バッジとフィルタータブ表示に使われる)。
+3. **英語版記事を作成する**(下記「多言語対応(i18n)」参照)。`src/pages/en/articles/{slug}.mdx` に、直訳ではなく自然な英語で執筆する。
+4. **OG画像を生成する**(下記「OG画像の生成方法」参照)。生成したPNGを `public/og/{slug}.png` に配置し、記事フロントマターに `ogImage: "/og/{slug}.png"` を追加する。省略した場合は `public/og/og-default.png` にフォールバックするが、記事ごとの専用画像を作るのが望ましい(SNSシェア時のプレビューに直結するため)。
+5. `npm run build` → ローカルプレビューで確認 → コミット・push → `npx wrangler deploy`。
 
 ### OG画像の生成方法
 新規npm依存を増やさず、ローカルのChromeヘッドレスでHTML→PNGを生成する方式を採用している(satoriやastro-og-canvas等は未導入)。
@@ -67,9 +68,27 @@ npm run deploy   # デプロイ(ホスティング先決定後に確定)
 ```
 
 ## SEO・多言語方針
-- 主要言語は日本語。将来的に英語版を追加する可能性を考慮し、URL構造は `/ja/`, `/en/` のような拡張がしやすい形にしておく。
 - 記事ページはタイトル・description・OGP画像を必須項目とする。
 - クラーク・パンパンガ・フィリピン進出などのキーワードを意識した構成にする。
+
+## 多言語対応(i18n)
+
+2026-07-28にJioの依頼で導入。読者はフィリピン人にもこの取り組みを理解してもらえるよう、手動で言語切替できる構成にしている。
+
+### アーキテクチャ
+- Astro標準の `i18n` ルーティング(`astro.config.mjs`)を使用。`locales: ['ja', 'en']`、`defaultLocale: 'ja'`、`prefixDefaultLocale: false`。
+- **日本語はプレフィックスなし**(`/`, `/about` など、既存URLのまま変更なし)。**英語は `/en/` 配下**(`/en/`, `/en/about` など)。日本語ページのURLは一切変えていない(SEO上の既存評価を壊さないため)。
+- `src/lib/i18n.ts`: ロケール型定義・UI文字列辞書(`ui.ja` / `ui.en`)・ロケール判定(`getLangFromUrl`)・言語切替リンク生成(`getAlternatePath`)・ロケール別パス生成(`localizedPath`)を集約。
+- `src/lib/site-config.ts`: `siteConfig`(ロケール非依存の固定値)と `siteText`(ロケール別のサイト名・タグライン・説明文)を分離。`founders` の `role` / `bio` も `Record<Locale, string>` 化。
+- `src/lib/articles.ts`: 記事データは `translations.ja` / `translations.en` にタイトル・description・タグを持つ。`region`/`category`/`publishedAt`/`slug` はロケール非依存。`regionLabels` / `categoryLabels` もロケール別。
+- `BaseLayout.astro` が `Astro.url` からロケールを判定し、`<html lang>`・hreflang代替リンク(ja/en/x-default)・OGP・構造化データ(Organization/Article)をすべてロケール別に出力する。
+- `ArticleCard.astro` / `ArticleFilterTabs.astro` は `locale` propを必須で受け取る。ページ側で呼び出す際は必ず指定すること。
+- `Header.astro` に言語切り替えリンクを設置。現在のパスに対応するもう一方のロケールのパスへ遷移する(`getAlternatePath`で計算。単に `/en/` に飛ばすのではなく、記事ページなら英語版の同じ記事に飛ぶ)。
+
+### 新規ページ・コンポーネントを追加するときの注意
+- ページ文言をハードコードする場合、`src/pages/{page}.astro`(日本語)と `src/pages/en/{page}.astro`(英語)の両方を作成する。
+- 記事は直訳ではなく、**フィリピン人の読者が自然に読める英語**で書く(日本語→英語の逐語訳にしない。文の構造から書き直す)。数値・固有名詞・出典URLなどのファクトは正確に保つこと。
+- 新しいUI文字列(ボタン名等)は `src/lib/i18n.ts` の `ui` に追加し、ページ固有の長文コンテンツ(見出し・本文)は各ページファイルに直接ロケール別に書く(サイト全体の巨大な辞書ファイルは作らない、既存パターンを踏襲)。
 
 ## 注意事項
 - サイトのコンテンツ(文体・トーン)は `../.claude/rules/content-style.md` に従う。

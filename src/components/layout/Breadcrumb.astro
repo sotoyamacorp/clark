@@ -1,18 +1,21 @@
 ---
 import { breadcrumbSchema, type BreadcrumbItem } from '../../lib/schema';
 import { canonicalUrl } from '../../lib/seo';
+import type { Locale } from '../../lib/i18n';
 
 interface Props {
   items: BreadcrumbItem[];
+  locale?: Locale;
 }
 
-const { items } = Astro.props;
+const { items, locale = 'ja' } = Astro.props;
 const jsonLd = breadcrumbSchema(
   items.map((item) => ({ ...item, url: canonicalUrl(item.url, Astro.site) })),
 );
+const ariaLabel = locale === 'ja' ? '現在の位置' : 'Breadcrumb';
 ---
 
-<nav aria-label="現在の位置" class="mx-auto max-w-5xl px-4 py-4 text-sm text-navy-700 sm:px-6">
+<nav aria-label={ariaLabel} class="mx-auto max-w-5xl px-4 py-4 text-sm text-navy-700 sm:px-6">
   <ol class="flex flex-wrap items-center gap-1">
     {items.map((item, index) => (
       <li class="flex items-center gap-1">

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import ArticleFilterTabs from '../../../components/ArticleFilterTabs.astro';
+import { sortedArticles as posts } from '../../../lib/articles';
+---
+
+<BaseLayout title="Articles" description="Analysis and up-to-date information on expanding into Clark, Philippines.">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <h1 class="mb-8 text-4xl font-bold text-navy-950">Articles</h1>
+
+    <ArticleFilterTabs targetId="articles-grid" locale="en" />
+
+    <div id="articles-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => <ArticleCard post={post} locale="en" />)}
+    </div>
+  </div>
+</BaseLayout>

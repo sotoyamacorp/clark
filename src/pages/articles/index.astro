@@ -9,10 +9,10 @@ import { sortedArticles as posts } from '../../lib/articles';
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
     <h1 class="mb-8 text-4xl font-bold text-navy-950">記事一覧</h1>
 
-    <ArticleFilterTabs targetId="articles-grid" />
+    <ArticleFilterTabs targetId="articles-grid" locale="ja" />
 
     <div id="articles-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => <ArticleCard post={post} />)}
+      {posts.map((post) => <ArticleCard post={post} locale="ja" />)}
     </div>
   </div>
 </BaseLayout>

@@ -1,17 +1,18 @@
-import { siteConfig, founders } from './site-config';
+import { siteConfig, siteText, founders } from './site-config';
+import type { Locale } from './i18n';
 
 export interface BreadcrumbItem {
   name: string;
   url: string;
 }
 
-export function organizationSchema() {
+export function organizationSchema(locale: Locale) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: siteConfig.name,
+    name: siteText[locale].name,
     url: siteConfig.url,
-    description: siteConfig.description,
+    description: siteText[locale].description,
     email: siteConfig.contactEmail,
     sameAs: [siteConfig.twitterUrl],
   };
@@ -24,6 +25,7 @@ export interface ArticleSchemaInput {
   authorId?: string;
   url: string;
   image?: string;
+  locale: Locale;
 }
 
 export function articleSchema(input: ArticleSchemaInput) {
@@ -40,12 +42,12 @@ export function articleSchema(input: ArticleSchemaInput) {
     ...(input.image ? { image: input.image } : {}),
     author: {
       '@type': 'Person',
-      name: author?.name ?? siteConfig.name,
+      name: author?.name ?? siteText[input.locale].name,
       ...(siteConfig.twitterUrl ? { sameAs: [siteConfig.twitterUrl] } : {}),
     },
     publisher: {
       '@type': 'Organization',
-      name: siteConfig.name,
+      name: siteText[input.locale].name,
       url: siteConfig.url,
     },
   };

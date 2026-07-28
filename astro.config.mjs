@@ -10,7 +10,21 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://ph.sotoyamacorp.com',
 
-  integrations: [mdx(), sitemap(), preact()],
+  i18n: {
+    locales: ['ja', 'en'],
+    defaultLocale: 'ja',
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => !page.includes('/404'),
+    }),
+    preact(),
+  ],
 
   vite: {
     plugins: [tailwindcss()]

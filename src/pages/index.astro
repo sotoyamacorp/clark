@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import ArticleFilterTabs from '../components/ArticleFilterTabs.astro';
-import { siteConfig } from '../lib/site-config';
+import { siteText } from '../lib/site-config';
 import { sortedArticles as posts } from '../lib/articles';
 
 const ctas = [
@@ -37,7 +37,7 @@ const ctas = [
         フィリピン・クラークへの進出(個人/法人)を後押し
       </h1>
       <p class="max-w-2xl text-lg leading-relaxed text-navy-200 lg:max-w-none lg:whitespace-nowrap">
-        {siteConfig.description}
+        {siteText.ja.description}
       </p>
     </div>
   </section>
@@ -45,10 +45,10 @@ const ctas = [
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20" aria-labelledby="articles-heading">
     <h2 id="articles-heading" class="mb-8 text-2xl font-bold text-navy-950">記事一覧</h2>
 
-    <ArticleFilterTabs targetId="home-article-grid" />
+    <ArticleFilterTabs targetId="home-article-grid" locale="ja" />
 
     <div id="home-article-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => <ArticleCard post={post} />)}
+      {posts.map((post) => <ArticleCard post={post} locale="ja" />)}
     </div>
   </section>
 
