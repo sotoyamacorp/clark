@@ -37,7 +37,19 @@ clark-site/
 ### 新規記事を追加する手順
 1. `src/pages/articles/` に新しい `.mdx` ファイルを作成し、上記テンプレートに沿って執筆する(出典は必ず最低3つ、`content-style.md`のトーンに従う)。
 2. `src/lib/articles.ts` の `articles` 配列に同じ内容(`slug` / `title` / `description` / `publishedAt` / `category` / `tags`)を追加する。トップページと `/articles` 一覧はこの配列を共通で参照しているため、mdxファイルだけでは一覧に出てこない。
-3. `npm run build` → ローカルプレビューで確認 → コミット・push → `npx wrangler deploy`。
+3. **OG画像を生成する**(下記「OG画像の生成方法」参照)。生成したPNGを `public/og/{slug}.png` に配置し、記事フロントマターに `ogImage: "/og/{slug}.png"` を追加する。省略した場合は `public/og/og-default.png` にフォールバックするが、記事ごとの専用画像を作るのが望ましい(SNSシェア時のプレビューに直結するため)。
+4. `npm run build` → ローカルプレビューで確認 → コミット・push → `npx wrangler deploy`。
+
+### OG画像の生成方法
+新規npm依存を増やさず、ローカルのChromeヘッドレスでHTML→PNGを生成する方式を採用している(satoriやastro-og-canvas等は未導入)。
+1. `/tmp`等の作業ディレクトリに、ブランドカラー(`bg-navy-950`グラデーション + `accent-500`のゴールド)でタイトルを配置したHTMLファイルを作成する。1200x630サイズ、"PH"バッジ+サイト名+記事タイトル+`ph.sotoyamacorp.com`の構成が基本形(既存の`public/og/*.png`を参考にする)。
+2. 以下のコマンドでPNG化する:
+   ```bash
+   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-sandbox \
+     --window-size=1200,630 --hide-scrollbars --force-device-scale-factor=1 \
+     --screenshot="出力先.png" "file:///作業ディレクトリ/対象.html"
+   ```
+3. 生成した画像を確認(Readツールで開いて視認)した上で `public/og/{slug}.png` に配置する。
 
 ### 過去にハマった落とし穴
 - **色クラスは `src/styles/global.css` の `@theme` に定義されたトークンのみ使用可能**(navy: 50/100/200/600/700/800/900/950、accent: 50/100/500/600/700)。定義されていない濃淡(例: `navy-500`, `accent-800`)を指定すると何のCSSも生成されず、意図した色が当たらない「見えないバグ」になる。
