@@ -10,7 +10,7 @@ export const ui = {
     breadcrumb: { home: 'ホーム' },
     articleCard: { readMore: '記事を読む →' },
     filter: { all: 'すべて', label: '記事のカテゴリー絞り込み' },
-    language: { switchTo: 'English', current: '日本語' },
+    language: { switchTo: 'EN', current: '日本語' },
     search: { heading: 'サイト内検索', placeholder: 'キーワードを入力' },
     newsletter: {
       heading: '新着記事をメールで受け取る',

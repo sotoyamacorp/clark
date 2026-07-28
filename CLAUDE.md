@@ -122,6 +122,26 @@ npx wrangler deploy    # デプロイ(Cloudflare Workers)
 2. JioがButtondown管理画面(https://buttondown.com/emails ）の「Compose」から、ドラフトした文面を貼り付けて手動送信する。
 3. 送信自体はJioが行うため、Claudeは文面のドラフトまで(X投稿文と同じ運用)。
 
+## モバイル幅の検証方法(重要な落とし穴)
+
+2026-07-29に発覚。**Chromeヘッドレスの `--window-size` フラグは、この開発環境では500px未満を指定しても実際のビューポート幅が500pxに固定される**(ウィンドウサイズの下限がある模様)。この状態でスクリーンショットを撮ると、実際は500px幅でレイアウトされた内容の一部が単に画面外に切れて見えなくなるだけなのに、あたかも要素が消失・崩壊しているかのような誤った検証結果になる(500px未満を検証しているつもりが、実際は500px固定でレイアウトされたものの一部を見ているだけ、という罠)。
+
+**500px未満(実際のスマホ幅: 320〜430px程度)を正確に検証する場合は、Chrome DevTools Protocol (CDP) を直接使い、`Emulation.setDeviceMetricsOverride` でビューポートを明示的に指定すること。** 手順:
+```bash
+# 1. リモートデバッグ有効でChromeを起動(origin許可が必須)
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-sandbox \
+  --remote-debugging-port=9222 "--remote-allow-origins=*" about:blank &
+
+# 2. websocket-client, requests をpython3にインストール(未導入の場合)
+pip3 install --quiet websocket-client requests
+
+# 3. CDP経由でPage.navigate → Emulation.setDeviceMetricsOverride(width/height/mobile:true) →
+#    Page.captureScreenshot を実行するPythonスクリプトでスクリーンショットを撮る
+#    (このセッションで作成したスクリプト例は使い捨てのスクラッチパッドに保存済み。
+#    同様のスクリプトを都度書けばよい)
+```
+`--window-size` だけで手軽に確認したくなるが、**500px未満のモバイル最適化を検証する際は必ずCDP経由の方法を使うこと**。そうしないと存在しないバグを追いかけて時間を浪費する(実際に2026-07-29のヘッダー幅対応作業で、この罠により誤ったデバッグを長時間行ってしまった)。
+
 ## 注意事項
 - サイトのコンテンツ(文体・トーン)は `../.claude/rules/content-style.md` に従う。
 - 事業の背景情報が必要な場合は `../CLAUDE.md` と `../.claude/rules/business-context.md` を参照。
