@@ -36,7 +36,7 @@ clark-site/
 
 ### 新規記事を追加する手順
 1. `src/pages/articles/` に新しい `.mdx` ファイルを作成し、上記テンプレートに沿って執筆する(出典は必ず最低3つ、`content-style.md`のトーンに従う)。
-2. `src/lib/articles.ts` の `articles` 配列に同じ内容(`slug` / `title` / `description` / `publishedAt` / `category` / `tags`)を追加する。トップページと `/articles` 一覧はこの配列を共通で参照しているため、mdxファイルだけでは一覧に出てこない。
+2. `src/lib/articles.ts` の `articles` 配列に同じ内容(`slug` / `title` / `description` / `publishedAt` / `category` / `region` / `tags`)を追加する。トップページと `/articles` 一覧はこの配列を共通で参照しているため、mdxファイルだけでは一覧に出てこない。`region` は `'clark'`(クラーク特化)か `'philippines'`(フィリピン全体のテーマ)のいずれかを必ず指定する(記事カードの地域バッジとフィルタータブ表示に使われる)。
 3. **OG画像を生成する**(下記「OG画像の生成方法」参照)。生成したPNGを `public/og/{slug}.png` に配置し、記事フロントマターに `ogImage: "/og/{slug}.png"` を追加する。省略した場合は `public/og/og-default.png` にフォールバックするが、記事ごとの専用画像を作るのが望ましい(SNSシェア時のプレビューに直結するため)。
 4. `npm run build` → ローカルプレビューで確認 → コミット・push → `npx wrangler deploy`。
 

@@ -1,9 +1,19 @@
+// 記事が扱う地理的スコープ。「クラーク特化」と「フィリピン全体」の
+// 2軸で読者がコンテンツを選べるようにするための分類。
+export type ArticleRegion = 'clark' | 'philippines';
+
+export const regionLabels: Record<ArticleRegion, string> = {
+  clark: 'クラーク',
+  philippines: 'フィリピン全体',
+};
+
 export interface Article {
   slug: string;
   title: string;
   description: string;
   publishedAt: Date;
   category: string;
+  region: ArticleRegion;
   tags: string[];
 }
 
@@ -15,6 +25,7 @@ export const articles: Article[] = [
     description: 'フィリピン・クラーク進出を検討する日本企業向けに、クラークの歴史、現在の注目点、進出前に押さえたいポイントをわかりやすく解説します。',
     publishedAt: new Date('2026-07-28'),
     category: 'history',
+    region: 'clark',
     tags: ['クラーク進出', 'フィリピン', '日本企業進出', '進出前のポイント'],
   },
   {
@@ -23,6 +34,7 @@ export const articles: Article[] = [
     description: '2024年施行のCREATE MORE法(RA 12066)で税制優遇はどう変わったか。クラーク進出企業が実際に受けられる恩恵と、PEZAとの違い・注意点を解説します。',
     publishedAt: new Date('2026-07-28T12:00:00'),
     category: 'incentives',
+    region: 'clark',
     tags: ['CREATE MORE法', 'PEZA', 'CDC', '税制優遇', 'クラーク進出'],
   },
 ];

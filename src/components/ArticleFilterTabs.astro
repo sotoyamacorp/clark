@@ -1,0 +1,63 @@
+---
+import { regionLabels, type ArticleRegion } from '../lib/articles';
+
+interface Props {
+  // フィルター対象のグリッド要素につけるid
+  targetId: string;
+}
+
+const { targetId } = Astro.props;
+
+const tabs: { value: ArticleRegion | 'all'; label: string }[] = [
+  { value: 'all', label: 'すべて' },
+  ...(
+    Object.entries(regionLabels) as [ArticleRegion, string][]
+  ).map(([value, label]) => ({ value, label })),
+];
+---
+
+<div class="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="記事のカテゴリー絞り込み" data-filter-tabs={targetId}>
+  {tabs.map((tab, index) => (
+    <button
+      type="button"
+      role="tab"
+      aria-selected={index === 0 ? 'true' : 'false'}
+      data-region-value={tab.value}
+      class="filter-tab rounded-full border border-navy-200 px-4 py-2 text-sm font-semibold text-navy-700 transition-colors hover:border-navy-950 data-[active=true]:border-navy-950 data-[active=true]:bg-navy-950 data-[active=true]:text-white"
+      data-active={index === 0 ? 'true' : 'false'}
+    >
+      {tab.label}
+    </button>
+  ))}
+</div>
+
+<script>
+  function initFilterTabs(root: Element) {
+    const targetId = root.getAttribute('data-filter-tabs');
+    if (!targetId) return;
+    const grid = document.getElementById(targetId);
+    if (!grid) return;
+
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('.filter-tab'));
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('[data-region]'));
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const value = button.dataset.regionValue;
+
+        buttons.forEach((b) => {
+          const active = b === button;
+          b.dataset.active = String(active);
+          b.setAttribute('aria-selected', String(active));
+        });
+
+        cards.forEach((card) => {
+          const show = value === 'all' || card.dataset.region === value;
+          card.classList.toggle('hidden', !show);
+        });
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-filter-tabs]').forEach(initFilterTabs);
+</script>

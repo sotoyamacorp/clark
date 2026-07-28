@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+import ArticleFilterTabs from '../components/ArticleFilterTabs.astro';
 import { siteConfig } from '../lib/site-config';
 import { sortedArticles as posts } from '../lib/articles';
 
@@ -44,7 +45,9 @@ const ctas = [
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20" aria-labelledby="articles-heading">
     <h2 id="articles-heading" class="mb-8 text-2xl font-bold text-navy-950">記事一覧</h2>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <ArticleFilterTabs targetId="home-article-grid" />
+
+    <div id="home-article-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {posts.map((post) => <ArticleCard post={post} />)}
     </div>
   </section>
