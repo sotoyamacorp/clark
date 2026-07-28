@@ -1,6 +1,6 @@
 ---
 import type { Article } from '../lib/articles';
-import { regionLabels, categoryLabels } from '../lib/articles';
+import { regionLabels, regionBadgeStyles, categoryLabels } from '../lib/articles';
 import { localizedPath, useTranslations, type Locale } from '../lib/i18n';
 
 interface Props {
@@ -21,7 +21,7 @@ const dateLocale = locale === 'ja' ? 'ja-JP' : 'en-US';
 >
   <div class="mb-3 flex items-center justify-between gap-3">
     <div class="flex flex-wrap items-center gap-2">
-      <span class="inline-block rounded-full bg-navy-950 px-3 py-1 text-sm font-semibold text-accent-500">
+      <span class={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${regionBadgeStyles[post.region]}`}>
         {regionLabels[locale][post.region]}
       </span>
       <span class="inline-block rounded bg-accent-100 px-3 py-1 text-sm font-semibold text-accent-700">

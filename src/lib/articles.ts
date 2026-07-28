@@ -9,6 +9,13 @@ export const regionLabels: Record<Locale, Record<ArticleRegion, string>> = {
   en: { clark: 'Clark', philippines: 'Philippines-wide' },
 };
 
+// 地域バッジの配色。クラーク=紺(サイトの基調色)、フィリピン全体=ゴールド(アクセント色)で
+// 一目で見分けられるようにする。使用可能なトークンは src/styles/global.css の @theme を参照。
+export const regionBadgeStyles: Record<ArticleRegion, string> = {
+  clark: 'bg-navy-950 text-accent-500',
+  philippines: 'bg-accent-700 text-white',
+};
+
 // category は内部的な分類キー。表示用ラベルはここで locale ごとに定義する。
 export const categoryLabels: Record<Locale, Record<string, string>> = {
   ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ' },
