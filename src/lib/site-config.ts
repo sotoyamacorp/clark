@@ -17,7 +17,7 @@ export const siteConfig = {
 } as const;
 
 export interface FounderProfile {
-  id: 'jio' | 'hiro';
+  id: 'geanoff';
   name: string;
   role: string;
   photo?: string;
@@ -26,21 +26,12 @@ export interface FounderProfile {
   published: boolean;
 }
 
-// TODO: プレースホルダー。実際の経歴・写真に差し替える（Phase 1では構造のみ）
 export const founders: FounderProfile[] = [
   {
-    id: 'jio',
-    name: 'Jio（仮）',
-    role: '共同代表',
-    bio: 'ここに経歴のプレースホルダーテキストが入ります。日本側での事業経験や、クラーク進出プロジェクトに関わることになった経緯を記載してください。',
+    id: 'geanoff',
+    name: 'ジーノフ',
+    role: '運営者',
+    bio: 'フィリピンパンパンガ出身の日本育ち。フィリピン、クラークに進出したい日本の企業様に向けて情報発信。',
     published: true,
-  },
-  {
-    id: 'hiro',
-    name: 'Hiro（仮）',
-    role: '共同代表',
-    bio: 'ここに経歴のプレースホルダーテキストが入ります。フィリピン・クラーク現地での活動歴や、現地パートナーとの関係性を記載してください。',
-    // TODO: 公開準備ができたら true に戻す
-    published: false,
   },
 ];
