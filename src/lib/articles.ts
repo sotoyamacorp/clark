@@ -18,8 +18,8 @@ export const regionBadgeStyles: Record<ArticleRegion, string> = {
 
 // category は内部的な分類キー。表示用ラベルはここで locale ごとに定義する。
 export const categoryLabels: Record<Locale, Record<string, string>> = {
-  ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ' },
-  en: { history: 'History', incentives: 'Tax Incentives', policy: 'Policy', infrastructure: 'Infrastructure' },
+  ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ', labor: '労働政策' },
+  en: { history: 'History', incentives: 'Tax Incentives', policy: 'Policy', infrastructure: 'Infrastructure', labor: 'Labor Policy' },
 };
 
 export interface ArticleTranslation {
@@ -115,6 +115,46 @@ export const articles: Article[] = [
         description:
           'How does Clark fit into the Luzon Economic Corridor driven by Japan, the US, and the Philippines? A look at the 2026 partnership expansion, infrastructure plans, and what it means for Japanese companies.',
         tags: ['Luzon Economic Corridor', 'Japan-US-Philippines cooperation', 'Infrastructure investment', 'Clark expansion', 'Subic-Clark railway'],
+      },
+    },
+  },
+  {
+    slug: 'manila-ncr-minimum-wage-2026',
+    publishedAt: new Date('2026-07-29T18:00:00'),
+    category: 'labor',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'マニラ首都圏の最低賃金が2段階で85ペソ引き上げ：日本企業の人件費計画への影響',
+        description:
+          '2026年7月25日施行のNCR賃金命令27号で最低賃金が段階的に引き上げ。具体的な金額と、日本企業の人件費計画に与える影響を解説します。',
+        tags: ['最低賃金', 'NCR賃金命令27号', '人件費', '労働政策', 'フィリピン進出'],
+      },
+      en: {
+        title: "Metro Manila's Minimum Wage Rises ₱85 in Two Stages: What It Means for Labor Cost Planning",
+        description:
+          "Wage Order NCR-27, effective July 25, 2026, raises the minimum wage in two stages. Here's the exact numbers and what it means for Japanese companies' labor cost planning.",
+        tags: ['Minimum wage', 'NCR Wage Order 27', 'Labor costs', 'Labor policy', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-pax-silica-ai-hub',
+    publishedAt: new Date('2026-07-29T19:00:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラークに1,618ヘクタールのAIハブ構想「Pax Silica」始動：フォックスコンが投資、日本企業への影響は',
+        description:
+          '米国主導の半導体・AI供給網構想「Pax Silica」で、ニュークラークシティが1,618ヘクタールのAI産業ハブに。台湾フォックスコンが主要投資家として参画する計画の最新動向を解説します。',
+        tags: ['Pax Silica', 'AIハブ', 'ニュークラークシティ', '半導体', 'フォックスコン'],
+      },
+      en: {
+        title: "A 1,618-Hectare AI Hub Takes Shape Near Clark Under 'Pax Silica': Foxconn Investing, What It Means for Japanese Companies",
+        description:
+          "Under the US-led semiconductor and AI supply chain initiative 'Pax Silica,' New Clark City is set to become a 1,618-hectare AI industrial hub, with Taiwan's Foxconn as anchor investor. Here's the latest.",
+        tags: ['Pax Silica', 'AI hub', 'New Clark City', 'Semiconductors', 'Foxconn'],
       },
     },
   },
