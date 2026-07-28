@@ -7,6 +7,7 @@ export const siteConfig = {
   tagline: 'フィリピン・クラークのありとあらゆる情報まとめ',
   description: 'ビジネス・生活・制度など、あらゆる情報を出典付きでわかりやすく届けるメディアです。',
   url: 'https://ph.sotoyamacorp.com',
+  gaMeasurementId: 'G-GE6054G80X',
   contactEmail: 'jio@sotoyamacorp.com',
   // TODO: Tally フォームのURLを発行後に差し替える
   tallyFormUrl: '',
