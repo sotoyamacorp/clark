@@ -4,19 +4,37 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import { siteConfig } from '../lib/site-config';
 import { canonicalUrl } from '../lib/seo';
-import { organizationSchema } from '../lib/schema';
+import { organizationSchema, articleSchema } from '../lib/schema';
 
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  // 記事(.mdx)のフロントマターから layout 経由で渡ってくる場合のみ指定される
+  publishedAt?: Date;
+  author?: string;
 }
 
-const { title, description = siteConfig.description, ogImage } = Astro.props;
+// MDX/Markdownの `layout:` フロントマター経由の場合、フィールドは
+// Astro.props.frontmatter にネストされて渡ってくる（.astro側から
+// <BaseLayout title="..."> のように直接propsで渡す場合はフラットなまま）。
+// 両方のケースに対応する。
+const props = (Astro.props as { frontmatter?: Props }).frontmatter ?? Astro.props;
+const { title, description = siteConfig.description, ogImage, publishedAt, author } = props;
 
 const pageTitle = `${title} | ${siteConfig.name}`;
 const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
 const orgJsonLd = organizationSchema();
+const articleJsonLd = publishedAt
+  ? articleSchema({
+      headline: title,
+      description,
+      datePublished: new Date(publishedAt).toISOString(),
+      authorId: author,
+      url: canonical,
+      image: ogImage,
+    })
+  : null;
 ---
 
 <!doctype html>
@@ -47,6 +65,9 @@ const orgJsonLd = organizationSchema();
     />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(orgJsonLd)} />
+    {articleJsonLd && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(articleJsonLd)} />
+    )}
 
     <!-- Google Analytics (GA4) -->
     <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}></script>
