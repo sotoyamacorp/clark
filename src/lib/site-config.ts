@@ -3,7 +3,7 @@
 // 数値データ（給与・賃料など）は Phase 2 で src/data/*.yaml に分離する。
 
 export const siteConfig = {
-  name: 'クラーク通信',
+  name: 'フィリピン・クラーク通信',
   tagline: 'フィリピン・クラークのありとあらゆる情報まとめ',
   description: 'ビジネス・生活・制度など、あらゆる情報を出典付きで届けるメディアです。',
   url: 'https://ph.sotoyamacorp.com',
