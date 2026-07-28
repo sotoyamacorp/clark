@@ -73,6 +73,21 @@ npx wrangler deploy    # デプロイ(Cloudflare Workers)
 - 記事ページはタイトル・description・OGP画像を必須項目とする。
 - クラーク・パンパンガ・フィリピン進出などのキーワードを意識した構成にする。
 
+## サイト内検索
+
+2026-07-29にJioの依頼で導入。[Pagefind](https://pagefind.app/)を使用(静的サイト専用の検索ライブラリ、外部サービス契約不要、完全にブラウザ内で完結)。
+
+### アーキテクチャ
+- `package.json` の `build` スクリプトが `astro build && pagefind --site dist` になっており、**ビルドのたびに `dist/` 配下のHTMLを自動でインデックス化する**(新しい記事を追加しても、追加作業は不要)。
+- `BaseLayout.astro` の `<main>` タグに `data-pagefind-body` を付与しており、この範囲内(記事本文等)のみがインデックス対象。ヘッダー・フッターなどの共通UIはインデックスされない。
+- 検索ページ: `src/pages/search.astro`(日本語)/ `src/pages/en/search.astro`(英語)。`src/components/PagefindSearch.astro` が実際の検索UI(Pagefindの `PagefindUI` ウィジェット)を描画する。
+- 言語別インデックスは `<html lang>` を見てPagefindが自動的に分離するため、日本語ページでは日本語記事のみ、英語ページでは英語記事のみが検索対象になる(追加設定不要)。
+- ヘッダーに検索アイコン(虫眼鏡)を設置し、`/search`(または `/en/search`)へリンクしている。
+
+### 注意事項
+- **`npm run dev` のローカル開発サーバーでは検索は動作しない**(Pagefindは `dist/pagefind/` の生成物を読むため、`npm run build` を実行した後、`npm run preview` で確認する必要がある)。
+- 日本語は語幹処理(stemming)が非対応という制約がPagefind側にある(例: 「進出」と「進出する」を別語として扱う)。検索自体は動作するが、日本語の表記ゆれに弱い点は今後の課題として認識しておく。
+
 ## 多言語対応(i18n)
 
 2026-07-28にJioの依頼で導入。読者はフィリピン人にもこの取り組みを理解してもらえるよう、手動で言語切替できる構成にしている。

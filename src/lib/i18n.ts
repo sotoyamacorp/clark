@@ -5,12 +5,13 @@ export const defaultLocale: Locale = 'ja';
 
 export const ui = {
   ja: {
-    nav: { articles: '記事', about: '私たちについて', contact: 'お問い合わせ' },
+    nav: { articles: '記事', about: '私たちについて', contact: 'お問い合わせ', search: '検索' },
     footer: { navigation: 'Navigation', contact: 'Contact' },
     breadcrumb: { home: 'ホーム' },
     articleCard: { readMore: '記事を読む →' },
     filter: { all: 'すべて', label: '記事のカテゴリー絞り込み' },
     language: { switchTo: 'English', current: '日本語' },
+    search: { heading: 'サイト内検索', placeholder: 'キーワードを入力' },
     newsletter: {
       heading: '新着記事をメールで受け取る',
       description: '記事を公開するたびに、メールでお知らせします。いつでも配信停止できます。',
@@ -20,12 +21,13 @@ export const ui = {
     },
   },
   en: {
-    nav: { articles: 'Articles', about: 'About Us', contact: 'Contact' },
+    nav: { articles: 'Articles', about: 'About Us', contact: 'Contact', search: 'Search' },
     footer: { navigation: 'Navigation', contact: 'Contact' },
     breadcrumb: { home: 'Home' },
     articleCard: { readMore: 'Read article →' },
     filter: { all: 'All', label: 'Filter articles by category' },
     language: { switchTo: '日本語', current: 'English' },
+    search: { heading: 'Search the site', placeholder: 'Enter a keyword' },
     newsletter: {
       heading: 'Get new articles by email',
       description: "We'll email you whenever a new article is published. Unsubscribe anytime.",

@@ -1,0 +1,32 @@
+---
+// Pagefindはビルド後(astro build後)に dist/pagefind/ を生成する静的検索ライブラリ。
+// ローカル開発中(astro dev)は dist/pagefind/ が存在しないため、検索は本番ビルド後のみ動作する。
+---
+
+<div id="pagefind-search" class="pagefind-search-container"></div>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (typeof PagefindUI !== 'undefined') {
+      new PagefindUI({
+        element: '#pagefind-search',
+        showSubResults: true,
+        showImages: false,
+      });
+    }
+  });
+</script>
+
+<style>
+  .pagefind-search-container {
+    --pagefind-ui-primary: #0b1826;
+    --pagefind-ui-text: #0b1826;
+    --pagefind-ui-background: #ffffff;
+    --pagefind-ui-border: #e6ecf3;
+    --pagefind-ui-tag: #f6f8fb;
+    --pagefind-ui-font: 'Noto Sans JP', sans-serif;
+    --pagefind-ui-border-radius: 0.75rem;
+  }
+</style>
