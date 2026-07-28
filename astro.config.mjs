@@ -22,6 +22,13 @@ export default defineConfig({
     mdx(),
     sitemap({
       filter: (page) => !page.includes('/404'),
+      i18n: {
+        defaultLocale: 'ja',
+        locales: {
+          ja: 'ja',
+          en: 'en',
+        },
+      },
     }),
     preact(),
   ],
