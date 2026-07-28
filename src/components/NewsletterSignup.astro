@@ -1,0 +1,46 @@
+---
+import { siteConfig } from '../lib/site-config';
+import { useTranslations, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const username = siteConfig.buttondownUsername;
+---
+
+<section class="rounded-xl border border-navy-100 bg-navy-50 p-8" aria-labelledby="newsletter-heading">
+  <h2 id="newsletter-heading" class="mb-2 text-xl font-bold text-navy-950">{t.newsletter.heading}</h2>
+  <p class="mb-6 text-base leading-relaxed text-navy-700">{t.newsletter.description}</p>
+
+  {username ? (
+    <form
+      action={`https://buttondown.com/api/emails/embed-subscribe/${username}`}
+      method="post"
+      target="popupwindow"
+      onsubmit={`window.open('https://buttondown.com/${username}', 'popupwindow')`}
+      class="flex flex-col gap-3 sm:flex-row"
+    >
+      <label class="sr-only" for="newsletter-email">{t.newsletter.emailPlaceholder}</label>
+      <input
+        id="newsletter-email"
+        type="email"
+        name="email"
+        required
+        placeholder={t.newsletter.emailPlaceholder}
+        class="w-full rounded-full border border-navy-200 px-5 py-3 text-base text-navy-950 focus:border-navy-950 focus:outline-none"
+      />
+      <input type="hidden" value="1" name="embed" />
+      <button
+        type="submit"
+        class="shrink-0 whitespace-nowrap rounded-full bg-navy-950 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+      >
+        {t.newsletter.submit}
+      </button>
+    </form>
+  ) : (
+    <p class="text-sm text-navy-600">{t.newsletter.comingSoon}</p>
+  )}
+</section>

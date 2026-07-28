@@ -12,6 +12,9 @@ export const siteConfig = {
   twitterUrl: 'https://x.com/sotoyamafam',
   // TODO: Tally フォームのURLを発行後に差し替える
   tallyFormUrl: '',
+  // TODO: Buttondownでアカウント作成後、ユーザー名を設定する(例: 'ph-clark-times')
+  // 空文字の間は購読フォームが「準備中」表示になる(NewsletterSignup.astro参照)
+  buttondownUsername: '',
 } as const;
 
 // ロケールごとのサイト名・タグライン・説明文

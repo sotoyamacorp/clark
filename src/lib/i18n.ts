@@ -11,6 +11,13 @@ export const ui = {
     articleCard: { readMore: '記事を読む →' },
     filter: { all: 'すべて', label: '記事のカテゴリー絞り込み' },
     language: { switchTo: 'English', current: '日本語' },
+    newsletter: {
+      heading: '新着記事をメールで受け取る',
+      description: '記事を公開するたびに、メールでお知らせします。いつでも配信停止できます。',
+      emailPlaceholder: 'メールアドレス',
+      submit: '登録する',
+      comingSoon: 'メール配信の準備中です。近日公開予定です。',
+    },
   },
   en: {
     nav: { articles: 'Articles', about: 'About Us', contact: 'Contact' },
@@ -19,6 +26,13 @@ export const ui = {
     articleCard: { readMore: 'Read article →' },
     filter: { all: 'All', label: 'Filter articles by category' },
     language: { switchTo: '日本語', current: 'English' },
+    newsletter: {
+      heading: 'Get new articles by email',
+      description: "We'll email you whenever a new article is published. Unsubscribe anytime.",
+      emailPlaceholder: 'Email address',
+      submit: 'Subscribe',
+      comingSoon: "Email updates are coming soon — we're still setting this up.",
+    },
   },
 } as const;
 

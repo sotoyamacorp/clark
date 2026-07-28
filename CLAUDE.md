@@ -59,12 +59,14 @@ clark-site/
 - **丸数字バッジ(`w-10 h-10 bg-accent-500 rounded-full`等)とテキストを横並びにする `flex` コンテナには、必ず `items-center` を付けること**。付け忘れるとバッジがテキストブロックの上寄りにズレて見える。テンプレート内の該当箇所(3つのポイントボックス・まとめステップボックス)はすべて `flex items-center gap-4` で統一済み。
 - **記事(.mdx)のtitle/description/publishedAt/authorは、BaseLayout側で `Astro.props.frontmatter ?? Astro.props` として両対応済み**(MDXの`layout:`フロントマターは`Astro.props.frontmatter`にネストされる仕様のため)。`publishedAt`が存在する場合は自動でArticle構造化データ(JSON-LD)が出力される。BaseLayoutの props 受け取り方を変更する際は、この両対応ロジックを壊さないよう注意。
 
-## ビルド・デプロイ(叩き台)
+## ビルド・デプロイ
+このプロジェクトは **pnpm** で管理されている(`pnpm-lock.yaml` / `pnpm-workspace.yaml` が存在)。**依存パッケージの追加・削除は必ず `pnpm add` / `pnpm remove` を使うこと**。`npm install` を実行すると、pnpmのシンボリックリンク構造のnode_modulesと衝突し、意味不明なエラー(`Cannot read properties of null`等)で失敗する。
 ```bash
-npm install
-npm run dev      # ローカル確認
-npm run build    # 本番ビルド
-npm run deploy   # デプロイ(ホスティング先決定後に確定)
+pnpm install         # 依存関係インストール
+pnpm add <package>    # パッケージ追加(npm installではなくこちらを使う)
+npm run dev           # ローカル確認(スクリプト実行はnpm run/pnpm run どちらでも動く)
+npm run build         # 本番ビルド
+npx wrangler deploy    # デプロイ(Cloudflare Workers)
 ```
 
 ## SEO・多言語方針
@@ -89,6 +91,21 @@ npm run deploy   # デプロイ(ホスティング先決定後に確定)
 - ページ文言をハードコードする場合、`src/pages/{page}.astro`(日本語)と `src/pages/en/{page}.astro`(英語)の両方を作成する。
 - 記事は直訳ではなく、**フィリピン人の読者が自然に読める英語**で書く(日本語→英語の逐語訳にしない。文の構造から書き直す)。数値・固有名詞・出典URLなどのファクトは正確に保つこと。
 - 新しいUI文字列(ボタン名等)は `src/lib/i18n.ts` の `ui` に追加し、ページ固有の長文コンテンツ(見出し・本文)は各ページファイルに直接ロケール別に書く(サイト全体の巨大な辞書ファイルは作らない、既存パターンを踏襲)。
+
+## メール配信(ニュースレター)
+
+2026-07-28にJioの依頼で導入。読者がメール購読でき、新着記事を公開すると自動で通知メールが届く仕組み。
+
+### アーキテクチャ
+- **RSSフィード**: `src/pages/rss.xml.js`(日本語)/ `src/pages/en/rss.xml.js`(英語)。`@astrojs/rss` を使用し、`src/lib/articles.ts` の `sortedArticles` から自動生成される。新しい記事を配列に追加してビルド・デプロイすれば、フィードは自動的に更新される(RSS側の追加作業は不要)。
+- **配信サービス**: [Buttondown](https://buttondown.com/) を採用(RSS→メール自動配信が標準機能、無料枠あり)。**Claudeはアカウント作成ができないため、Jioが登録してユーザー名を発行する必要がある**。
+- **購読フォーム**: `src/components/NewsletterSignup.astro`。`siteConfig.buttondownUsername`(`src/lib/site-config.ts`)が空の間は「準備中」の文言のみを表示し、値が入ると実際のButtondown購読フォーム(embed)を表示する。トップページと記事一覧ページ(日英とも)に設置済み。
+
+### Jio側で必要な設定手順(未実施)
+1. https://buttondown.com/ でアカウントを作成し、ユーザー名を控える。
+2. Buttondownの管理画面で「RSS to Email」(または「Subscribe by RSS」)機能を有効化し、フィードURLに `https://ph.sotoyamacorp.com/rss.xml`(日本語)を設定する。英語版も配信する場合は別途 `https://ph.sotoyamacorp.com/en/rss.xml` を使う運用を検討する(Buttondownの1アカウントで複数フィードを扱う方法は要調査)。
+3. 発行されたユーザー名を `src/lib/site-config.ts` の `buttondownUsername` に設定し、ビルド・デプロイする(この作業はClaudeが代行可能)。
+4. 設定後は、記事を公開(ビルド・デプロイ)すればRSSフィードが自動更新され、Buttondown側が定期的にフィードを確認して自動でメール配信する。**Claudeが記事公開のたびに手動でメール送信操作をする必要はない。**
 
 ## 注意事項
 - サイトのコンテンツ(文体・トーン)は `../.claude/rules/content-style.md` に従う。
