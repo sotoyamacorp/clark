@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// 記事データを手動定義（将来的には外部ファイルから読み込み）
+const articles = [
+  {
+    slug: 'clark-history-and-value',
+    title: 'クラーク進出を考える日本企業へ：歴史から見た今の価値と注目ポイント',
+    description: 'フィリピン・クラーク進出を検討する日本企業向けに、クラークの歴史、現在の注目点、進出前に押さえたいポイントをわかりやすく解説します。',
+    publishedAt: new Date('2026-07-28'),
+    category: 'history',
+    tags: ['クラーク進出', 'フィリピン', '日本企業進出', '進出前のポイント'],
+  },
+];
+
+const posts = articles
+  .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
+---
+
+<BaseLayout title="記事一覧" description="クラーク進出に関する最新情報や分析を発信しています">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">記事一覧</h1>
+    
+    <div class="space-y-8">
+      {posts.map((post) => (
+        <article class="border-b pb-8">
+          <div class="flex justify-between items-start mb-2">
+            <h2 class="text-2xl font-semibold">
+              <a href={`/articles/${post.slug}`} class="hover:text-blue-600 transition">
+                {post.title}
+              </a>
+            </h2>
+            <time class="text-gray-500 text-sm whitespace-nowrap ml-4">
+              {post.publishedAt.toLocaleDateString('ja-JP')}
+            </time>
+          </div>
+          
+          <p class="text-gray-700 mb-4">{post.description}</p>
+          
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded text-sm">
+              {post.category}
+            </span>
+            {post.tags.map((tag) => (
+              <span class="inline-block bg-gray-100 text-gray-800 px-3 py-1 rounded text-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+          
+          <a href={`/articles/${post.slug}`} class="text-blue-600 hover:underline">
+            記事を読む →
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

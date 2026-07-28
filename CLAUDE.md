@@ -1,35 +1,43 @@
-# クラーク通信
+# clark-site 技術ガイド
 
-## これは何か
-フィリピン・クラークに関するあらゆる情報（ビジネス・生活・制度など）を扱う一次情報メディア。
-日本の中小企業向けの進出情報はその中核テーマの一つだが、クラーク全般の情報サイトとして運営する。
-ブログメディアではない（データが主役、記事は従）。
+このディレクトリはフィリピン・クラーク発信用Webサイトのコード本体。事業の背景は `../CLAUDE.md` を参照。ここではサイトの技術的な指示のみを扱う。
 
-## サイト名・運営者表記の注意
-- サイト名は `src/lib/site-config.ts` の `siteConfig.name`（現在「クラーク通信」）を唯一の情報源とする
-- 運営者情報は `siteConfig` の `founders` 配列で管理し、各人に `published` フラグを持たせる。
-  非公開にしたい人物は配列から消さず `published: false` にする（Hiroは現在非公開）
+## 技術スタック(仮・要決定)
+- フレームワーク: 未定(候補: Next.js + Markdown / Astro など、静的生成向きのものを想定)
+- ホスティング: 未定(候補: Vercel)
+- スタイル: 未定(候補: Tailwind CSS)
 
-## 絶対ルール
-1. 数値を .astro / .mdx に直接書かない。必ず src/data/*.yaml に置き、参照する
-2. 新しい数値データを追加するときは source / collectedAt / verifiedAt を必ず埋める
-3. PHP→JPY換算は src/lib/currency.ts の関数を通す。直接掛け算しない
-4. 記事は hasPrimaryData: true が原則。一般論だけの記事は追加しない
-5. 制度ガイド（src/content/guides）は verifiedAt と verifiedBy が必須
-6. 依存パッケージを増やす前に、標準機能で解けないか検討する
-7. デザインの作り込みより、データの正確さと更新のしやすさを優先する
+> 実装開始時にJioが決定した内容へ、このセクションを上書きすること。
 
-## 読者
-50〜65歳の日本の中小企業経営者。専門用語には必ず注釈を。
+## ディレクトリ構成(想定)
+```
+clark-site/
+├── CLAUDE.md
+├── src/            # サイトのソースコード
+├── content/        # ビルドに取り込む記事(articles/ からの反映先、または直接参照)
+├── public/          # 画像等の静的アセット
+└── package.json
+```
 
-## よく使うコマンド
-pnpm dev / pnpm build / pnpm astro check / pnpm test
+## 記事反映の手順(叩き台)
+1. `../articles/` に新規記事(Markdown)を追加・編集する。
+2. 記事はフロントマターに `title` / `date` / `status`(draft/published) を持たせる。
+3. `status: published` の記事のみサイトのビルド対象に含める。
+4. ビルドコマンド実行 → ローカルプレビューで確認 → デプロイ。
 
-## 迷ったら
-「運営者は週3時間しか使えない」を基準に判断する。
-更新の手間が増える実装は採用しない。
+## ビルド・デプロイ(叩き台)
+```bash
+npm install
+npm run dev      # ローカル確認
+npm run build    # 本番ビルド
+npm run deploy   # デプロイ(ホスティング先決定後に確定)
+```
 
-## 現在のフェーズ
-Phase 1 のみ実装済み（初期化・レイアウト・トップ/about/contact・SEO基本・Cloudflare Pages）。
-Phase 2以降（content.config.ts、記事、データページ、シミュレーター）には未着手。
-詳細は `サイト構築指示書_ClaudeCode用.md`（リポジトリルート）を参照。
+## SEO・多言語方針
+- 主要言語は日本語。将来的に英語版を追加する可能性を考慮し、URL構造は `/ja/`, `/en/` のような拡張がしやすい形にしておく。
+- 記事ページはタイトル・description・OGP画像を必須項目とする。
+- クラーク・パンパンガ・フィリピン進出などのキーワードを意識した構成にする。
+
+## 注意事項
+- サイトのコンテンツ(文体・トーン)は `../.claude/rules/content-style.md` に従う。
+- 事業の背景情報が必要な場合は `../CLAUDE.md` と `../.claude/rules/business-context.md` を参照。
