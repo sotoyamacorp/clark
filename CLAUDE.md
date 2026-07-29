@@ -127,7 +127,8 @@ npx wrangler deploy    # デプロイ(Cloudflare Workers)
 2026-07-29にJioの依頼で導入。サイト右下に浮かぶチャットウィジェットから、記事内容をもとにAIが質問に答える。
 
 ### アーキテクチャ
-- これまでこのサイトは「静的アセットのみのCloudflare Worker」(`wrangler.jsonc`に`main`なし)だったが、チャットAPIを持たせるため`worker/index.ts`をWorkerのエントリーポイントに設定し、`/api/chat`・`/api/chat-lead`以外のリクエストは`env.ASSETS.fetch(request)`で従来どおり`dist/`の静的配信にフォールバックする構成にした。
+- これまでこのサイトは「静的アセットのみのCloudflare Worker」(`wrangler.jsonc`に`main`なし)だったが、チャットAPIを持たせるため`worker/index.ts`をWorkerのエントリーポイントに設定し、`/api/chat`・`/api/chat-lead`・`/admin/chat-logs`以外のリクエストは`env.ASSETS.fetch(request)`で従来どおり`dist/`の静的配信にフォールバックする構成にした。
+- **重要な落とし穴**: `assets.not_found_handling: "404-page"`が設定されていると、静的ファイルにマッチしないGETリクエストはデフォルトでAssetsレイヤーが直接`dist/404.html`を返してしまい、**Workerの`fetch`ハンドラーに一切到達しない**(2026-07-29に`/admin/chat-logs`が常に404になる不具合で発覚)。これを避けるため`wrangler.jsonc`の`assets`に`"run_worker_first": ["/api/*", "/admin/*"]`を追加し、これらのパスは必ずWorkerのコードを先に実行するようにしている。今後`/api/`や`/admin/`以外の新しいWorkerルートを追加する場合も、このパターン(`run_worker_first`への追加)を忘れないこと。
 - **AIモデル**: [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/)の`@cf/meta/llama-3.3-70b-instruct-fp8-fast`を使用(`wrangler.jsonc`の`ai.binding: "AI"`)。外部サービスの契約・課金設定不要で、無料枠の範囲内で運用できる想定(超過時も従量課金で非常に安価)。日本語の応答品質に不満が出た場合はAnthropic APIへの切り替えを検討する(その場合は別途APIキー・課金設定が必要)。
 - **回答の根拠(簡易RAG)**: `scripts/build-chat-corpus.mjs`が`npm run build`のたびに`src/pages/articles/*.mdx`・`src/pages/en/articles/*.mdx`からフロントマターと本文プレーンテキストを抽出し、`public/chat-corpus.json`を生成する(記事を追加すればビルド・デプロイのたびに自動反映される、追加作業不要)。`worker/index.ts`はユーザーの質問文とこのJSONを2文字bigramの一致数で簡易スコアリングし、関連度の高い記事だけをプロンプトに含める(形態素解析ライブラリは導入していない割り切った実装)。関連記事がない場合はAIが「わからない」旨を正直に伝え、`/articles`や`/contact`への導線を案内するようプロンプトで指示している。
 - `public/chat-corpus.json`はビルド生成物のため`.gitignore`対象(コミットしない)。
