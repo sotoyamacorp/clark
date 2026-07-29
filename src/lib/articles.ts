@@ -207,13 +207,13 @@ export const articles: Article[] = [
       ja: {
         title: 'マルコス大統領、東京で日本企業から34億ドルの投資公約獲得：進出検討企業への示唆',
         description:
-          '2026年5月27日、東京の帝国ホテルで開催されたビジネス円卓会議で、フィリピンは日本企業から34億ドル(約210億ペソ)の投資公約を獲得。三菱商事・トヨタ等が参加した会合の内容を解説します。',
+          '2026年5月26〜29日の国賓訪日中、東京で開催されたビジネス円卓会議で、フィリピンは日本企業から34億ドル(約210億ペソ)の投資公約を獲得。政府と日本企業の協働の実態を解説します。',
         tags: ['日比投資', '東京ビジネス円卓会議', 'マルコス大統領', '対日投資誘致', 'フィリピン進出'],
       },
       en: {
         title: 'President Marcos Secures $3.4B in Investment Pledges from Japanese Firms in Tokyo',
         description:
-          "At a business roundtable at Tokyo's Imperial Hotel on May 27, 2026, the Philippines secured $3.4 billion (roughly ₱210 billion) in investment pledges from Japanese companies including Mitsubishi Corp. and Toyota. Here's what it involved.",
+          "During a May 26-29, 2026 State Visit to Japan, a business roundtable in Tokyo secured the Philippines $3.4 billion (roughly ₱210 billion) in investment pledges from Japanese companies. Here's what the visit and the collaboration behind it involved.",
         tags: ['Japan-Philippines investment', 'Tokyo Business Roundtable', 'President Marcos', 'Foreign investment', 'Philippines expansion'],
       },
     },
