@@ -218,6 +218,46 @@ export const articles: Article[] = [
       },
     },
   },
+  {
+    slug: 'philippines-gdp-growth-q1-2026',
+    publishedAt: new Date('2026-07-30T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピンGDP、2026年1-3月期は2.8%成長に鈍化：5年ぶり低水準と日本企業への影響',
+        description:
+          'フィリピン統計局発表の2026年第1四半期GDP成長率は前年同期比2.8%で、政府目標を大きく下回りました。鈍化の背景と進出企業が注視すべき点を解説します。',
+        tags: ['GDP成長率', 'フィリピン経済', '投資環境', 'マクロ経済', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippine GDP Growth Slows to 2.8% in Q1 2026: A 5-Year Low and What It Means for Japanese Companies',
+        description:
+          "The Philippine Statistics Authority reported 2.8% year-on-year GDP growth for Q1 2026, well below the government's target. Here's why, and what it means for expansion planning.",
+        tags: ['GDP growth', 'Philippine economy', 'Investment climate', 'Macroeconomics', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-industrial-real-estate-2026',
+    publishedAt: new Date('2026-07-30T09:30:00'),
+    category: 'real-estate',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラークの産業用地、既存投資家が増床：Berthaphil拡張から読む需要動向',
+        description:
+          'クラーク・フリーポート・ゾーンの老舗デベロッパーBerthaphilが4.1ヘクタール増床。既存投資家の拡張から見える産業用地の需要動向と、進出企業への示唆を解説します。',
+        tags: ['クラーク産業用地', 'Berthaphil', 'CDC', '工業団地', 'フィリピン進出'],
+      },
+      en: {
+        title: "Clark's Industrial Land Market: An Established Developer Expands, What It Signals",
+        description:
+          "Berthaphil, one of Clark Freeport Zone's original investors, has added 4.1 hectares to its portfolio. Here's what this expansion signals about industrial land demand, and what it means for companies exploring Clark.",
+        tags: ['Clark industrial land', 'Berthaphil', 'CDC', 'Industrial parks', 'Philippines expansion'],
+      },
+    },
+  },
 ];
 
 export const sortedArticles = [...articles].sort(
