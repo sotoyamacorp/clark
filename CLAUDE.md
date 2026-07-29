@@ -134,7 +134,9 @@ npx wrangler deploy    # デプロイ(Cloudflare Workers)
 - **フロントエンド**: `src/components/ChatWidget.astro`。`BaseLayout.astro`から全ページ共通で読み込まれる(サイト全体に表示)。ロケール(ja/en)は`locale` propで受け取り、質問・回答・UI文言ともに自動で切り替わる。
 
 ### メールアドレスのゲートとリード管理
-- チャットを使う前にメールアドレスの入力を必須にしている。入力されたメールは`/api/chat-lead`経由でButtondownの購読者リストに**`chatbot-lead`タグ付きで**登録される(ニュースレター購読者と同じリストだが、タグで区別できる)。JioはいつものButtondown管理画面(https://buttondown.com/emails )でそのまま確認できる。
+- チャットを使う前にメールアドレスの入力を必須にしている。入力されたメールは`/api/chat-lead`経由でButtondownの購読者リストに登録される(ニュースレター購読者と同じリスト)。JioはいつものButtondown管理画面(https://buttondown.com/emails )でそのまま確認できる。
+- **タグではなくnotesフィールドで区別している**(2026-07-29判明: Buttondownの`tags`機能は無料プランでは使えず、Basic以上の有料プラン限定だった)。そのため`notes: "chatbot-lead"`を購読者の備考として記録する方式にした。購読者詳細を開けばメモ欄で判別できる。将来Basicプラン以上にアップグレードした場合は、`worker/index.ts`の`handleChatLead`で`notes`を`tags: ['chatbot-lead']`に戻すとタグでの絞り込みができるようになる。
+- **`X-Buttondown-Bypass-Firewall: true`ヘッダーが必須**(2026-07-29判明): Cloudflare Workersの共有送信元IPからのリクエストは、Buttondown側のスパム対策firewallに疑わしいと判定されデフォルトでブロックされる(`subscriber_blocked`エラー)。自前の認証済みサーバーサイド統合であることを示すこのヘッダーを付けてバイパスする(Buttondown公式ドキュメント推奨の対処法)。このヘッダーを外すと購読者登録が全滅するので注意。
 - Buttondown側は新規購読者にデフォルトでダブルオプトイン(確認メール)が送られる仕様のため、ゲート画面にはその旨を示すメッセージを表示している(サイレントに購読させることはしない)。
 - **`BUTTONDOWN_API_KEY`をCloudflareのシークレットとして登録する必要がある**(https://buttondown.com/settings/api でAPIキーを発行し、`npx wrangler secret put BUTTONDOWN_API_KEY`を実行してJio自身が値を貼り付ける。Claudeがこのキーの値を扱うことはない)。未設定の場合でもチャット自体は動作するが、リードのButtondown登録だけがスキップされる(`worker/index.ts`の`handleChatLead`参照)。
 

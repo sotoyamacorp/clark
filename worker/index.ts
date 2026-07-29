@@ -157,8 +157,13 @@ async function handleChatLead(request: Request, env: WorkerEnv): Promise<Respons
         'content-type': 'application/json',
         authorization: `Token ${env.BUTTONDOWN_API_KEY}`,
         'X-Buttondown-Collision-Behavior': 'add',
+        // Cloudflare Workersの共有送信元IPからの連続リクエストが、Buttondown側の
+        // スパム対策firewallに疑わしいと判定されブロックされるため、自前の認証済み
+        // サーバーサイド統合として明示的にバイパスする(Buttondown公式ドキュメント推奨の対処)
+        'X-Buttondown-Bypass-Firewall': 'true',
       },
-      body: JSON.stringify({ email_address: email, tags: ['chatbot-lead'] }),
+      // 無料プランではtagsが使えない(Basic以上限定)ため、notesに印を残して区別する
+      body: JSON.stringify({ email_address: email, notes: 'chatbot-lead' }),
     });
 
     if (!res.ok) {
