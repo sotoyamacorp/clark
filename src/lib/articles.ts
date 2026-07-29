@@ -18,8 +18,8 @@ export const regionBadgeStyles: Record<ArticleRegion, string> = {
 
 // category は内部的な分類キー。表示用ラベルはここで locale ごとに定義する。
 export const categoryLabels: Record<Locale, Record<string, string>> = {
-  ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ', labor: '労働政策' },
-  en: { history: 'History', incentives: 'Tax Incentives', policy: 'Policy', infrastructure: 'Infrastructure', labor: 'Labor Policy' },
+  ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ', labor: '労働政策', economy: '経済', 'real-estate': '不動産' },
+  en: { history: 'History', incentives: 'Tax Incentives', policy: 'Policy', infrastructure: 'Infrastructure', labor: 'Labor Policy', economy: 'Economy', 'real-estate': 'Real Estate' },
 };
 
 export interface ArticleTranslation {
