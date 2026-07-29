@@ -158,6 +158,46 @@ export const articles: Article[] = [
       },
     },
   },
+  {
+    slug: 'philippines-e-invoicing-bir-eis-2026',
+    publishedAt: new Date('2026-07-29T22:00:00'),
+    category: 'policy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'BIR電子インボイス義務化(EIS)が2026年末に完了：日本企業が今から準備すべきこと',
+        description:
+          'フィリピン国税庁(BIR)の電子インボイスシステム(EIS)義務化の対応期限が2026年12月31日に延長。対象企業・技術要件・準備すべきことを解説します。',
+        tags: ['電子インボイス', 'EIS', 'BIR', '税務コンプライアンス', 'フィリピン進出'],
+      },
+      en: {
+        title: "BIR's E-Invoicing Mandate (EIS) Takes Full Effect by End of 2026: What Japanese Companies Should Prepare Now",
+        description:
+          "The compliance deadline for the Philippines' Bureau of Internal Revenue e-invoicing system (EIS) has been extended to December 31, 2026. Here's who's covered, the technical requirements, and what to prepare.",
+        tags: ['E-invoicing', 'EIS', 'BIR', 'Tax compliance', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-airport-second-runway-expansion',
+    publishedAt: new Date('2026-07-29T23:00:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク国際空港に第2滑走路計画：2029年運用開始目指し設計契約締結、旅客数は15%増の見通し',
+        description:
+          'BCDAがクラーク国際空港の第2滑走路詳細設計契約を締結。2029年第4四半期の運用開始を目指す計画と、2026年の旅客数15%増予測、新規就航路線の動向を解説します。',
+        tags: ['クラーク国際空港', '第2滑走路', 'BCDA', '航空路線', '物流ハブ'],
+      },
+      en: {
+        title: 'Clark International Airport Plans a Second Runway: Design Contract Signed, Targeting 2029, Passenger Traffic Up 15%',
+        description:
+          "BCDA has awarded the detailed design contract for Clark International Airport's second runway, targeting operation by Q4 2029. Here's the plan, the 2026 passenger growth forecast, and new route developments.",
+        tags: ['Clark International Airport', 'Second runway', 'BCDA', 'Air routes', 'Logistics hub'],
+      },
+    },
+  },
 ];
 
 export const sortedArticles = [...articles].sort(
