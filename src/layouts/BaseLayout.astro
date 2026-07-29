@@ -14,6 +14,10 @@ interface Props {
   // 記事(.mdx)のフロントマターから layout 経由で渡ってくる場合のみ指定される
   publishedAt?: Date;
   author?: string;
+  // レビューゲート運用の下書き記事に付与するフラグ。true の間は下書きバナーを表示し、
+  // 検索エンジンのインデックス対象からも除外する。承認後の本番公開時にこのフィールドごと
+  // frontmatterから外すこと(clark-site/CLAUDE.md参照)。
+  draft?: boolean;
 }
 
 // MDX/Markdownの `layout:` フロントマター経由の場合、フィールドは
@@ -22,7 +26,7 @@ interface Props {
 // 両方のケースに対応する。
 const props = (Astro.props as { frontmatter?: Props }).frontmatter ?? Astro.props;
 const locale = getLangFromUrl(Astro.url);
-const { title, description = siteText[locale].description, ogImage = '/og/og-default.png', publishedAt, author } = props;
+const { title, description = siteText[locale].description, ogImage = '/og/og-default.png', publishedAt, author, draft = false } = props;
 
 const pageTitle = `${title} | ${siteText[locale].name}`;
 const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
@@ -53,6 +57,7 @@ const articleJsonLd = publishedAt
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {draft && <meta name="robots" content="noindex, nofollow" />}
     <link rel="alternate" hreflang="ja" href={jaUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="x-default" href={jaUrl} />
@@ -90,16 +95,27 @@ const articleJsonLd = publishedAt
       <script type="application/ld+json" is:inline set:html={JSON.stringify(articleJsonLd)} />
     )}
 
-    <!-- Google Analytics (GA4) -->
-    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}></script>
-    <script is:inline define:vars={{ gaMeasurementId: siteConfig.gaMeasurementId }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', gaMeasurementId);
-    </script>
+    <!-- Google Analytics (GA4)。下書きプレビューでは計測しない -->
+    {!draft && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ gaMeasurementId: siteConfig.gaMeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', gaMeasurementId);
+        </script>
+      </>
+    )}
   </head>
   <body class="flex min-h-screen flex-col">
+    {draft && (
+      <div class="sticky top-0 z-50 bg-amber-400 text-amber-950 px-4 py-3 text-center text-sm font-bold shadow-md">
+        {locale === 'ja'
+          ? '🚧 下書きプレビュー：この記事はまだ公開されていません。承認後、後日サイトに公開されます。'
+          : '🚧 Draft preview: this article is not published yet. It will go live after approval.'}
+      </div>
+    )}
     <Header locale={locale} alternatePath={alternatePath} />
     <main class="flex-1" data-pagefind-body>
       <slot />
