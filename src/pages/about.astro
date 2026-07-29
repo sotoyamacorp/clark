@@ -22,14 +22,98 @@ const visibleFounders = founders.filter((f) => f.published);
       <p class="eyebrow mb-3 text-sm font-semibold uppercase text-accent-500">About us</p>
       <h1 class="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">私たちについて</h1>
       <p class="text-lg leading-relaxed text-navy-200">
-        {/* TODO: プレースホルダー。なぜこのメディアを作っているのか、実体験に基づく文章に差し替える */}
-        このサイトは、フィリピン・クラークに関するあらゆる情報を、出典を明記した形で届けることを
-        目的に運営しています。ここに、運営を始めた経緯についての文章が入ります。
+        フィリピン・クラークへの進出を検討されている日本企業の皆様に向けて、必要な情報をわかりやすい形でお届けし、
+        進出の後押しをすることを目的に運営しています。
       </p>
     </div>
   </section>
 
   <article class="mx-auto max-w-[720px] px-4 py-14 sm:px-6">
+    <section class="mb-16" aria-labelledby="clark-heading">
+      <p class="eyebrow mb-2 text-sm font-semibold uppercase text-accent-700">About Clark</p>
+      <h2 id="clark-heading" class="mb-4 text-2xl font-bold text-navy-950">
+        クラークについて
+      </h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-700">
+        なぜ私たちが「フィリピン全体」ではなく「クラーク」に特化して発信しているのか。まずはクラークというエリア自体について、押さえておきたいポイントをご紹介します。
+      </p>
+
+      <div class="mb-6 rounded-xl border border-navy-100 p-6 sm:p-8">
+        <svg viewBox="0 0 240 400" class="mx-auto h-auto w-full max-w-[220px]" role="img" aria-labelledby="clark-map-title-ja">
+          <title id="clark-map-title-ja">フィリピン・ルソン島におけるクラークとマニラの位置関係(簡易図)</title>
+          <path
+            d="M120,20 C90,10 60,40 55,90 C50,140 70,170 60,210 C50,250 30,270 40,310 C50,350 90,370 110,395 C130,375 160,360 170,330 C180,300 165,280 175,250 C185,220 200,200 190,160 C180,120 190,80 170,50 C155,25 140,15 120,20 Z"
+            class="fill-navy-50 stroke-navy-200"
+            stroke-width="2"
+          />
+          <line x1="80" y1="192" x2="97" y2="228" stroke-dasharray="4 4" class="stroke-navy-400" stroke-width="1.5" />
+          <circle cx="80" cy="192" r="7" class="fill-accent-500 stroke-navy-950" stroke-width="1.5" />
+          <circle cx="97" cy="228" r="6" class="fill-navy-700" />
+          <text x="92" y="188" class="fill-navy-950" font-size="15" font-weight="700">クラーク</text>
+          <text x="107" y="235" class="fill-navy-700" font-size="12">マニラ</text>
+          <text x="60" y="270" class="fill-navy-600" font-size="10">車で約1.5時間</text>
+        </svg>
+        <p class="mt-3 text-center text-xs text-navy-500">
+          クラークとマニラの位置関係を示す簡易図です(正確な地図ではありません)
+        </p>
+      </div>
+
+      <ul class="space-y-3 text-lg leading-relaxed text-navy-700">
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          「次のBGC」と評されることが増えている、注目のエリアです
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          クラーク国際空港があり、国際的なアクセスも確保されています
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          マニラ中心部から車で約1時間半とアクセスも良好です
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          今後、鉄道の開通が予定されています
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          政府機関のオフィス移転も予定されており、行政機能の強化が見込まれています
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          今後の経済発展が期待されている地域です
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          世界からも注目が集まりつつあるエリアです
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          元米軍基地という土地柄、街並みや道路が非常に整備されています
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          すでに複数の日本企業が進出しています
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          スービック港にも近く、物流面でも利点があります
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          AI・データセンターの一大拠点になる可能性を秘めています
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          ゴルフ場が数多くあります
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+          クラークが位置するパンパンガ州は、シシグをはじめとする食文化でも有名です
+        </li>
+      </ul>
+    </section>
+
     <section class="mb-16" aria-labelledby="founders-heading">
       <p class="eyebrow mb-2 text-sm font-semibold uppercase text-accent-700">Founders</p>
       <h2 id="founders-heading" class="mb-8 text-2xl font-bold text-navy-950">

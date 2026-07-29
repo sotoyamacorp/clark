@@ -46,8 +46,8 @@ export const founders: FounderProfile[] = [
     name: 'ジーノフ',
     role: { ja: '運営者', en: 'Founder' },
     bio: {
-      ja: 'フィリピンパンパンガ出身の日本育ち。フィリピン、クラークに進出したい日本の企業様に向けて情報発信。',
-      en: 'Born in Pampanga, Philippines, and raised in Japan. Sharing practical information for Japanese companies looking to expand into Clark, Philippines.',
+      ja: 'フィリピン・クラークが位置するパンパンガ州の出身。幼少期に家族で来日し、日本で育つ。毎年のフィリピン帰省を通じて、現地の魅力や今後の成長性を肌で感じてきました。社会人になってからも帰省のたびにマカティやBGCなどを訪れ、目覚ましい発展を実感。その経験から、クラークも「次のBGC」になり得るのではないかと考え、早い段階から情報発信を始めることを決意しました。このメディアを通じて、フィリピンへの進出を検討する企業の皆様の後押しをしています。',
+      en: "Born in Pampanga, the province where Clark is located, and raised in Japan from an early age. Annual trips back to the Philippines gave me a firsthand sense of the country's charm and growth potential. As an adult, visits to Makati and BGC on those trips showed just how far those areas had developed — which made me think Clark could become the next BGC. That's why I decided to start sharing information this early. Through this media, I support Japanese companies considering expansion into the Philippines.",
     },
     published: true,
   },

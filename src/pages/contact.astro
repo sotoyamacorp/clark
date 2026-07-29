@@ -16,19 +16,12 @@ const segments = [
       'フィリピン・クラークへの進出を検討されている企業様へ。立地・制度・人材確保など、検討初期の情報収集段階からご相談いただけます。',
     mailSubject: 'クラーク進出についてのご相談',
   },
-  {
-    title: '個人のお客様',
-    eyebrow: 'For Individuals',
-    description:
-      'クラークでの不動産・留学にご関心をお持ちの方へ。現地の家族ネットワークに基づく実体験ベースの情報をお伝えします。',
-    mailSubject: '不動産・留学についてのご相談',
-  },
 ];
 
 const faqs = [
   {
     q: '相談は無料ですか？',
-    a: 'はい、初回のご相談は無料です。まずは現状やお悩みをお聞かせください。',
+    a: 'はい、現時点では情報提供・情報交換を中心とした無料のご相談を行っています。契約に基づく本格的なコンサルティング支援は現在体制を準備中のため、内容によってはすぐにご支援を開始できない場合がございます。あらかじめご了承ください。',
   },
   {
     q: '返信までどれくらいかかりますか？',
@@ -58,11 +51,14 @@ const mailtoWithSubject = (subject: string) =>
         フィリピン・クラークへの進出をご検討の方は、お気軽にご相談ください。
         情報収集の段階でも構いません。
       </p>
+      <p class="mt-3 text-sm leading-relaxed text-navy-200">
+        ※現時点では情報提供・情報交換を中心とした対応とさせていただいており、契約に基づく本格的なコンサルティング支援は準備中です。
+      </p>
     </div>
   </section>
 
   <div class="mx-auto max-w-[720px] px-4 py-14 sm:px-6">
-    <div class="mb-12 grid gap-6 sm:grid-cols-2">
+    <div class="mb-12 grid gap-6 max-w-sm">
       {segments.map((segment) => (
         <div class="flex flex-col rounded-xl border border-navy-100 p-7 shadow-sm">
           <p class="eyebrow mb-2 text-xs font-semibold uppercase text-accent-700">{segment.eyebrow}</p>

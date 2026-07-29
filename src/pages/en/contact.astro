@@ -16,19 +16,12 @@ const segments = [
       'For companies exploring expansion into Clark, Philippines. We can help from the early information-gathering stage, covering location, regulations, and hiring.',
     mailSubject: 'Inquiry about expanding into Clark',
   },
-  {
-    title: 'For Individuals',
-    eyebrow: 'For Individuals',
-    description:
-      'For those interested in real estate or studying in Clark. We share first-hand information based on our family network on the ground.',
-    mailSubject: 'Inquiry about real estate / studying in Clark',
-  },
 ];
 
 const faqs = [
   {
     q: 'Is the consultation free?',
-    a: 'Yes, an initial consultation is free. Tell us where you currently stand and what you need.',
+    a: "Yes — at this stage, we offer free consultations focused on sharing and exchanging information. We're still building out a formal, contract-based consulting service, so we may not be able to begin full support immediately depending on your request.",
   },
   {
     q: 'How long does it take to get a reply?',
@@ -58,11 +51,15 @@ const mailtoWithSubject = (subject: string) =>
         If you're considering expanding into Clark, Philippines, feel free to reach out.
         It's fine even if you're just gathering information at this stage.
       </p>
+      <p class="mt-3 text-sm leading-relaxed text-navy-200">
+        Note: at this stage we mainly offer information sharing and exchange — a formal,
+        contract-based consulting service is still being built out.
+      </p>
     </div>
   </section>
 
   <div class="mx-auto max-w-[720px] px-4 py-14 sm:px-6">
-    <div class="mb-12 grid gap-6 sm:grid-cols-2">
+    <div class="mb-12 grid gap-6 max-w-sm">
       {segments.map((segment) => (
         <div class="flex flex-col rounded-xl border border-navy-100 p-7 shadow-sm">
           <p class="eyebrow mb-2 text-xs font-semibold uppercase text-accent-700">{segment.eyebrow}</p>
