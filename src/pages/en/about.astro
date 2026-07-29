@@ -82,7 +82,7 @@ const visibleFounders = founders.filter((f) => f.published);
         Founder
       </h2>
 
-      <div class={`grid gap-6 ${visibleFounders.length > 1 ? 'sm:grid-cols-2' : 'max-w-sm'}`}>
+      <div class={`grid gap-6 ${visibleFounders.length > 1 ? 'sm:grid-cols-2' : ''}`}>
         {visibleFounders.map((founder) => (
           <div class="rounded-xl border border-navy-100 p-7 shadow-sm">
             <div
