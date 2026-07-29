@@ -13,12 +13,24 @@ const t = useTranslations(locale);
 const content = post.translations[locale];
 const href = localizedPath(`/articles/${post.slug}`, locale);
 const dateLocale = locale === 'ja' ? 'ja-JP' : 'en-US';
+// 「本日公開」バッジの判定はビルド時ではなくクライアント側(下記script)で行う。
+// ビルド時判定だと、公開日の翌日以降にリビルドが走らなかった場合、古い記事に
+// バッジが残り続けてしまう(静的HTMLに焼き付いてしまうため)。訪問者のブラウザで
+// 実際の「今日」と比較することで、リビルド頻度に依存せず正しい表示を保つ。
+const publishedDateStr = `${post.publishedAt.getFullYear()}-${String(post.publishedAt.getMonth() + 1).padStart(2, '0')}-${String(post.publishedAt.getDate()).padStart(2, '0')}`;
 ---
 
 <article
   data-region={post.region}
-  class="flex h-full flex-col rounded-xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md hover:border-navy-200"
+  data-published-date={publishedDateStr}
+  class="relative flex h-full flex-col rounded-xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md hover:border-navy-200"
 >
+  <span
+    data-today-badge
+    class="hidden absolute -top-3 -right-3 items-center gap-1 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white shadow-md"
+  >
+    {t.articleCard.publishedToday}
+  </span>
   <div class="mb-3 flex items-center justify-between gap-3">
     <div class="flex flex-wrap items-center gap-2">
       <span class={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${regionBadgeStyles[post.region]}`}>
@@ -53,3 +65,25 @@ const dateLocale = locale === 'ja' ? 'ja-JP' : 'en-US';
     {t.articleCard.readMore}
   </a>
 </article>
+
+<script>
+  // 複数のArticleCardインスタンスがあってもAstroが重複スクリプトを1つに束ねるため、
+  // ページ内で一度だけ実行される。
+  function highlightTodayArticles() {
+    const now = new Date();
+    const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+    document.querySelectorAll<HTMLElement>('[data-published-date]').forEach((el) => {
+      if (el.getAttribute('data-published-date') !== todayStr) return;
+      el.classList.remove('border-navy-100');
+      el.classList.add('border-red-400', 'ring-2', 'ring-red-100');
+      const badge = el.querySelector<HTMLElement>('[data-today-badge]');
+      if (badge) {
+        badge.classList.remove('hidden');
+        badge.classList.add('inline-flex');
+      }
+    });
+  }
+
+  highlightTodayArticles();
+</script>
