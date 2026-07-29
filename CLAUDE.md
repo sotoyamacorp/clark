@@ -122,6 +122,29 @@ npx wrangler deploy    # デプロイ(Cloudflare Workers)
 2. JioがButtondown管理画面(https://buttondown.com/emails ）の「Compose」から、ドラフトした文面を貼り付けて手動送信する。
 3. 送信自体はJioが行うため、Claudeは文面のドラフトまで(X投稿文と同じ運用)。
 
+## AIチャットボット
+
+2026-07-29にJioの依頼で導入。サイト右下に浮かぶチャットウィジェットから、記事内容をもとにAIが質問に答える。
+
+### アーキテクチャ
+- これまでこのサイトは「静的アセットのみのCloudflare Worker」(`wrangler.jsonc`に`main`なし)だったが、チャットAPIを持たせるため`worker/index.ts`をWorkerのエントリーポイントに設定し、`/api/chat`・`/api/chat-lead`以外のリクエストは`env.ASSETS.fetch(request)`で従来どおり`dist/`の静的配信にフォールバックする構成にした。
+- **AIモデル**: [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/)の`@cf/meta/llama-3.3-70b-instruct-fp8-fast`を使用(`wrangler.jsonc`の`ai.binding: "AI"`)。外部サービスの契約・課金設定不要で、無料枠の範囲内で運用できる想定(超過時も従量課金で非常に安価)。日本語の応答品質に不満が出た場合はAnthropic APIへの切り替えを検討する(その場合は別途APIキー・課金設定が必要)。
+- **回答の根拠(簡易RAG)**: `scripts/build-chat-corpus.mjs`が`npm run build`のたびに`src/pages/articles/*.mdx`・`src/pages/en/articles/*.mdx`からフロントマターと本文プレーンテキストを抽出し、`public/chat-corpus.json`を生成する(記事を追加すればビルド・デプロイのたびに自動反映される、追加作業不要)。`worker/index.ts`はユーザーの質問文とこのJSONを2文字bigramの一致数で簡易スコアリングし、関連度の高い記事だけをプロンプトに含める(形態素解析ライブラリは導入していない割り切った実装)。関連記事がない場合はAIが「わからない」旨を正直に伝え、`/articles`や`/contact`への導線を案内するようプロンプトで指示している。
+- `public/chat-corpus.json`はビルド生成物のため`.gitignore`対象(コミットしない)。
+- **フロントエンド**: `src/components/ChatWidget.astro`。`BaseLayout.astro`から全ページ共通で読み込まれる(サイト全体に表示)。ロケール(ja/en)は`locale` propで受け取り、質問・回答・UI文言ともに自動で切り替わる。
+
+### メールアドレスのゲートとリード管理
+- チャットを使う前にメールアドレスの入力を必須にしている。入力されたメールは`/api/chat-lead`経由でButtondownの購読者リストに**`chatbot-lead`タグ付きで**登録される(ニュースレター購読者と同じリストだが、タグで区別できる)。JioはいつものButtondown管理画面(https://buttondown.com/emails )でそのまま確認できる。
+- Buttondown側は新規購読者にデフォルトでダブルオプトイン(確認メール)が送られる仕様のため、ゲート画面にはその旨を示すメッセージを表示している(サイレントに購読させることはしない)。
+- **`BUTTONDOWN_API_KEY`をCloudflareのシークレットとして登録する必要がある**(https://buttondown.com/settings/api でAPIキーを発行し、`npx wrangler secret put BUTTONDOWN_API_KEY`を実行してJio自身が値を貼り付ける。Claudeがこのキーの値を扱うことはない)。未設定の場合でもチャット自体は動作するが、リードのButtondown登録だけがスキップされる(`worker/index.ts`の`handleChatLead`参照)。
+
+### 型定義の再生成
+`wrangler.jsonc`のbindings(`ai`・`assets.binding`)を変更した場合は`npx wrangler types`を再実行し、`worker-configuration.d.ts`(`Env`型の定義、`.gitignore`対象・再生成物)を更新すること。
+
+### 既知の制約
+- `astro dev`のローカル開発サーバーではWorkerが起動しないため、チャットAPIは動作しない(Pagefind検索と同じ制約)。動作確認は`npm run build && npx wrangler dev`で行うこと。
+- 関連記事の検索はbigram一致による簡易スコアリングのため、表記ゆれ(送り仮名の違い等)には弱い。回答品質に問題が出るようであれば、しきい値(`worker/index.ts`の`score >= 3`)やTOP_K件数の調整、将来的には形態素解析・Embeddingベースの検索への切り替えを検討する。
+
 ## モバイル幅の検証方法(重要な落とし穴)
 
 2026-07-29に発覚。**Chromeヘッドレスの `--window-size` フラグは、この開発環境では500px未満を指定しても実際のビューポート幅が500pxに固定される**(ウィンドウサイズの下限がある模様)。この状態でスクリーンショットを撮ると、実際は500px幅でレイアウトされた内容の一部が単に画面外に切れて見えなくなるだけなのに、あたかも要素が消失・崩壊しているかのような誤った検証結果になる(500px未満を検証しているつもりが、実際は500px固定でレイアウトされたものの一部を見ているだけ、という罠)。

@@ -2,6 +2,12 @@
 dist/
 # generated types
 .astro/
+worker-configuration.d.ts
+# wrangler local dev state
+.wrangler/
+
+# generated at build time (scripts/build-chat-corpus.mjs)
+public/chat-corpus.json
 
 # dependencies
 node_modules/
