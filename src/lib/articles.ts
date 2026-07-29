@@ -200,7 +200,7 @@ export const articles: Article[] = [
   },
   {
     slug: 'philippines-japan-tokyo-investment-roundtable-2026',
-    publishedAt: new Date('2026-07-29T20:00:00'),
+    publishedAt: new Date('2026-07-29T23:59:00'),
     category: 'investment',
     region: 'philippines',
     translations: {
