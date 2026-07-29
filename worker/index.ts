@@ -90,8 +90,9 @@ async function logChatExchange(env: WorkerEnv, locale: Locale, email: string, qu
     )
       .bind(locale, email || null, question, answer)
       .run();
-  } catch {
-    // ログ保存の失敗でチャット応答自体を止めない
+  } catch (err) {
+    // ログ保存の失敗でチャット応答自体は止めないが、原因調査のためconsoleには残す
+    console.error('chat_logs insert failed:', err instanceof Error ? err.message : String(err));
   }
 }
 
