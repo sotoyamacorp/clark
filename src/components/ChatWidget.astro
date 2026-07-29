@@ -237,7 +237,18 @@ const t = useTranslations(locale).chat;
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ message, history: history.slice(-6), locale }),
+        body: JSON.stringify({
+          message,
+          history: history.slice(-6),
+          locale,
+          email: (() => {
+            try {
+              return localStorage.getItem(STORAGE_KEY) || '';
+            } catch {
+              return '';
+            }
+          })(),
+        }),
       });
       const data = await res.json();
       thinkingEl.remove();

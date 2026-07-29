@@ -5,6 +5,9 @@ interface WorkerEnv extends Env {
   // Cloudflareのシークレットとして`wrangler secret put BUTTONDOWN_API_KEY`で登録する。
   // 未設定でもチャット自体は動作する(リード登録だけスキップされる)。
   BUTTONDOWN_API_KEY?: string;
+  // `wrangler secret put ADMIN_KEY`で登録する。/admin/chat-logs へのアクセス用の合言葉。
+  // 未設定の場合、/admin/chat-logs は常に401を返す(誤って無防備に公開されないため)。
+  ADMIN_KEY?: string;
 }
 
 type Locale = 'ja' | 'en';
@@ -80,8 +83,20 @@ ${context || '(no closely matching article found)'}`;
 ${context || '(関連する記事が見つかりませんでした)'}`;
 }
 
-async function handleChat(request: Request, env: WorkerEnv): Promise<Response> {
-  let body: { message?: unknown; history?: unknown; locale?: unknown };
+async function logChatExchange(env: WorkerEnv, locale: Locale, email: string, question: string, answer: string) {
+  try {
+    await env.DB.prepare(
+      'INSERT INTO chat_logs (locale, email, question, answer) VALUES (?1, ?2, ?3, ?4)',
+    )
+      .bind(locale, email || null, question, answer)
+      .run();
+  } catch {
+    // ログ保存の失敗でチャット応答自体を止めない
+  }
+}
+
+async function handleChat(request: Request, env: WorkerEnv, ctx: ExecutionContext): Promise<Response> {
+  let body: { message?: unknown; history?: unknown; locale?: unknown; email?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -90,6 +105,7 @@ async function handleChat(request: Request, env: WorkerEnv): Promise<Response> {
 
   const message = String(body.message ?? '').slice(0, MAX_MESSAGE_LENGTH).trim();
   const locale: Locale = body.locale === 'en' ? 'en' : 'ja';
+  const email = String(body.email ?? '').trim().slice(0, 320);
   if (!message) return jsonResponse({ error: 'empty_message' }, 400);
 
   const rawHistory = Array.isArray(body.history) ? body.history : [];
@@ -119,13 +135,16 @@ async function handleChat(request: Request, env: WorkerEnv): Promise<Response> {
   try {
     const result = await env.AI.run(CHAT_MODEL, { messages, max_tokens: 500 });
     const reply = typeof result === 'object' && result && 'response' in result ? String(result.response ?? '') : '';
+    const finalReply =
+      reply ||
+      (locale === 'en'
+        ? 'Sorry, I could not generate a reply. Please try again.'
+        : '申し訳ありません、回答を生成できませんでした。もう一度お試しください。');
+
+    ctx.waitUntil(logChatExchange(env, locale, email, message, finalReply));
 
     return jsonResponse({
-      reply:
-        reply ||
-        (locale === 'en'
-          ? 'Sorry, I could not generate a reply. Please try again.'
-          : '申し訳ありません、回答を生成できませんでした。もう一度お試しください。'),
+      reply: finalReply,
       sources: scored.map((entry) => ({ title: entry.title, url: entry.url })),
     });
   } catch (err) {
@@ -177,12 +196,81 @@ async function handleChatLead(request: Request, env: WorkerEnv): Promise<Respons
   }
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+async function handleAdminChatLogs(request: Request, env: WorkerEnv): Promise<Response> {
+  const url = new URL(request.url);
+  const key = url.searchParams.get('key');
+
+  if (!env.ADMIN_KEY || key !== env.ADMIN_KEY) {
+    return new Response('Unauthorized', { status: 401 });
+  }
+
+  const { results } = await env.DB.prepare(
+    'SELECT id, created_at, locale, email, question, answer FROM chat_logs ORDER BY created_at DESC LIMIT 200',
+  ).all<{ id: number; created_at: string; locale: string; email: string | null; question: string; answer: string }>();
+
+  const rows = results
+    .map(
+      (row) => `
+        <tr>
+          <td>${escapeHtml(row.created_at)}</td>
+          <td>${escapeHtml(row.locale)}</td>
+          <td>${row.email ? escapeHtml(row.email) : '<span class="muted">-</span>'}</td>
+          <td>${escapeHtml(row.question)}</td>
+          <td>${escapeHtml(row.answer)}</td>
+        </tr>`,
+    )
+    .join('');
+
+  const html = `<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>チャットログ | フィリピン・クラーク通信</title>
+<meta name="robots" content="noindex, nofollow" />
+<style>
+  body { font-family: -apple-system, "Hiragino Sans", sans-serif; margin: 0; padding: 2rem; background: #f6f8fb; color: #0b1826; }
+  h1 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+  p.meta { color: #3d5c82; font-size: 0.85rem; margin-top: 0; margin-bottom: 1.5rem; }
+  table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 3px rgba(11,24,38,0.1); }
+  th, td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid #e6ecf3; vertical-align: top; font-size: 0.85rem; }
+  th { background: #0b1826; color: #c2954a; position: sticky; top: 0; }
+  tr:hover td { background: #f6f8fb; }
+  td:nth-child(4), td:nth-child(5) { max-width: 320px; white-space: pre-wrap; }
+  .muted { color: #94a3b8; }
+</style>
+</head>
+<body>
+  <h1>チャットログ</h1>
+  <p class="meta">新しい順・最大200件</p>
+  <table>
+    <thead>
+      <tr><th>日時</th><th>言語</th><th>メール</th><th>質問</th><th>回答</th></tr>
+    </thead>
+    <tbody>${rows || '<tr><td colspan="5">まだログがありません</td></tr>'}</tbody>
+  </table>
+</body>
+</html>`;
+
+  return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8' } });
+}
+
 export default {
-  async fetch(request: Request, env: WorkerEnv): Promise<Response> {
+  async fetch(request: Request, env: WorkerEnv, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
     if (request.method === 'POST' && url.pathname === '/api/chat') {
-      return handleChat(request, env);
+      return handleChat(request, env, ctx);
+    }
+    if (request.method === 'GET' && url.pathname === '/admin/chat-logs') {
+      return handleAdminChatLogs(request, env);
     }
     if (request.method === 'POST' && url.pathname === '/api/chat-lead') {
       return handleChatLead(request, env);

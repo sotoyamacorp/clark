@@ -9,5 +9,12 @@
   },
   "ai": {
     "binding": "AI"
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "clark-chat-logs",
+      "database_id": "9dc3aff3-f86a-477b-b6c0-7fdfbaa70600"
+    }
+  ]
 }

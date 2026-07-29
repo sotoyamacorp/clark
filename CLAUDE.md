@@ -140,8 +140,18 @@ npx wrangler deploy    # デプロイ(Cloudflare Workers)
 - Buttondown側は新規購読者にデフォルトでダブルオプトイン(確認メール)が送られる仕様のため、ゲート画面にはその旨を示すメッセージを表示している(サイレントに購読させることはしない)。
 - **`BUTTONDOWN_API_KEY`をCloudflareのシークレットとして登録する必要がある**(https://buttondown.com/settings/api でAPIキーを発行し、`npx wrangler secret put BUTTONDOWN_API_KEY`を実行してJio自身が値を貼り付ける。Claudeがこのキーの値を扱うことはない)。未設定の場合でもチャット自体は動作するが、リードのButtondown登録だけがスキップされる(`worker/index.ts`の`handleChatLead`参照)。
 
+### 質問ログの記録・確認
+
+2026-07-29にJioの依頼で導入。読者がチャットに送った質問と回答を記録し、後から確認できるようにしている。
+
+- **保存先**: Cloudflare D1(`clark-chat-logs`、`wrangler.jsonc`の`d1_databases`で`DB`としてバインド)。`worker/schema.sql`にテーブル定義(`chat_logs`: `created_at` / `locale` / `email` / `question` / `answer`)がある。新しいD1インスタンスを作り直す場合は`npx wrangler d1 execute clark-chat-logs --remote --file=worker/schema.sql`で流し込む。
+- `worker/index.ts`の`handleChat`が、AIの応答生成後に`ctx.waitUntil()`で非同期にログを書き込む(レスポンス速度に影響しない)。書き込み失敗時もチャット応答自体は止めない設計。
+- メールアドレスは`ChatWidget.astro`がlocalStorageに保存済みのもの(ゲート突破時に入力されたもの)を`/api/chat`のリクエストに一緒に送っている。ゲート前の状態ではchat自体が使えないため、通常は必ず紐づく。
+- **確認方法**: `https://ph.sotoyamacorp.com/admin/chat-logs?key=<ADMIN_KEY>` にアクセスすると、新しい順に最大200件を一覧表示する(日時・言語・メール・質問・回答)。`ADMIN_KEY`はCloudflareのシークレットとして登録済み(`wrangler secret put ADMIN_KEY`)。このURLは`noindex`だが、検索エンジンや第三者に知られないよう、リンクを公開の場に貼らないこと。キーを再発行したい場合は`wrangler secret put ADMIN_KEY`で上書きする。
+- このページは`src/pages/`のAstro静的ページではなく、`worker/index.ts`内で動的にHTMLを生成して返している(D1への都度クエリが必要なため、ビルド時に静的生成する通常のページとは扱いが異なる)。
+
 ### 型定義の再生成
-`wrangler.jsonc`のbindings(`ai`・`assets.binding`)を変更した場合は`npx wrangler types`を再実行し、`worker-configuration.d.ts`(`Env`型の定義、`.gitignore`対象・再生成物)を更新すること。
+`wrangler.jsonc`のbindings(`ai`・`assets.binding`・`d1_databases`)を変更した場合は`npx wrangler types`を再実行し、`worker-configuration.d.ts`(`Env`型の定義、`.gitignore`対象・再生成物)を更新すること。
 
 ### 既知の制約
 - `astro dev`のローカル開発サーバーではWorkerが起動しないため、チャットAPIは動作しない(Pagefind検索と同じ制約)。動作確認は`npm run build && npx wrangler dev`で行うこと。
