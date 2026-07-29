@@ -18,8 +18,8 @@ export const regionBadgeStyles: Record<ArticleRegion, string> = {
 
 // category は内部的な分類キー。表示用ラベルはここで locale ごとに定義する。
 export const categoryLabels: Record<Locale, Record<string, string>> = {
-  ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ', labor: '労働政策', economy: '経済', 'real-estate': '不動産' },
-  en: { history: 'History', incentives: 'Tax Incentives', policy: 'Policy', infrastructure: 'Infrastructure', labor: 'Labor Policy', economy: 'Economy', 'real-estate': 'Real Estate' },
+  ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ', labor: '労働政策', economy: '経済', 'real-estate': '不動産', investment: '投資' },
+  en: { history: 'History', incentives: 'Tax Incentives', policy: 'Policy', infrastructure: 'Infrastructure', labor: 'Labor Policy', economy: 'Economy', 'real-estate': 'Real Estate', investment: 'Investment' },
 };
 
 export interface ArticleTranslation {
@@ -195,6 +195,26 @@ export const articles: Article[] = [
         description:
           "BCDA has awarded the detailed design contract for Clark International Airport's second runway, targeting operation by Q4 2029. Here's the plan, the 2026 passenger growth forecast, and new route developments.",
         tags: ['Clark International Airport', 'Second runway', 'BCDA', 'Air routes', 'Logistics hub'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-japan-tokyo-investment-roundtable-2026',
+    publishedAt: new Date('2026-07-29T20:00:00'),
+    category: 'investment',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'マルコス大統領、東京で日本企業から34億ドルの投資公約獲得：進出検討企業への示唆',
+        description:
+          '2026年5月27日、東京の帝国ホテルで開催されたビジネス円卓会議で、フィリピンは日本企業から34億ドル(約210億ペソ)の投資公約を獲得。三菱商事・トヨタ等が参加した会合の内容を解説します。',
+        tags: ['日比投資', '東京ビジネス円卓会議', 'マルコス大統領', '対日投資誘致', 'フィリピン進出'],
+      },
+      en: {
+        title: 'President Marcos Secures $3.4B in Investment Pledges from Japanese Firms in Tokyo',
+        description:
+          "At a business roundtable at Tokyo's Imperial Hotel on May 27, 2026, the Philippines secured $3.4 billion (roughly ₱210 billion) in investment pledges from Japanese companies including Mitsubishi Corp. and Toyota. Here's what it involved.",
+        tags: ['Japan-Philippines investment', 'Tokyo Business Roundtable', 'President Marcos', 'Foreign investment', 'Philippines expansion'],
       },
     },
   },
