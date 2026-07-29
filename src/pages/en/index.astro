@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import ArticleFilterTabs from '../../components/ArticleFilterTabs.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
-import { siteText } from '../../lib/site-config';
 import { sortedArticles as posts } from '../../lib/articles';
 
 const ctas = [
@@ -15,7 +14,7 @@ const ctas = [
     label: 'View all articles',
   },
   {
-    title: 'About us',
+    title: 'About Us & Clark',
     description:
       "Why we're building this resource, our founder's background, and our connection to the Philippines and Clark.",
     href: '/en/about',
@@ -37,8 +36,10 @@ const ctas = [
       <h1 class="mb-7 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-accent-500 sm:text-5xl lg:max-w-none lg:whitespace-nowrap">
         Supporting expansion into Clark, Philippines
       </h1>
-      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 lg:max-w-none lg:whitespace-nowrap">
-        {siteText.en.description}
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200">
+        We run this site for Japanese companies considering expansion into Clark, Philippines —
+        bringing together the information you need in a clear, accessible form to push and
+        support that move forward.
       </p>
     </div>
   </section>

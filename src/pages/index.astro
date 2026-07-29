@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import ArticleFilterTabs from '../components/ArticleFilterTabs.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
-import { siteText } from '../lib/site-config';
 import { sortedArticles as posts } from '../lib/articles';
 
 const ctas = [
@@ -15,11 +14,11 @@ const ctas = [
     label: '記事一覧を見る',
   },
   {
-    title: '私たちについて',
+    title: '私たち/クラークについて',
     description:
       'なぜ私たちがこのデータベースを作っているのか。運営者の経歴と、フィリピン・クラークとの繋がりをご紹介します。',
     href: '/about',
-    label: '私たちについて見る',
+    label: '私たち/クラークについて見る',
   },
   {
     title: '無料相談を申し込む',
@@ -37,8 +36,9 @@ const ctas = [
       <h1 class="mb-7 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-accent-500 sm:text-5xl lg:max-w-none lg:whitespace-nowrap">
         フィリピン・クラークへの進出を後押し
       </h1>
-      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 lg:max-w-none lg:whitespace-nowrap">
-        {siteText.ja.description}
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200">
+        フィリピン・クラークへの進出を検討されている日本企業の皆様に向けて、必要な情報をわかりやすい形でお届けしながら、
+        進出の後押しとサポートを行うことを目的に運営しています。
       </p>
     </div>
   </section>

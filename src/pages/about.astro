@@ -5,14 +5,14 @@ import { founders } from '../lib/site-config';
 
 const breadcrumbItems = [
   { name: 'ホーム', url: '/' },
-  { name: '私たちについて', url: '/about' },
+  { name: '私たち/クラークについて', url: '/about' },
 ];
 
 const visibleFounders = founders.filter((f) => f.published);
 ---
 
 <BaseLayout
-  title="私たちについて"
+  title="私たち/クラークについて"
   description="なぜ私たちがフィリピン・クラーク通信を運営しているのか。運営者の経歴とフィリピン・クラークとの繋がりをご紹介します。"
 >
   <Breadcrumb items={breadcrumbItems} locale="ja" />
@@ -20,7 +20,7 @@ const visibleFounders = founders.filter((f) => f.published);
   <section class="bg-navy-950">
     <div class="mx-auto max-w-[720px] px-4 py-14 sm:px-6">
       <p class="eyebrow mb-3 text-sm font-semibold uppercase text-accent-500">About us</p>
-      <h1 class="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">私たちについて</h1>
+      <h1 class="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">私たち/クラークについて</h1>
       <p class="text-lg leading-relaxed text-navy-200">
         フィリピン・クラークへの進出を検討されている日本企業の皆様に向けて、必要な情報をわかりやすい形でお届けしながら、
         進出の後押しとサポートを行うことを目的に運営しています。

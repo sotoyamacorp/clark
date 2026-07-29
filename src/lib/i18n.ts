@@ -5,7 +5,7 @@ export const defaultLocale: Locale = 'ja';
 
 export const ui = {
   ja: {
-    nav: { articles: '記事', about: '私たちについて', contact: 'お問い合わせ', search: '検索' },
+    nav: { articles: '記事', about: '私たち/クラークについて', contact: 'お問い合わせ', search: '検索' },
     footer: { navigation: 'Navigation', contact: 'Contact' },
     breadcrumb: { home: 'ホーム' },
     articleCard: { readMore: '記事を読む →', publishedToday: '🆕 本日公開' },
@@ -21,7 +21,7 @@ export const ui = {
     },
   },
   en: {
-    nav: { articles: 'Articles', about: 'About Us', contact: 'Contact', search: 'Search' },
+    nav: { articles: 'Articles', about: 'About Us & Clark', contact: 'Contact', search: 'Search' },
     footer: { navigation: 'Navigation', contact: 'Contact' },
     breadcrumb: { home: 'Home' },
     articleCard: { readMore: 'Read article →', publishedToday: '🆕 Published today' },
