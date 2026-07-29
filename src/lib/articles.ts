@@ -18,8 +18,8 @@ export const regionBadgeStyles: Record<ArticleRegion, string> = {
 
 // category は内部的な分類キー。表示用ラベルはここで locale ごとに定義する。
 export const categoryLabels: Record<Locale, Record<string, string>> = {
-  ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ', labor: '労働政策', economy: '経済', 'real-estate': '不動産', investment: '投資' },
-  en: { history: 'History', incentives: 'Tax Incentives', policy: 'Policy', infrastructure: 'Infrastructure', labor: 'Labor Policy', economy: 'Economy', 'real-estate': 'Real Estate', investment: 'Investment' },
+  ja: { history: '歴史', incentives: '税制優遇', policy: '政策・規制', infrastructure: 'インフラ', labor: '労働政策', economy: '経済', 'real-estate': '不動産', investment: '投資', 'ec-retail': 'EC・リテール' },
+  en: { history: 'History', incentives: 'Tax Incentives', policy: 'Policy', infrastructure: 'Infrastructure', labor: 'Labor Policy', economy: 'Economy', 'real-estate': 'Real Estate', investment: 'Investment', 'ec-retail': 'E-Commerce & Retail' },
 };
 
 export interface ArticleTranslation {
@@ -88,13 +88,13 @@ export const articles: Article[] = [
         title: 'フィリピンの外資規制が緩和：第13次ネガティブリスト(EO113)を日本企業向けに解説',
         description:
           '2026年4月署名・5月施行の大統領令113号(第13次外国投資ネガティブリスト)で何が変わったか。小売業の外資規制緩和を中心に、日本企業への影響を解説します。',
-        tags: ['外資規制', 'ネガティブリスト', 'EO113', '小売業', 'フィリピン進出'],
+        tags: ['外資規制', 'ネガティブリスト', 'EO113', '小売業', 'フィリピン進出', 'EC・リテール'],
       },
       en: {
         title: 'The Philippines Eases Foreign Ownership Rules: What EO 113 Means for Japanese Companies',
         description:
           'What changed under Executive Order 113 (the 13th Foreign Investment Negative List), signed in April 2026 and effective in May 2026 — with a focus on retail and what it means for Japanese companies.',
-        tags: ['Foreign ownership rules', 'Negative List', 'EO 113', 'Retail trade', 'Philippines expansion'],
+        tags: ['Foreign ownership rules', 'Negative List', 'EO 113', 'Retail trade', 'Philippines expansion', 'E-Commerce & Retail'],
       },
     },
   },
