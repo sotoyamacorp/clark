@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /chat-corpus.json
 
 Sitemap: https://ph.sotoyamacorp.com/sitemap-index.xml

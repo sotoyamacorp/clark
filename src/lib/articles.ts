@@ -258,6 +258,46 @@ export const articles: Article[] = [
       },
     },
   },
+  {
+    slug: 'philippines-peso-inflation-bsp-2026',
+    publishedAt: new Date('2026-07-31T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'ペソが史上最安値、BSPは利上げへ転換：日本企業が注視すべき為替・金利動向',
+        description:
+          'フィリピンペソが2026年7月に史上最安値を更新。中央銀行BSPは利下げから利上げへ転換しました。背景と、進出企業が為替・金利面で押さえておきたいポイントを解説します。',
+        tags: ['フィリピンペソ', 'BSP', 'インフレ', '金利', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Peso Hits Record Low as BSP Pivots to Rate Hikes: What Japanese Companies Should Watch',
+        description:
+          "The Philippine peso hit a record low in July 2026, and the central bank BSP has pivoted from cutting to hiking rates. Here's the background and what it means for companies operating in the Philippines.",
+        tags: ['Philippine peso', 'BSP', 'Inflation', 'Interest rates', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-semiconductor-exports-2026',
+    publishedAt: new Date('2026-07-31T09:30:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラークの半導体・電子部品輸出38億ドルに：CDCが企業と対話、次の一手は',
+        description:
+          'クラーク・フリーポート・ゾーンの半導体・電子部品輸出が2025年に38億ドルに到達。CDCが企業と課題を協議した内容と、日本企業への示唆を解説します。',
+        tags: ['クラーク半導体', 'CDC', '電子部品輸出', 'Pax Silica', 'フィリピン進出'],
+      },
+      en: {
+        title: "Clark's Semiconductor Exports Hit $3.8B: CDC Talks with Locators, What's Next",
+        description:
+          "Semiconductor and electronics exports from Clark Freeport Zone reached $3.8 billion in 2025. Here's what CDC discussed with locator companies, and what it means for Japanese firms.",
+        tags: ['Clark semiconductor', 'CDC', 'Electronics exports', 'Pax Silica', 'Philippines expansion'],
+      },
+    },
+  },
 ];
 
 export const sortedArticles = [...articles].sort(
