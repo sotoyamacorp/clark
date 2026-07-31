@@ -24,7 +24,7 @@ clark-site/
 新規記事は `src/pages/articles/clark-history-and-value.mdx` を**フォーマットのテンプレート**として使うこと。今後追加する記事もこの構成に揃える。
 
 ### テンプレートの構成要素
-1. フロントマター: `layout: ../../layouts/BaseLayout.astro` / `title` / `description` / `publishedAt` / `author` / `category` / `tags`
+1. フロントマター: `layout: ../../layouts/BaseLayout.astro` / `title` / `description` / `publishedAt` / `author` / `category` / `tags` / `faq`(任意、下記参照)
 2. 本文全体を `<div class="max-w-3xl mx-auto px-4 py-12">` で囲む
 3. 構成順序:
    - `# タイトル`(h1)
@@ -32,7 +32,23 @@ clark-site/
    - `## この記事で分かる◯つのポイント`(番号付きボックスで要点を先出し。`bg-navy-50 border border-navy-200 rounded-lg p-8` + 丸数字アイコン)
    - 本文セクション(`##`見出し。装飾ボックスは `border-l-4 border-accent-500 bg-white p-6 shadow-sm` などで要点を視覚的に区切る)
    - `## まとめ`(次に取るべきステップを番号付きで提示。`bg-navy-900 text-white p-10 rounded-xl` のボックス)
+   - `## よくある質問`(任意。AI Overview/ChatGPT等の回答エンジンからの引用を狙う場合に追加。下記「FAQPage構造化データ」参照)
    - `## 出典・参考情報`(箇条書き、末尾に「記事公開日：」を明記)
+
+### FAQPage構造化データ(AEO対策)
+
+2026-08-01にJioの依頼で導入。記事frontmatterに`faq`配列(`q`/`a`のペア、2〜4問程度)を追加すると、`BaseLayout.astro`が自動的にFAQPage構造化データ(JSON-LD)を出力する(`src/lib/schema.ts`の`faqSchema()`)。ChatGPT・Perplexity・Google AI OverviewなどのAI回答エンジンに直接引用されやすくするための対策。
+
+- **frontmatterに`faq`を追加しただけでは不十分。本文にも同じ内容を可視化すること**(Google等の構造化データガイドラインは、JSON-LDと同じ内容がページ上に実際に表示されていることを要求している)。本文側は`## よくある質問`見出しの下に、既存の`border-l-4 border-accent-500 bg-white p-6 shadow-sm`ボックスで質問・回答を並べる(実装例: `src/pages/articles/philippines-fdi-peza-gap-2026.mdx`)。
+- 全記事necessaryではない。読者から実際に聞かれそうな定義的な質問(「Xとは何か」「なぜYが起きたのか」)がある記事で使う。
+- 英語版記事にも同じ`faq`を機械的に翻訳して追加すること。
+
+### パンくずリスト・og:type(SEO対策)
+
+2026-08-01に導入。以下は記事ページで自動的に処理されるため、記事執筆時に個別対応は不要:
+- `BaseLayout.astro`が記事ページ(`publishedAt`があり`/articles/{slug}`形式のURL)を検知すると、パンくずリスト(ホーム>記事>タイトル)を自動表示し、`BreadcrumbList`のJSON-LDも自動出力する。
+- 記事ページの`og:type`は自動的に`article`になり、`article:published_time`/`article:modified_time`も自動出力される(トップ・about等の非記事ページは`website`のまま)。
+- 記事を大幅に更新した場合は、frontmatterに`updatedAt`(Date型)を追加すると、JSON-LDの`dateModified`に反映される(未指定の場合は`publishedAt`と同じ扱い)。
 
 ### 新規記事を追加する手順
 1. `src/pages/articles/` に新しい `.mdx` ファイルを作成し、上記テンプレートに沿って執筆する(出典は必ず最低3つ、`content-style.md`のトーンに従う)。

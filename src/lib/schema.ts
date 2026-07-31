@@ -22,6 +22,7 @@ export interface ArticleSchemaInput {
   headline: string;
   description: string;
   datePublished: string;
+  dateModified?: string;
   authorId?: string;
   url: string;
   image?: string;
@@ -37,7 +38,7 @@ export function articleSchema(input: ArticleSchemaInput) {
     headline: input.headline,
     description: input.description,
     datePublished: input.datePublished,
-    dateModified: input.datePublished,
+    dateModified: input.dateModified ?? input.datePublished,
     url: input.url,
     ...(input.image ? { image: input.image } : {}),
     author: {
@@ -62,6 +63,28 @@ export function breadcrumbSchema(items: BreadcrumbItem[]) {
       position: index + 1,
       name: item.name,
       item: item.url,
+    })),
+  };
+}
+
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+// AIチャット等の回答エンジンに引用されやすくするためのFAQPage構造化データ。
+// 記事frontmatterの faq 配列(存在する場合のみ)から生成する。
+export function faqSchema(items: FaqItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
     })),
   };
 }

@@ -2,13 +2,14 @@
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import Breadcrumb from '../components/layout/Breadcrumb.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
 import GlossaryTerms from '../components/GlossaryTerms.astro';
 import { siteConfig, siteText } from '../lib/site-config';
 import { canonicalUrl } from '../lib/seo';
-import { organizationSchema, articleSchema } from '../lib/schema';
-import { getLangFromUrl, getAlternatePath } from '../lib/i18n';
+import { organizationSchema, articleSchema, faqSchema, type FaqItem } from '../lib/schema';
+import { getLangFromUrl, getAlternatePath, localizedPath, ui } from '../lib/i18n';
 import { getRelatedArticles } from '../lib/articles';
 
 interface Props {
@@ -22,6 +23,10 @@ interface Props {
   // 検索エンジンのインデックス対象からも除外する。承認後の本番公開時にこのフィールドごと
   // frontmatterから外すこと(clark-site/CLAUDE.md参照)。
   draft?: boolean;
+  // 記事を更新した場合のみ指定。未指定ならpublishedAtと同じ扱い(JSON-LDのdateModified)。
+  updatedAt?: Date;
+  // AI Overview等の回答エンジンに引用されやすくするためのFAQ。指定した記事のみFAQPage構造化データを出力する。
+  faq?: FaqItem[];
 }
 
 // MDX/Markdownの `layout:` フロントマター経由の場合、フィールドは
@@ -30,7 +35,7 @@ interface Props {
 // 両方のケースに対応する。
 const props = (Astro.props as { frontmatter?: Props }).frontmatter ?? Astro.props;
 const locale = getLangFromUrl(Astro.url);
-const { title, description = siteText[locale].description, ogImage = '/og/og-default.png', publishedAt, author, draft = false } = props;
+const { title, description = siteText[locale].description, ogImage = '/og/og-default.png', publishedAt, author, draft = false, updatedAt, faq } = props;
 
 const pageTitle = `${title} | ${siteText[locale].name}`;
 const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
@@ -44,16 +49,29 @@ const orgJsonLd = organizationSchema(locale);
 const articleSlugMatch = Astro.url.pathname.match(/\/articles\/([^/]+)\/?$/);
 const relatedArticles =
   publishedAt && articleSlugMatch ? getRelatedArticles(articleSlugMatch[1], locale, 3) : [];
+const dateModifiedIso = publishedAt
+  ? new Date(updatedAt ?? publishedAt).toISOString()
+  : undefined;
 const articleJsonLd = publishedAt
   ? articleSchema({
       headline: title,
       description,
       datePublished: new Date(publishedAt).toISOString(),
+      dateModified: dateModifiedIso,
       authorId: author,
       url: canonical,
       image: ogImageUrl,
       locale,
     })
+  : null;
+const faqJsonLd = faq && faq.length > 0 ? faqSchema(faq) : null;
+// 記事ページのみパンくずを自動生成して表示する(個別ページでの手動指定は不要)
+const breadcrumbItems = articleSlugMatch
+  ? [
+      { name: ui[locale].breadcrumb.home, url: localizedPath('/', locale) },
+      { name: ui[locale].nav.articles, url: localizedPath('/articles', locale) },
+      { name: title, url: Astro.url.pathname },
+    ]
   : null;
 ---
 
@@ -78,7 +96,7 @@ const articleJsonLd = publishedAt
     />
 
     <!-- OGP -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={publishedAt ? 'article' : 'website'} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -87,6 +105,12 @@ const articleJsonLd = publishedAt
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    {publishedAt && (
+      <>
+        <meta property="article:published_time" content={new Date(publishedAt).toISOString()} />
+        <meta property="article:modified_time" content={dateModifiedIso} />
+      </>
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImageUrl} />
 
@@ -101,6 +125,9 @@ const articleJsonLd = publishedAt
     <script type="application/ld+json" is:inline set:html={JSON.stringify(orgJsonLd)} />
     {articleJsonLd && (
       <script type="application/ld+json" is:inline set:html={JSON.stringify(articleJsonLd)} />
+    )}
+    {faqJsonLd && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(faqJsonLd)} />
     )}
 
     <!-- Google Analytics (GA4)。下書きプレビューでは計測しない -->
@@ -125,6 +152,7 @@ const articleJsonLd = publishedAt
       </div>
     )}
     <Header locale={locale} alternatePath={alternatePath} />
+    {breadcrumbItems && <Breadcrumb items={breadcrumbItems} locale={locale} />}
     <main class="flex-1" data-pagefind-body>
       <slot />
       <RelatedArticles articles={relatedArticles} locale={locale} />
