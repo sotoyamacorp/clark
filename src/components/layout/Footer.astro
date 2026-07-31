@@ -21,6 +21,8 @@ const year = new Date().getFullYear();
       <div>
         <p class="eyebrow mb-3 text-xs font-semibold uppercase text-accent-500">{t.footer.navigation}</p>
         <ul class="space-y-2 text-base">
+          <li><a href={localizedPath('/articles', locale)} class="hover:text-white">{t.nav.articles}</a></li>
+          <li><a href={localizedPath('/glossary', locale)} class="hover:text-white">{t.nav.glossary}</a></li>
           <li><a href={localizedPath('/about', locale)} class="hover:text-white">{t.nav.about}</a></li>
           <li><a href={localizedPath('/contact', locale)} class="hover:text-white">{t.nav.contact}</a></li>
         </ul>
