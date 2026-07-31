@@ -5,10 +5,10 @@ export const defaultLocale: Locale = 'ja';
 
 export const ui = {
   ja: {
-    nav: { articles: '記事', about: '私たち/クラークについて', contact: 'お問い合わせ', search: '検索' },
+    nav: { articles: '記事', about: '私たち/クラークについて', contact: 'お問い合わせ', search: '検索', glossary: '用語集' },
     footer: { navigation: 'Navigation', contact: 'Contact' },
     breadcrumb: { home: 'ホーム' },
-    articleCard: { readMore: '記事を読む →', publishedToday: '🆕 本日公開' },
+    articleCard: { readMore: '記事を読む →', publishedToday: '🆕 本日公開', underReview: '🚧 レビュー中' },
     filter: { all: 'すべて', label: '記事のカテゴリー絞り込み' },
     language: { switchTo: 'EN', current: '日本語' },
     search: { heading: 'サイト内検索', placeholder: 'キーワードを入力' },
@@ -38,10 +38,10 @@ export const ui = {
     },
   },
   en: {
-    nav: { articles: 'Articles', about: 'About Us & Clark', contact: 'Contact', search: 'Search' },
+    nav: { articles: 'Articles', about: 'About Us & Clark', contact: 'Contact', search: 'Search', glossary: 'Glossary' },
     footer: { navigation: 'Navigation', contact: 'Contact' },
     breadcrumb: { home: 'Home' },
-    articleCard: { readMore: 'Read article →', publishedToday: '🆕 Published today' },
+    articleCard: { readMore: 'Read article →', publishedToday: '🆕 Published today', underReview: '🚧 Under review' },
     filter: { all: 'All', label: 'Filter articles by category' },
     language: { switchTo: '日本語', current: 'English' },
     search: { heading: 'Search the site', placeholder: 'Enter a keyword' },

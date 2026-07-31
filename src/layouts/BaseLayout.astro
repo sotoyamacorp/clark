@@ -3,10 +3,13 @@ import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import ChatWidget from '../components/ChatWidget.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import GlossaryTerms from '../components/GlossaryTerms.astro';
 import { siteConfig, siteText } from '../lib/site-config';
 import { canonicalUrl } from '../lib/seo';
 import { organizationSchema, articleSchema } from '../lib/schema';
 import { getLangFromUrl, getAlternatePath } from '../lib/i18n';
+import { getRelatedArticles } from '../lib/articles';
 
 interface Props {
   title: string;
@@ -37,6 +40,10 @@ const jaUrl = locale === 'ja' ? canonical : alternateUrl;
 const enUrl = locale === 'en' ? canonical : alternateUrl;
 const ogImageUrl = canonicalUrl(ogImage, Astro.site);
 const orgJsonLd = organizationSchema(locale);
+// 記事ページ(publishedAtが存在し、URLが /articles/{slug} 形式)でのみ関連記事を表示する
+const articleSlugMatch = Astro.url.pathname.match(/\/articles\/([^/]+)\/?$/);
+const relatedArticles =
+  publishedAt && articleSlugMatch ? getRelatedArticles(articleSlugMatch[1], locale, 3) : [];
 const articleJsonLd = publishedAt
   ? articleSchema({
       headline: title,
@@ -120,8 +127,10 @@ const articleJsonLd = publishedAt
     <Header locale={locale} alternatePath={alternatePath} />
     <main class="flex-1" data-pagefind-body>
       <slot />
+      <RelatedArticles articles={relatedArticles} locale={locale} />
     </main>
     <Footer locale={locale} />
     <ChatWidget locale={locale} />
+    <GlossaryTerms locale={locale} />
   </body>
 </html>

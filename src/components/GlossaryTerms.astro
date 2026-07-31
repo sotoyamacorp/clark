@@ -1,0 +1,184 @@
+---
+import { glossary } from '../lib/glossary';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const closeLabel = locale === 'ja' ? '閉じる' : 'Close';
+const glossaryPageLabel = locale === 'ja' ? '用語集で詳しく見る →' : 'See full glossary →';
+const glossaryPagePath = locale === 'ja' ? '/glossary' : '/en/glossary';
+// 用語が長いものから先に処理する(将来的に一方が他方の部分文字列になる語を
+// 追加しても誤って短い方だけが先にマッチしないようにするための保険)。
+const terms = [...glossary]
+  .sort((a, b) => b.term.length - a.term.length)
+  .map((entry) => ({ term: entry.term, definition: entry[locale] }));
+---
+
+<script define:vars={{ terms, closeLabel, glossaryPageLabel, glossaryPagePath }}>
+  function closeAllGlossaryPopovers() {
+    document.querySelectorAll('.glossary-popover').forEach((el) => el.remove());
+  }
+
+  function onGlossaryTermClick(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const next = button.nextElementSibling;
+    if (next && next.classList.contains('glossary-popover')) {
+      next.remove();
+      return;
+    }
+    closeAllGlossaryPopovers();
+
+    const popover = document.createElement('span');
+    popover.className = 'glossary-popover';
+    popover.setAttribute('role', 'tooltip');
+
+    const text = document.createElement('span');
+    text.className = 'glossary-popover-text';
+    text.textContent = button.getAttribute('data-definition') || '';
+
+    const link = document.createElement('a');
+    link.className = 'glossary-popover-link';
+    link.href = glossaryPagePath + '#' + encodeURIComponent(button.getAttribute('data-term') || '');
+    link.textContent = glossaryPageLabel;
+
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'glossary-popover-close';
+    close.setAttribute('aria-label', closeLabel);
+    close.textContent = '×';
+    close.addEventListener('click', (e) => {
+      e.stopPropagation();
+      popover.remove();
+    });
+
+    popover.appendChild(text);
+    popover.appendChild(link);
+    popover.appendChild(close);
+    button.insertAdjacentElement('afterend', popover);
+  }
+
+  // 記事本文(<main>)の中から、指定した用語の最初の出現箇所だけを
+  // クリック可能なボタンに置き換える。既にリンク・見出し以外の場所は問わない。
+  function wrapFirstOccurrence(root, term, definition) {
+    const regex = new RegExp('\\b' + term + 's?\\b');
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.textContent || !regex.test(node.textContent)) return NodeFilter.FILTER_SKIP;
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (parent.closest('script, style, svg, a, h1, .glossary-term, .glossary-popover, [data-pagefind-ignore]')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    const node = walker.nextNode();
+    if (!node) return false;
+
+    const match = regex.exec(node.textContent);
+    if (!match) return false;
+
+    const matchText = match[0];
+    const idx = match.index;
+    const beforeNode = document.createTextNode(node.textContent.slice(0, idx));
+    const afterNode = document.createTextNode(node.textContent.slice(idx + matchText.length));
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'glossary-term';
+    button.textContent = matchText;
+    button.setAttribute('data-definition', definition);
+    button.setAttribute('data-term', term);
+    button.addEventListener('click', onGlossaryTermClick);
+
+    const parent = node.parentNode;
+    parent.insertBefore(beforeNode, node);
+    parent.insertBefore(button, node);
+    parent.insertBefore(afterNode, node);
+    parent.removeChild(node);
+    return true;
+  }
+
+  function initGlossary() {
+    const root = document.querySelector('main');
+    if (!root) return;
+    terms.forEach(({ term, definition }) => {
+      if (!definition) return;
+      wrapFirstOccurrence(root, term, definition);
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.closest && e.target.closest('.glossary-term, .glossary-popover')) return;
+    closeAllGlossaryPopovers();
+  });
+
+  initGlossary();
+</script>
+
+<style is:global>
+  .glossary-term {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-weight: 700;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: var(--color-accent-600, #a3782a);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  .glossary-term:hover {
+    color: var(--color-accent-700, #8a651f);
+  }
+  .glossary-popover {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.6rem 0.85rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-navy-200, #cdd8e5);
+    background: var(--color-navy-50, #f6f8fb);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-navy-800, #1a3450);
+  }
+  .glossary-popover-text {
+    display: inline;
+  }
+  .glossary-popover-link {
+    display: inline-block;
+    margin-left: 0.5rem;
+    color: var(--color-accent-700, #8a651f);
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+  .glossary-popover-link:hover {
+    color: var(--color-accent-600, #a3782a);
+  }
+  .glossary-popover-close {
+    display: inline-block;
+    margin-left: 0.5rem;
+    border: none;
+    background: none;
+    padding: 0 0.25rem;
+    color: var(--color-navy-600, #3d5c82);
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1;
+    vertical-align: middle;
+  }
+  .glossary-popover-close:hover {
+    color: var(--color-navy-950, #0b1826);
+  }
+</style>

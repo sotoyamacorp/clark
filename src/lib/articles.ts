@@ -303,3 +303,30 @@ export const articles: Article[] = [
 export const sortedArticles = [...articles].sort(
   (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime()
 );
+
+// 記事末尾の「関連記事」表示に使う関連度スコアリング。
+// タグの一致(最重視)→カテゴリー一致→地域一致の順で重み付けし、
+// 同点の場合は新しい記事を優先する。関連度が低くても枠は必ず埋める
+// (何も出ないより、直近の他記事が出る方が回遊性に貢献するため)。
+export function getRelatedArticles(currentSlug: string, locale: Locale, count = 3): Article[] {
+  const current = articles.find((a) => a.slug === currentSlug);
+  if (!current) return [];
+
+  const currentTags = new Set(current.translations[locale].tags);
+
+  return articles
+    .filter((a) => a.slug !== currentSlug && !a.draft)
+    .map((a) => {
+      const sharedTags = a.translations[locale].tags.filter((tag) => currentTags.has(tag)).length;
+      let score = sharedTags * 3;
+      if (a.category === current.category) score += 2;
+      if (a.region === current.region) score += 1;
+      return { article: a, score };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return b.article.publishedAt.getTime() - a.article.publishedAt.getTime();
+    })
+    .slice(0, count)
+    .map((x) => x.article);
+}

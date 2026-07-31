@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { glossary, getRelatedSlugsForTerm } from '../../lib/glossary';
+import { articles } from '../../lib/articles';
+import { localizedPath } from '../../lib/i18n';
+
+const locale = 'en' as const;
+
+const entries = [...glossary]
+  .sort((a, b) => a.term.localeCompare(b.term))
+  .map((entry) => {
+    const relatedSlugs = getRelatedSlugsForTerm(entry.term, locale);
+    const relatedArticles = articles.filter((a) => relatedSlugs.includes(a.slug) && !a.draft);
+    return { ...entry, relatedArticles };
+  });
+---
+
+<BaseLayout
+  title="Glossary"
+  description="A glossary of key abbreviations and terms for Philippines and Clark expansion — PEZA, CDC, BOI, and more — with links to related articles."
+>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <h1 class="mb-4 text-4xl font-bold text-navy-950">Glossary</h1>
+    <p class="mb-10 text-navy-700">
+      Key abbreviations and terms that appear across our articles — PEZA, CDC, BOI, and more. These same terms are also clickable directly within article text, showing a quick definition inline.
+    </p>
+    <dl class="space-y-6">
+      {entries.map((entry) => (
+        <div id={entry.term} class="scroll-mt-24 rounded-lg border border-navy-100 bg-white p-6 shadow-sm">
+          <dt class="mb-2 text-xl font-bold text-navy-950">{entry.term}</dt>
+          <dd>
+            <p class="text-navy-700">{entry.en}</p>
+            {entry.relatedArticles.length > 0 && (
+              <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
+                <span class="text-navy-500">Related articles:</span>
+                {entry.relatedArticles.map((post) => (
+                  <a
+                    href={localizedPath(`/articles/${post.slug}`, locale)}
+                    class="rounded-full border border-navy-200 px-3 py-1 text-navy-700 underline hover:border-navy-400 hover:text-navy-950"
+                  >
+                    {post.translations[locale].title}
+                  </a>
+                ))}
+              </div>
+            )}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</BaseLayout>

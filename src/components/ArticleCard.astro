@@ -18,19 +18,29 @@ const dateLocale = locale === 'ja' ? 'ja-JP' : 'en-US';
 // バッジが残り続けてしまう(静的HTMLに焼き付いてしまうため)。訪問者のブラウザで
 // 実際の「今日」と比較することで、リビルド頻度に依存せず正しい表示を保つ。
 const publishedDateStr = `${post.publishedAt.getFullYear()}-${String(post.publishedAt.getMonth() + 1).padStart(2, '0')}-${String(post.publishedAt.getDate()).padStart(2, '0')}`;
+const isDraft = post.draft === true;
 ---
 
 <article
   data-region={post.region}
   data-published-date={publishedDateStr}
-  class="relative flex h-full flex-col rounded-xl border border-navy-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md hover:border-navy-200"
+  data-draft={isDraft ? 'true' : undefined}
+  class={`relative flex h-full flex-col rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md ${
+    isDraft ? 'border-amber-400 ring-2 ring-amber-100' : 'border-navy-100 hover:border-navy-200'
+  }`}
 >
-  <span
-    data-today-badge
-    class="hidden absolute -top-3 -right-3 items-center gap-1 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white shadow-md"
-  >
-    {t.articleCard.publishedToday}
-  </span>
+  {isDraft ? (
+    <span class="absolute -top-3 -right-3 inline-flex items-center gap-1 rounded-full bg-amber-400 px-3 py-1 text-xs font-bold text-amber-950 shadow-md">
+      {t.articleCard.underReview}
+    </span>
+  ) : (
+    <span
+      data-today-badge
+      class="hidden absolute -top-3 -right-3 items-center gap-1 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white shadow-md"
+    >
+      {t.articleCard.publishedToday}
+    </span>
+  )}
   <div class="mb-3 flex items-center justify-between gap-3">
     <div class="flex flex-wrap items-center gap-2">
       <span class={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${regionBadgeStyles[post.region]}`}>
@@ -73,7 +83,7 @@ const publishedDateStr = `${post.publishedAt.getFullYear()}-${String(post.publis
     const now = new Date();
     const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 
-    document.querySelectorAll<HTMLElement>('[data-published-date]').forEach((el) => {
+    document.querySelectorAll<HTMLElement>('[data-published-date]:not([data-draft])').forEach((el) => {
       if (el.getAttribute('data-published-date') !== todayStr) return;
       el.classList.remove('border-navy-100');
       el.classList.add('border-red-400', 'ring-2', 'ring-red-100');

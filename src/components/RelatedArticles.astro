@@ -1,0 +1,23 @@
+---
+import ArticleCard from './ArticleCard.astro';
+import type { Article } from '../lib/articles';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  articles: Article[];
+  locale: Locale;
+}
+
+const { articles: relatedArticles, locale } = Astro.props;
+---
+
+{relatedArticles.length > 0 && (
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6" aria-labelledby="related-articles-heading" data-pagefind-ignore>
+    <h2 id="related-articles-heading" class="mb-8 text-2xl font-bold text-navy-950">
+      {locale === 'ja' ? '関連記事' : 'Related Articles'}
+    </h2>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {relatedArticles.map((post) => <ArticleCard post={post} locale={locale} />)}
+    </div>
+  </section>
+)}
