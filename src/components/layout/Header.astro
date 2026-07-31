@@ -17,7 +17,7 @@ const navItems = [
 ];
 ---
 
-<header class="border-b border-navy-100 bg-white">
+<header class="relative border-b border-navy-100 bg-white">
   <div class="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-4 sm:gap-3 sm:px-6 sm:py-5">
     <a href={localizedPath('/', locale)} class="flex min-w-0 items-center gap-2 overflow-hidden sm:gap-2.5">
       <span
@@ -40,6 +40,24 @@ const navItems = [
           </li>
         ))}
       </ul>
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="flex shrink-0 items-center text-navy-700 hover:text-navy-950 sm:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={locale === 'ja' ? 'メニューを開く' : 'Open menu'}
+      >
+        <svg id="mobile-menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+        <svg id="mobile-menu-icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
       <a
         href={localizedPath('/search', locale)}
         class="flex shrink-0 items-center text-navy-700 hover:text-navy-950"
@@ -72,4 +90,51 @@ const navItems = [
       </a>
     </nav>
   </div>
+  <div
+    id="mobile-menu"
+    class="hidden absolute inset-x-0 top-full z-40 border-t border-navy-100 bg-white shadow-md sm:hidden"
+  >
+    <ul class="flex flex-col px-3 py-2">
+      {navItems.map((item) => (
+        <li class="border-b border-navy-50 last:border-b-0">
+          <a href={item.href} class="block px-1 py-3 text-base text-navy-700 hover:text-navy-950">
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </header>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('mobile-menu-icon-open');
+  const iconClose = document.getElementById('mobile-menu-icon-close');
+
+  function setMenuOpen(open: boolean) {
+    menu?.classList.toggle('hidden', !open);
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+    button?.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  button?.addEventListener('click', () => {
+    setMenuOpen(menu?.classList.contains('hidden') ?? false);
+  });
+
+  menu?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) setMenuOpen(false);
+  });
+
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (!menu || menu.classList.contains('hidden')) return;
+    if (target.closest('#mobile-menu, #mobile-menu-button')) return;
+    setMenuOpen(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
+  });
+</script>
