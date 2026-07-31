@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-fdi-peza-gap-2026',
+    publishedAt: new Date('2026-08-01T09:00:00'),
+    category: 'investment',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'PEZA投資承認は67%増なのに実際のFDIは10年ぶり低水準：何が起きているか',
+        description:
+          'PEZAの投資承認額は2026年に入り前年比67%増の一方、BSP統計の実際のFDI流入額は10年ぶりの低水準。一見矛盾する2つの数字の意味を、進出企業向けに解説します。',
+        tags: ['FDI', 'PEZA', '対内直接投資', '投資動向', 'フィリピン進出'],
+      },
+      en: {
+        title: "PEZA Approvals Up 67%, But Actual FDI Hits a 10-Year Low: What's Going On",
+        description:
+          "PEZA's investment approvals are up 67% year-on-year in 2026, while BSP's actual FDI inflow data shows a 10-year low. Here's what these two seemingly contradictory numbers actually mean.",
+        tags: ['FDI', 'PEZA', 'Foreign direct investment', 'Investment trends', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-korean-tourism-investment-2026',
+    publishedAt: new Date('2026-08-01T09:30:00'),
+    category: 'real-estate',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラークで韓国系デベロッパーがホテル・MICE投資を加速：産業だけではない多角的な成長',
+        description:
+          '韓国系デベロッパーJnHとLuxiaが、クラークでホテル・サービスアパートメント等の投資を相次いで実行。産業用地・半導体だけではないクラークの多角的な成長を解説します。',
+        tags: ['クラーク観光投資', 'MICE', '韓国系デベロッパー', 'CDC', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Korean Developers Accelerate Hotel and MICE Investment in Clark: Growth Beyond Industry',
+        description:
+          "Korean developers JnH and Luxia have both moved forward on hotel and serviced-apartment investments in Clark. Here's what these deals signal about Clark's growth beyond manufacturing and semiconductors.",
+        tags: ['Clark tourism investment', 'MICE', 'Korean developers', 'CDC', 'Philippines expansion'],
+      },
+    },
+  },
+  {
     slug: 'clark-history-and-value',
     publishedAt: new Date('2026-07-28'),
     category: 'history',
