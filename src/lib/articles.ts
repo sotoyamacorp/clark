@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-oecd-economic-survey-2026',
+    publishedAt: new Date('2026-08-02T09:00:00'),
+    category: 'policy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'OECD、フィリピン初の経済審査を発表：優遇税制見直し提言の意味',
+        description:
+          '2026年2月、OECDが対比初となる経済審査を発表。実施の背景、他ASEAN諸国との違い、政府・進出企業の反応、税制優遇見直し提言までを進出企業向けに解説します。',
+        tags: ['OECD', '経済審査', '税制優遇', 'PEZA', 'フィリピン進出'],
+      },
+      en: {
+        title: "OECD's First Philippines Survey: Why Its Tax Incentive Proposal Matters",
+        description:
+          "In February 2026, the OECD released its first-ever Economic Survey of the Philippines. Why now, how it compares to other ASEAN reviews, government and business reaction, and the tax incentive proposal.",
+        tags: ['OECD', 'Economic Survey', 'Tax incentives', 'PEZA', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-digital-infrastructure-hub-2026',
+    publishedAt: new Date('2026-08-02T09:30:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク・フリーポートがデジタルインフラ拠点へ：データセンター投資相次ぐ',
+        description:
+          '2026年3月、CDCとDICTがクラーク・フリーポート・ゾーンでデータセンター整備計画を始動。プログラムの中身、関心を示す他企業、エリアの基礎知識まで解説します。',
+        tags: ['クラーク進出', 'データセンター', 'デジタルインフラ', 'CDC', 'DICT'],
+      },
+      en: {
+        title: 'Clark Freeport Becomes a Digital Infrastructure Hub: Data Center Investment',
+        description:
+          "In March 2026, CDC and DICT launched a data center program in Clark Freeport Zone. The program in depth, other interested companies, and area background.",
+        tags: ['Clark expansion', 'Data centers', 'Digital infrastructure', 'CDC', 'DICT'],
+      },
+    },
+  },
+  {
     slug: 'philippines-fdi-peza-gap-2026',
     publishedAt: new Date('2026-08-01T09:00:00'),
     category: 'investment',
