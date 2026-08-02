@@ -39,6 +39,26 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'clark-nscr-airport-express-2026',
+    publishedAt: new Date('2026-08-02T10:00:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク〜マカティを1時間で結ぶ「エアポート・エクスプレス」、JICA融資で始動',
+        description:
+          'クラーク国際空港とマカティCBDを1時間未満で結ぶ「エアポート・エクスプレス」計画の中身、JICA融資と参画企業の国際色、運輸省とクラークの関係まで解説します。',
+        tags: ['NSCR', 'エアポート・エクスプレス', 'JICA', '鉄道', 'クラーク国際空港'],
+      },
+      en: {
+        title: "The 'Airport Express' Will Link Clark and Makati in Under an Hour",
+        description:
+          "A rail link connecting Clark International Airport to Makati CBD in under an hour is under construction. Here's the JICA financing, the international contractors involved, and DOTr's own ties to Clark.",
+        tags: ['NSCR', 'Airport Express', 'JICA', 'Railway', 'Clark International Airport'],
+      },
+    },
+  },
+  {
     slug: 'philippines-oecd-economic-survey-2026',
     publishedAt: new Date('2026-08-02T09:00:00'),
     category: 'policy',
