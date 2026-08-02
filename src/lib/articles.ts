@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-upper-middle-income-2026',
+    publishedAt: new Date('2026-08-03T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピンが「高中所得国」入り：世界銀行認定、進出企業への意味',
+        description:
+          '2026年7月、世界銀行がフィリピンを高中所得国に格上げ。39年ぶりの区分変更の背景と、信用力向上・ODA減少という光と影、進出企業への示唆を解説します。',
+        tags: ['高中所得国', '世界銀行', 'GNI', '投資環境', 'フィリピン進出'],
+      },
+      en: {
+        title: "The Philippines Reaches 'Upper-Middle-Income' Status: What It Means",
+        description:
+          "In July 2026, the World Bank reclassified the Philippines as upper-middle income for the first time in 39 years. Here's the credit-profile upside, the ODA downside, and what it means for companies.",
+        tags: ['Upper-middle income', 'World Bank', 'GNI', 'Investment climate', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-aerodistrict-aerospace-hub-2026',
+    publishedAt: new Date('2026-08-03T09:30:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク空港運営会社、759ヘクタールの航空都市「AeroDistrict」始動',
+        description:
+          '2026年7月、クラーク国際空港運営のLIPADが759ヘクタールの航空産業都市構想を発表。ルフトハンザ・テクニックのMRO拠点拡張とあわせて、日本企業への意味を解説します。',
+        tags: ['クラーク国際空港', 'AeroDistrict', 'MRO', '航空産業', 'LIPAD'],
+      },
+      en: {
+        title: "Clark Airport Operator Launches 759-Hectare 'AeroDistrict' Plan",
+        description:
+          "In July 2026, Clark International Airport operator LIPAD unveiled a 759-hectare aerospace district masterplan. Here's Lufthansa Technik's MRO expansion and what it means for Japanese companies.",
+        tags: ['Clark International Airport', 'AeroDistrict', 'MRO', 'Aerospace industry', 'LIPAD'],
+      },
+    },
+  },
+  {
     slug: 'clark-nscr-airport-express-2026',
     publishedAt: new Date('2026-08-02T10:00:00'),
     category: 'infrastructure',
