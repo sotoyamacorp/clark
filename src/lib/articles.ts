@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-energy-crisis-2026',
+    publishedAt: new Date('2026-08-04T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: '2026年フィリピンのエネルギー危機とは：中東情勢と燃料価格高騰の全体像',
+        description:
+          '2026年2月のホルムズ海峡閉鎖を契機とした燃料価格高騰・停電で、フィリピンは国家エネルギー非常事態を宣言。背景・政府対応・企業への影響を整理します。',
+        tags: ['エネルギー危機', '燃料価格', '中東情勢', '国家非常事態', 'フィリピン進出'],
+      },
+      en: {
+        title: "The 2026 Philippine Energy Crisis: What Happened and Why It Matters",
+        description:
+          "Since the Strait of Hormuz closure in February 2026, fuel price spikes and blackouts led the Philippines to declare a national energy emergency. Here's the background and business impact.",
+        tags: ['Energy crisis', 'Fuel prices', 'Middle East tensions', 'State of emergency', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-business-services-expansion-2026',
+    publishedAt: new Date('2026-08-04T09:30:00'),
+    category: 'investment',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラークで専門サービス・BPOの拡張相次ぐ：進出企業を支える体制が厚みを増す',
+        description:
+          '2026年7月、大手会計事務所P&AグラントソントンとBPO大手MicroSourcingがクラークで相次いで拠点拡張。進出企業を支えるサービス基盤の充実度を解説します。',
+        tags: ['専門サービス', 'BPO', '会計事務所', 'クラーク進出', 'P&Aグラントソントン'],
+      },
+      en: {
+        title: "Clark's Professional Services and BPO Base Deepens as Two Firms Expand",
+        description:
+          "In July 2026, accounting firm P&A Grant Thornton and BPO giant MicroSourcing both expanded into Clark. Here's what it signals about the support ecosystem for companies there.",
+        tags: ['Professional services', 'BPO', 'Accounting firm', 'Clark expansion', 'P&A Grant Thornton'],
+      },
+    },
+  },
+  {
     slug: 'philippines-upper-middle-income-2026',
     publishedAt: new Date('2026-08-03T09:00:00'),
     category: 'economy',
