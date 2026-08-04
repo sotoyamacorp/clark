@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-worldbank-growth-outlook-2026',
+    publishedAt: new Date('2026-08-05T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: '世界銀行、フィリピン成長率見通しを下方修正：洪水対策汚職スキャンダルの影響',
+        description:
+          '世界銀行が2026年8月、フィリピンの2027年成長率見通しを5.4%から5.2%へ下方修正。背景にある洪水対策インフラの汚職スキャンダルと、進出企業への影響を解説します。',
+        tags: ['世界銀行', '経済見通し', '汚職スキャンダル', 'インフラ投資', 'フィリピン進出'],
+      },
+      en: {
+        title: 'World Bank Cuts Philippine Growth Outlook, Citing Flood Control Graft',
+        description:
+          "In August 2026, the World Bank cut its 2027 Philippine growth forecast from 5.4% to 5.2%. Here's the flood-control infrastructure corruption scandal behind it, and what it means for companies.",
+        tags: ['World Bank', 'Growth outlook', 'Corruption scandal', 'Infrastructure investment', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-fedex-southeast-asia-hub-2026',
+    publishedAt: new Date('2026-08-05T09:30:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'FedExがクラークに8,000万ドル投資：東南アジアハブ化構想の中身',
+        description:
+          'FedExがクラーク国際空港に8,000万ドルを投資し、東南アジアの物流ハブ化を計画。BCDAの70億ペソ規模の支援策とあわせて、日本企業への意味を解説します。',
+        tags: ['FedEx', '航空貨物', '物流ハブ', 'クラーク国際空港', 'BCDA'],
+      },
+      en: {
+        title: 'FedEx Invests $80 Million in Clark: A Southeast Asia Hub Takes Shape',
+        description:
+          "FedEx is investing $80 million in Clark International Airport to build out a Southeast Asia logistics hub. Here's BCDA's ₱7 billion support package and what it means for Japanese companies.",
+        tags: ['FedEx', 'Air cargo', 'Logistics hub', 'Clark International Airport', 'BCDA'],
+      },
+    },
+  },
+  {
     slug: 'philippines-energy-crisis-2026',
     publishedAt: new Date('2026-08-04T09:00:00'),
     category: 'economy',
