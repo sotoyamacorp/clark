@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-h2-growth-target-2026',
+    publishedAt: new Date('2026-08-06T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: '政府は下半期に自信、世界銀行は慎重：フィリピン成長率をめぐる温度差',
+        description:
+          '第1四半期2.8%成長にとどまったフィリピン経済。政府は残り3四半期平均3.7%成長で目標達成に自信を見せる一方、世界銀行はより慎重な見通しを示しています。',
+        tags: ['GDP成長率', 'NEDA', 'バリサカン', '経済見通し', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Government Confident on H2, World Bank Cautious: A Growth Outlook Gap',
+        description:
+          "Philippine growth slowed to 2.8% in Q1 2026. The government says catch-up spending will drive a strong H2 recovery, while the World Bank takes a more cautious view.",
+        tags: ['GDP growth', 'NEDA', 'Balisacan', 'Growth outlook', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-bcda-investment-cbd-2026',
+    publishedAt: new Date('2026-08-06T09:30:00'),
+    category: 'investment',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'BCDA投資承認64%増の535億ペソ、クラークに100ヘクタール新CBD構想も始動',
+        description:
+          'BCDAの投資承認額が2025年1〜7月で535億ペソ・前年比64%増に。クラーク・フリーポート内では「北ルソンのBGC」を目指す100ヘクタールのCBD構想も動き出しています。',
+        tags: ['BCDA', '投資', 'クラークCBD', 'ニュークラークシティ', 'クラーク進出'],
+      },
+      en: {
+        title: 'BCDA Investment Approvals Jump 64% to ₱53.5B, Plus a New 100-Hectare Clark CBD',
+        description:
+          "BCDA's investment approvals hit ₱53.5 billion in the first seven months of 2025, up 64% year-on-year. A 100-hectare Clark CBD, billed as the 'BGC of Northern Luzon,' is also taking shape.",
+        tags: ['BCDA', 'Investment', 'Clark CBD', 'New Clark City', 'Clark expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-worldbank-growth-outlook-2026',
     publishedAt: new Date('2026-08-05T09:00:00'),
     category: 'economy',
