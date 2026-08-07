@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-ofw-remittances-2026',
+    publishedAt: new Date('2026-08-07T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'OFW送金は過去最高356億ドルも、伸び率は4年ぶりの低水準に',
+        description:
+          '2025年のOFW送金は過去最高の356.3億ドル(GDP比7.3%)を記録。しかし2026年に入り伸び率が鈍化し、5月は4年ぶりの低い伸びに。消費への影響を解説します。',
+        tags: ['OFW送金', '海外送金', '個人消費', 'BSP', 'フィリピン進出'],
+      },
+      en: {
+        title: 'OFW Remittances Hit a Record $35.6B, But Growth Slows to a 4-Year Low',
+        description:
+          "OFW remittances hit a record $35.6 billion (7.3% of GDP) in 2025. But growth has slowed sharply in 2026, hitting a four-year low in May. Here's what it means for consumer demand.",
+        tags: ['OFW remittances', 'Overseas remittances', 'Household consumption', 'BSP', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-office-market-2026',
+    publishedAt: new Date('2026-08-07T09:30:00'),
+    category: 'real-estate',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラークのオフィス市場、空室率19.8%まで改善:BPO大手の進出が続く',
+        description:
+          'パンパンガのオフィス空室率が24.4%から19.8%まで改善。Sutherland・DXC・IntouchCXなどBPO大手の進出が続き、2026〜29年には8.6万平米の新規供給も予定されています。',
+        tags: ['オフィス市場', 'BPO', '空室率', 'クラーク進出', '不動産'],
+      },
+      en: {
+        title: "Clark's Office Market: Vacancy Falls to 19.8% as BPO Majors Keep Moving In",
+        description:
+          "Pampanga's office vacancy rate has improved from 24.4% to 19.8%. BPO majors like Sutherland, DXC, and IntouchCX keep expanding, with 86,000 sqm of new supply planned for 2026-29.",
+        tags: ['Office market', 'BPO', 'Vacancy rate', 'Clark expansion', 'Real estate'],
+      },
+    },
+  },
+  {
     slug: 'philippines-h2-growth-target-2026',
     publishedAt: new Date('2026-08-06T09:00:00'),
     category: 'economy',
