@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-jpepa-trade-2026',
+    publishedAt: new Date('2026-08-08T09:00:00'),
+    category: 'policy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: '日比貿易額は過去最高1.27兆ペソ(約220億ドル)、JPEPA改定交渉も本格化',
+        description:
+          '2025年の日比貿易額は1.27兆ペソ(約220億ドル)規模に。JPEPA(日比経済連携協定)発効から約18年、自動車関税を中心とした改定交渉も進んでいます。進出企業への影響を解説します。',
+        tags: ['JPEPA', '日比貿易', '関税', '日本企業', 'フィリピン進出'],
+      },
+      en: {
+        title: "PH-Japan Trade Hits a Record ₱1.27T ($22B), as JPEPA Revision Talks Advance",
+        description:
+          "Philippines-Japan bilateral trade reached a record ₱1.27 trillion (roughly $22 billion) in 2025. Roughly 18 years after JPEPA took effect, revision talks focused on auto tariffs are now underway.",
+        tags: ['JPEPA', 'Philippines-Japan trade', 'Tariffs', 'Japanese companies', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-jamco-aerospace-investment-2026',
+    publishedAt: new Date('2026-08-08T09:30:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: '日本のJamco、クラークに6億ペソ投資:日本から最終組立を移管',
+        description:
+          '日本の航空機内装大手ジャムコの現地法人が、クラーク航空拠点に6億ペソを投資。日本国内で行っていた最終組立をクラークへ移管し、従業員数を450人から1,400人へ拡大します。',
+        tags: ['ジャムコ', '航空宇宙産業', 'MRO', 'クラーク国際空港', '日本企業'],
+      },
+      en: {
+        title: "Japan's Jamco Invests ₱600M in Clark, Shifting Final Assembly From Japan",
+        description:
+          "Japanese aircraft interiors maker Jamco's local subsidiary is investing ₱600 million in Clark Aviation Capital, shifting final assembly from Japan and growing its workforce from 450 to 1,400.",
+        tags: ['Jamco', 'Aerospace industry', 'MRO', 'Clark International Airport', 'Japanese companies'],
+      },
+    },
+  },
+  {
     slug: 'philippines-ofw-remittances-2026',
     publishedAt: new Date('2026-08-07T09:00:00'),
     category: 'economy',
