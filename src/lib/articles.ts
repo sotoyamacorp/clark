@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-q2-gdp-slowdown-2026',
+    publishedAt: new Date('2026-08-09T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: '第2四半期GDP2.3%、2009年以来の低水準:下半期目標は4.4%へ上昇',
+        description:
+          '2026年第2四半期の実質GDP成長率は2.3%とコロナ後最低を記録。鉱工業がマイナス成長に転じる中、下半期に必要な成長率は3.7%から4.4%へ上方修正されました。',
+        tags: ['GDP成長率', '第2四半期', 'DEPDev', '経済見通し', 'フィリピン進出'],
+      },
+      en: {
+        title: "Q2 GDP Slows to 2.3%, Weakest Since 2009: H2 Target Rises to 4.4%",
+        description:
+          "Philippine real GDP growth slowed to 2.3% in Q2 2026, the weakest since 2009 excluding the pandemic. With industry now contracting, the growth needed in H2 has risen from 3.7% to 4.4%.",
+        tags: ['GDP growth', 'Q2 2026', 'DEPDev', 'Growth outlook', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-mice-tourism-hub-2026',
+    publishedAt: new Date('2026-08-09T09:30:00'),
+    category: 'investment',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク、アジア最高のMICE都市に選出:来訪者3,300万人・稼働率85%',
+        description:
+          'クラークが世界旅行大賞でアジア最高のMICE都市に選出。2025年の来訪者数は3,300万人超、ホテル稼働率は70〜85%まで回復し、新規1,300室の開発も進んでいます。',
+        tags: ['MICE', '観光', 'ホテル', 'クラーク国際空港', '世界旅行大賞'],
+      },
+      en: {
+        title: "Clark Named Asia's Top MICE City: 33 Million Visitors, 85% Occupancy",
+        description:
+          "Clark was named Asia's Leading Meetings and Conference Destination at the World Travel Awards. 2025 saw over 33 million visitors, hotel occupancy near 85%, and 1,300 new rooms in the pipeline.",
+        tags: ['MICE', 'Tourism', 'Hotels', 'Clark International Airport', 'World Travel Awards'],
+      },
+    },
+  },
+  {
     slug: 'philippines-jpepa-trade-2026',
     publishedAt: new Date('2026-08-08T09:00:00'),
     category: 'policy',
