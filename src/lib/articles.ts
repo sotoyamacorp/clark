@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-rice-tariff-inflation-2026',
+    publishedAt: new Date('2026-08-10T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピンの7月インフレ6.2%に鈍化も高止まり:コメ関税トリガー制度とは',
+        description:
+          '2026年7月のフィリピン消費者物価上昇率は6.2%と前月から鈍化も、依然目標レンジを大幅に上回る水準。コメ価格を左右する新しい四半期関税トリガー制度を解説します。',
+        tags: ['インフレ', 'コメ関税', '消費者物価', 'PSA', 'フィリピン進出'],
+      },
+      en: {
+        title: "PH Inflation Eases to 6.2% in July, Still Elevated: The New Rice Tariff Trigger",
+        description:
+          "Philippine consumer price inflation eased to 6.2% in July 2026, still well above target. Here's how the new quarterly rice tariff trigger system, a key driver, actually works.",
+        tags: ['Inflation', 'Rice tariff', 'Consumer prices', 'PSA', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-ups-logistics-hub-2026',
+    publishedAt: new Date('2026-08-10T09:30:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'UPSがクラーク新拠点を9月開業へ:LIPADとCIACの違いも整理',
+        description:
+          'UPSがクラーク国際空港に新物流拠点を開業。アジア太平洋2.5億ドル超の投資計画の一環で、空港運営会社LIPADとの提携協定を締結しました。CIACとの違いも解説します。',
+        tags: ['UPS', '航空貨物', '物流ハブ', 'LIPAD', 'クラーク国際空港'],
+      },
+      en: {
+        title: "UPS's New Clark Hub Opens in September: LIPAD vs. CIAC, Explained",
+        description:
+          "UPS is opening a new logistics hub at Clark International Airport as part of a $250M+ Asia-Pacific investment plan, partnering with airport operator LIPAD. Here's how LIPAD differs from CIAC.",
+        tags: ['UPS', 'Air cargo', 'Logistics hub', 'LIPAD', 'Clark International Airport'],
+      },
+    },
+  },
+  {
     slug: 'philippines-q2-gdp-slowdown-2026',
     publishedAt: new Date('2026-08-09T09:00:00'),
     category: 'economy',
