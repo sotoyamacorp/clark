@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-analysts-growth-forecast-2026',
+    publishedAt: new Date('2026-08-11T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: '民間エコノミストは軒並み下方修正:2026年成長率予測3〜3.9%、政府目標を下回る',
+        description:
+          '第2四半期GDPの下振れを受け、野村・ANZ・キャピタル・エコノミクス等が2026年フィリピン成長率予測を軒並み引き下げ。政府目標3.5〜4.5%を下回る水準で一致しています。',
+        tags: ['GDP成長率', '経済見通し', '野村', 'ANZ', 'フィリピン進出'],
+      },
+      en: {
+        title: "Private Economists Slash 2026 Growth Forecasts to 3-3.9%, Below Government Target",
+        description:
+          "Following the Q2 GDP miss, Nomura, ANZ, and Capital Economics have all cut their 2026 Philippine growth forecasts. All now sit below the government's 3.5-4.5% target range.",
+        tags: ['GDP growth', 'Growth outlook', 'Nomura', 'ANZ', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-incheon-cosmetics-partnership-2026',
+    publishedAt: new Date('2026-08-11T09:30:00'),
+    category: 'investment',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク開発公社、韓国インチョン経済自由区域と提携:化粧品製造の移管も視野',
+        description:
+          'CDCが韓国インチョン経済自由区域(IFEZ)と提携し、製造業・BPO分野での協力を強化。韓国の化粧品・美容製品製造のクラーク移管も検討されています。姉妹経済区域の枠組みを解説します。',
+        tags: ['IFEZ', '韓国投資', '化粧品製造', 'CDC', 'クラーク進出'],
+      },
+      en: {
+        title: "Clark Development Corp Partners With South Korea's Incheon Free Economic Zone",
+        description:
+          "CDC has partnered with South Korea's Incheon Free Economic Zone (IFEZ) to strengthen manufacturing and BPO cooperation, with Korean cosmetics manufacturing relocation among the focus areas.",
+        tags: ['IFEZ', 'Korean investment', 'Cosmetics manufacturing', 'CDC', 'Clark expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-rice-tariff-inflation-2026',
     publishedAt: new Date('2026-08-10T09:00:00'),
     category: 'economy',
