@@ -39,6 +39,26 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-ev-incentive-eo121-2026',
+    publishedAt: new Date('2026-08-11T11:00:00'),
+    category: 'incentives',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'マルコス大統領、EV国内生産向け600億ペソ優遇策「EVIS」に署名:三菱自動車も呼応',
+        description:
+          'マルコス大統領がEV国内生産を後押しする大統領令121号(EVIS)に署名。最大600億ペソの財政支援で、三菱自動車も70億ペソのHEV国内生産投資を表明しました。',
+        tags: ['EV優遇策', 'EVIS', '大統領令121号', '三菱自動車', 'フィリピン進出'],
+      },
+      en: {
+        title: "Marcos Signs ₱60B 'EVIS' Incentive Program for Local EV Manufacturing; Mitsubishi Responds",
+        description:
+          "President Marcos signed EO 121 establishing the EVIS incentive program for local EV manufacturing, worth up to ₱60 billion. Mitsubishi Motors has already pledged a ₱7B HEV investment in response.",
+        tags: ['EV incentives', 'EVIS', 'Executive Order 121', 'Mitsubishi Motors', 'Philippines expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-analysts-growth-forecast-2026',
     publishedAt: new Date('2026-08-11T09:00:00'),
     category: 'economy',
