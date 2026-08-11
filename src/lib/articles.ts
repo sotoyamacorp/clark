@@ -39,6 +39,46 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-bsp-rate-outlook-2026',
+    publishedAt: new Date('2026-08-12T09:30:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'BSP、8月27日会合は「利上げ見送り」の見方が浮上:利上げ路線から一転',
+        description:
+          'スタンダードチャータードがBSPの8月27日会合について、従来予想の利上げから一転「据え置き」に見方を変更。2026年GDP予測も4.0%→3.5%へ下方修正しました。',
+        tags: ['BSP', '政策金利', '金融政策', 'スタンダードチャータード', 'フィリピン進出'],
+      },
+      en: {
+        title: "BSP's August 27 Meeting: Rate Hold Now Expected, Reversing Prior Hike Call",
+        description:
+          'Standard Chartered now expects BSP to hold rates at its August 27 meeting, reversing its earlier hike call. It also cut its 2026 GDP forecast from 4.0% to 3.5%.',
+        tags: ['BSP', 'Policy rate', 'Monetary policy', 'Standard Chartered', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-unemployment-youth-2026',
+    publishedAt: new Date('2026-08-12T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: '6月の失業率4.9%に上昇:若年労働力59.2万人増と採用・賃金への影響',
+        description:
+          '2026年6月のフィリピン失業率は4.9%に上昇。若年労働力の構成、過去推移と先行きシナリオ、採用賃金への影響を整理します。',
+        tags: ['失業率', '労働市場', '若年雇用', 'PSA', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippine Unemployment Hits 4.9%: Who Is in the Youth Labor Pool and What It Means for Wages',
+        description:
+          'Philippine unemployment rose to 4.9% in June 2026. We examine the youth labor pool, historical and forward scenarios, and implications for hiring and wages.',
+        tags: ['Unemployment', 'Labor market', 'Youth employment', 'PSA', 'Philippines expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-ev-incentive-eo121-2026',
     publishedAt: new Date('2026-08-11T11:00:00'),
     category: 'incentives',
