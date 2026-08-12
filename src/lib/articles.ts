@@ -39,6 +39,26 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'clark-inari-amertron-semiconductor-2026',
+    publishedAt: new Date('2026-08-13T09:00:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'マレーシア半導体大手Inari Amertron、クラークに第3拠点「CK3」検討:AI需要が追い風',
+        description:
+          'マレーシアの半導体大手Inari Amertronが、クラークでの第3拠点「CK3」新設を検討。生産能力30%増・600人の新規雇用を見込み、AI・データセンター向け先端電子部品の生産拡大が狙いです。',
+        tags: ['半導体', 'Inari Amertron', 'マレーシア投資', 'AI', 'クラーク進出'],
+      },
+      en: {
+        title: "Malaysian Chip Giant Inari Amertron Eyes Third Clark Site, 'CK3,' Riding AI Demand",
+        description:
+          'Malaysian semiconductor major Inari Amertron is considering a third Clark facility, CK3, targeting a 30% capacity boost and 600 new jobs to scale up production for AI and data center demand.',
+        tags: ['Semiconductors', 'Inari Amertron', 'Malaysian investment', 'AI', 'Clark expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-bsp-rate-outlook-2026',
     publishedAt: new Date('2026-08-12T09:30:00'),
     category: 'economy',
