@@ -2,8 +2,7 @@
 layout: ../../../layouts/BaseLayout.astro
 title: "Philippine Salary Increases Projected at 5.1% in 2027: How to Build a Labor-Cost Budget"
 description: "WTW projects a 5.1% median salary increase budget in the Philippines for 2027. We explain regional comparisons and practical budgeting."
-publishedAt: 2026-08-12
-draft: true
+publishedAt: 2026-08-14
 author: geanoff
 category: labor
 region: philippines
@@ -26,6 +25,18 @@ sources:
     sourceNote: "PSA labor-force composition and wage-worker share"
     collectedAt: "2026-08-12"
     verifiedAt: "2026-08-12"
+  - source: "https://nwpc.dole.gov.ph/region-iii/"
+    sourceNote: "Current Region III daily minimum wages under Wage Order RBIII-26"
+    collectedAt: "2026-08-14"
+    verifiedAt: "2026-08-14"
+  - source: "https://nwpc.dole.gov.ph/wp-content/uploads/2024/10/01.-Wage-Order-No.-RBIII-25.pdf"
+    sourceNote: "Region III minimum-wage increase effective through 2025"
+    collectedAt: "2026-08-14"
+    verifiedAt: "2026-08-14"
+  - source: "https://nwpc.dole.gov.ph/wp-content/uploads/2023/09/Wage-Order-No.-RBIII-24.pdf"
+    sourceNote: "Region III minimum-wage increase in 2023"
+    collectedAt: "2026-08-14"
+    verifiedAt: "2026-08-14"
 ---
 
 <div class="max-w-3xl mx-auto px-4 py-12">
@@ -57,7 +68,28 @@ Across Southeast Asia, the forecast is below Vietnam's 7% and Indonesia's 6%, bu
 
 The Philippines does not have one nationwide minimum wage. Regional wage boards set and review rates, and DOLE began the next review cycle in May 2026. Timing and amounts vary by region.
 
+In Central Luzon (Region III), which includes Clark, daily minimum wages have ranged from PHP515 to PHP600 since April 16, 2026. In Pampanga, the daily rate is PHP600 for non-agriculture, PHP570 for agriculture, and PHP590 for retail and services. Aurora has lower category rates of PHP560, PHP545, and PHP515 respectively. For context, the published NCR non-agriculture rate was PHP695 in June 2026.
+
 Operations with many near-minimum-wage employees are more exposed to wage orders. Specialist-heavy teams are more exposed to market pay and retention pressure. The same 5.1% benchmark can therefore mean very different things across employers.
+
+## Historical Trend and a 2027 Planning Scenario
+
+The chart uses the highest non-agriculture daily rate for Pampanga and the other main Region III provinces. Figures through 2026 are wage-order outcomes. The 2027 figure simply applies WTW's 5.1% salary-budget median to PHP600 as a sensitivity case; it is not a government minimum-wage forecast.
+
+<div class="bg-white border border-gray-200 rounded-xl p-6 my-8 shadow-sm">
+  <h3 class="font-bold text-gray-900 mb-2">Region III non-agriculture minimum wage per day</h3>
+  <p class="text-sm text-gray-500 mb-6">Highest category for Pampanga and peer provinces; 2027 is a planning scenario.</p>
+  <div class="space-y-4">
+    <div><div class="flex justify-between text-sm mb-1"><span>2022 actual</span><strong>PHP460</strong></div><div class="h-5 bg-gray-100 rounded"><div class="h-5 bg-navy-400 rounded" style="width: 72.9%"></div></div></div>
+    <div><div class="flex justify-between text-sm mb-1"><span>2023–2024 actual</span><strong>PHP500 (+8.7%)</strong></div><div class="h-5 bg-gray-100 rounded"><div class="h-5 bg-navy-500 rounded" style="width: 79.2%"></div></div></div>
+    <div><div class="flex justify-between text-sm mb-1"><span>2025 actual</span><strong>PHP550 (+10.0%)</strong></div><div class="h-5 bg-gray-100 rounded"><div class="h-5 bg-navy-600 rounded" style="width: 87.2%"></div></div></div>
+    <div><div class="flex justify-between text-sm mb-1"><span>2026 actual</span><strong>PHP600 (+9.1%)</strong></div><div class="h-5 bg-gray-100 rounded"><div class="h-5 bg-accent-500 rounded" style="width: 95.1%"></div></div></div>
+    <div><div class="flex justify-between text-sm mb-1"><span>2027 planning case</span><strong>PHP631 (+5.1%)</strong></div><div class="h-5 bg-gray-100 rounded border border-dashed border-accent-700"><div class="h-5 bg-accent-300 rounded" style="width: 100%"></div></div></div>
+  </div>
+  <p class="text-xs text-gray-500 mt-5">Note: PHP631 is PHP600 × 1.051, rounded. It is a corporate budgeting sensitivity, not a statutory forecast.</p>
+</div>
+
+Recent Region III wage orders raised the top rate by 8.7% to 10.0%, materially more than the 5.1% company salary-budget benchmark. Employers with many workers near the floor should not assume a uniform 5.1% allowance will always cover the next legal adjustment.
 
 ## Three Scenarios for Japanese Companies
 
@@ -94,7 +126,10 @@ Local payroll is paid in pesos, while Japanese headquarters often report in yen.
 - <a href="https://wealthinsights.metrobank.com.ph/news/pay-raises-in-philippines-seen-edging-up-in-2027-wtw" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Metrobank Wealth Insights / BusinessWorld: Pay raises seen edging up in 2027</a>
 - <a href="https://dole.gov.ph/news/dole-indicative-wage-review-cycle-starts-in-may-2026/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Department of Labor and Employment: Wage review cycle</a>
 - <a href="https://psa.gov.ph/content/number-employed-persons-april-2026-increased-4889-million-filipinos-aged-15-years-and-over" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Philippine Statistics Authority: April 2026 Labor Force Survey</a>
+- <a href="https://nwpc.dole.gov.ph/region-iii/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">NWPC: Region III current minimum wage rates</a>
+- <a href="https://nwpc.dole.gov.ph/wp-content/uploads/2024/10/01.-Wage-Order-No.-RBIII-25.pdf" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">NWPC: Wage Order RBIII-25</a>
+- <a href="https://nwpc.dole.gov.ph/wp-content/uploads/2023/09/Wage-Order-No.-RBIII-24.pdf" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">NWPC: Wage Order RBIII-24</a>
 
-Article date: August 12, 2026
+Article date: August 14, 2026
 
 </div>

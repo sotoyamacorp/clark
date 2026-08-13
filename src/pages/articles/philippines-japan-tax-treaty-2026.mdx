@@ -2,8 +2,7 @@
 layout: ../../layouts/BaseLayout.astro
 title: "新日比租税条約、配当源泉税は最低5%へ:発効前に確認すべき点"
 description: "日本とフィリピンが新租税条約に署名。配当・利子・使用料の上限税率、恒久的施設、仲裁、発効条件を日本企業向けに整理します。"
-publishedAt: 2026-08-12
-draft: true
+publishedAt: 2026-08-14
 author: geanoff
 category: policy
 region: philippines
@@ -26,6 +25,14 @@ sources:
     sourceNote: "フィリピン財務省による署名と政策目的"
     collectedAt: "2026-08-12"
     verifiedAt: "2026-08-12"
+  - source: "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/press_release/20260528phl_pt.html"
+    sourceNote: "現行条約と新条約の投資所得限度税率の公式比較"
+    collectedAt: "2026-08-14"
+    verifiedAt: "2026-08-14"
+  - source: "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/tax_convetion_list_jp.html"
+    sourceNote: "日本のASEAN各国との租税条約原文・統合条文一覧"
+    collectedAt: "2026-08-14"
+    verifiedAt: "2026-08-14"
 ---
 
 <div class="max-w-3xl mx-auto px-4 py-12">
@@ -36,6 +43,10 @@ sources:
 
 日本とフィリピンは2026年5月、1980年の現行条約を全面改定する新しい租税条約に署名しました。日比間で配当、利子、使用料、サービス対価が動く企業には重要ですが、署名されたからといって直ちに新税率を使えるわけではありません。
 
+そもそも租税条約は、同じ所得に「支払元の国」と「受取側の居住国」の双方が課税して二重課税になることを調整する国際ルールです。たとえばフィリピン子会社が日本親会社へ配当を送る場合、フィリピンは源泉地国として支払時に税を差し引き、日本でも受取配当が税務計算の対象になります。条約はフィリピン側で課せる源泉税の上限を定め、日本側では外国税額控除や外国子会社配当益金不算入など国内法の仕組みで調整します。
+
+「条約税率5%」は配当額に対するフィリピン側の上限税率です。子会社の利益に課される法人税率が5%になるという意味ではなく、日本側の税務処理が自動的に完結するわけでもありません。
+
 ## この記事で分かる4つのポイント
 
 <div class="bg-navy-50 border border-navy-200 rounded-lg p-8 my-12"><div class="space-y-6">
@@ -45,17 +56,58 @@ sources:
   <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">4</div><p class="text-gray-800">新条約は未発効で、国内承認と公文交換を待つ必要があります</p></div>
 </div></div>
 
-## 投資所得の税率はどう変わるか
+## 現行条約と新条約はどう変わるか
+
+日本の財務省が公表した公式比較は次の通りです。今回大きく変わるのは、一定の親子会社配当に5%区分が新設される点と、映画フィルム等の使用料が15%から10%へ下がる点です。
+
+| 所得の種類 | 現行条約（署名前） | 新条約 | 主な変更 |
+|---|---|---|---|
+| 配当：90%以上を6か月保有 | 10%（10%以上保有の区分） | 5% | 新たに5%区分を追加 |
+| 配当：10%以上90%未満を6か月保有 | 10% | 10% | 税率は据え置き |
+| 配当：その他 | 15% | 15% | 税率は据え置き |
+| 利子：政府等の受取 | 免税 | 免税 | 変更なし |
+| 利子：その他 | 10% | 10% | 変更なし |
+| 使用料：映画フィルム等 | 15% | 10% | 5ポイント引下げ |
+| 使用料：その他 | 10% | 10% | 変更なし |
+
+※持分判定は、日本法人が支払う場合は議決権、フィリピン法人が支払う場合は資本を用います。
+
+## 投資所得の税率を読み解く
 
 ### 配当
 
-新条約では、6か月以上にわたり90%以上の議決権または資本を保有する一定の親子会社配当に、源泉地国で5%の上限税率が設けられます。10%以上を6か月保有する場合は10%、その他は15%です。
+新条約では、6か月以上にわたり90%以上の議決権または資本を保有する一定の親子会社配当に、源泉地国で5%の上限税率が設けられます。10%以上を6か月保有する場合は10%、その他は15%です。現行条約では90%保有でも10%だったため、100%子会社などからの配当では上限が半分になります。
+
+たとえばフィリピン子会社から日本親会社へ1億ペソを配当し、5%区分の要件を満たす場合、条約上のフィリピン源泉税上限は500万ペソです。現行条約の10%なら1,000万ペソなので、差は500万ペソです。ただし、実際のキャッシュ税額はフィリピン国内法、租税条約適用申請、受益者要件、日本側の税務処理を含めて判断します。
 
 <div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h4 class="font-bold text-gray-900 mb-3">5%はすべての子会社配当に適用されるわけではありません</h4><p class="text-gray-700 leading-relaxed">90%保有と6か月という条件に加え、条約上の受益者、国内手続、主要目的テストなどの確認が必要です。持株比率だけで税率を確定せず、配当予定時点の組織・取引実態を確認する必要があります。</p></div>
+
+### 配当税率を決める確認順序
+
+1. 配当を支払う会社と受け取る会社が、条約上どちらの国の居住者か
+2. 受取会社が配当の受益者（beneficial owner）か
+3. 資本・議決権の保有割合が90%以上、10%以上、その他のどれか
+4. その割合を配当前6か月以上維持しているか
+5. 持株が現地PEと実質的に関連していないか
+6. 主要目的テストや国内の申請・証明書要件を満たすか
 
 ### 利子と使用料
 
 利子は政府等が受け取る場合の免税と、その他10%という基本構造が維持されます。使用料は、現行条約で映画フィルム等に15%、その他に10%だった区分が、新条約では10%に整理されます。
+
+## ASEANの日本向け配当条約と比べると
+
+ASEAN主要国との条約は保有割合・期間・国内法の組み合わせが異なるため単純比較はできませんが、源泉地国の配当上限税率を見ると新日比条約の位置づけが分かります。
+
+| 投資先国 | 日本向け配当の代表的な条約上限 | 読み方 |
+|---|---|---|
+| フィリピン（新条約） | 5%（90%以上・6か月）、10%（10%以上・6か月）、15%（その他） | 5%は高い持分要件付き |
+| シンガポール | 5%（25%以上・6か月）、15%（その他） | 親子会社区分の持分要件はフィリピンより低い |
+| マレーシア | 5%（25%以上・6か月）、15%（その他） | 国内の配当課税制度も併せて確認 |
+| ベトナム | 10% | 保有割合による5%区分はない |
+| インドネシア | 10%（25%以上・12か月）、15%（その他） | 保有期間は12か月 |
+
+新日比条約の5%はASEANでも競争力のある水準ですが、90%という持分要件はシンガポール、マレーシアの25%より厳格です。合弁会社や少数持分の投資では5%を前提にせず、10%または15%で資金計画を作るべきです。なお、上表は条約上の上限を簡略化したもので、実際の適用は各国国内法、受益者要件、MLIによる濫用防止規定等を確認してください。
 
 ## 事業利得と恒久的施設
 
@@ -92,7 +144,9 @@ sources:
 - <a href="https://www.mof.go.jp/tax_policy/summary/international/tax_convention/press_release/20260528phl.html" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">財務省：フィリピンとの新租税条約が署名されました</a>
 - <a href="https://www.mofa.go.jp/s_sa/sea2/ph/pageite_000001_00011.html" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">外務省：Signing of the New Tax Convention</a>
 - <a href="https://www.dof.gov.ph/ph-japan-sign-updated-tax-treaty-to-boost-investment-and-strengthen-economic-cooperation/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Philippine Department of Finance: PH, Japan sign updated tax treaty</a>
+- <a href="https://www.mof.go.jp/tax_policy/summary/international/tax_convention/press_release/20260528phl_pt.html" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">財務省：フィリピンとの新租税条約のポイント（新旧比較）</a>
+- <a href="https://www.mof.go.jp/tax_policy/summary/international/tax_convention/tax_convetion_list_jp.html" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">財務省：我が国の租税条約等の一覧</a>
 
-記事公開日：2026年8月12日
+記事公開日：2026年8月14日
 
 </div>
