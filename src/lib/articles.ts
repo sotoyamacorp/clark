@@ -39,6 +39,24 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-salary-budget-2027',
+    publishedAt: new Date('2026-08-15T09:00:00'),
+    category: 'labor',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: '2027年のフィリピン昇給率は5.1%予測:人件費計画の見方',
+        description: 'WTW調査で2027年のフィリピン昇給率予測は中央値5.1%。周辺国比較、最低賃金との違い、人件費予算への織り込み方を解説します。',
+        tags: ['昇給率', '人件費', '採用', '最低賃金', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippine Salary Increases Projected at 5.1% in 2027: How to Build a Labor-Cost Budget',
+        description: 'WTW projects a 5.1% median salary increase budget in the Philippines for 2027. We explain regional comparisons and practical budgeting.',
+        tags: ['Salary increase', 'Labor costs', 'Hiring', 'Minimum wage', 'Philippines expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-japan-tax-treaty-2026',
     publishedAt: new Date('2026-08-14T09:30:00'),
     category: 'policy',
