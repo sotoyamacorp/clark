@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'clark-rbelt-local-tax-2026',
+    publishedAt: new Date('2026-08-16T09:00:00'),
+    category: 'incentives',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク進出企業の地方税、最大2%に整理:RBELT実務ガイド',
+        description: 'CREATE MORE後の地方税をJMC 01-2026が整理。クラーク登録企業が確認すべきRBELTの対象、税率、SCITとの違いを解説します。',
+        tags: ['RBELT', 'CREATE MORE', 'クラーク進出', '地方税', '税制優遇'],
+      },
+      en: {
+        title: 'Clark Local Tax Clarified: A Practical Guide to the 2% RBELT Cap',
+        description: 'JMC 01-2026 clarifies local taxes after CREATE MORE. Here is what Clark-registered firms need to know about RBELT, ITH, EDR, and SCIT.',
+        tags: ['RBELT', 'CREATE MORE', 'Clark expansion', 'Local tax', 'Tax incentives'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-record-exports-june-2026',
+    publishedAt: new Date('2026-08-16T08:30:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン輸出、6月に過去最高87.7億ドル:電子製品が6割',
+        description: '2026年6月のフィリピン輸出は87.7億ドルで過去最高。電子製品の寄与、輸入増と49.4億ドルの赤字、日本企業への示唆を解説します。',
+        tags: ['フィリピン輸出', '電子製品', '半導体', '貿易統計', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippine Exports Hit Record $8.77B in June, Led by Electronics',
+        description: "Philippine exports hit a record $8.77B in June 2026. We unpack electronics' 60% share, the $4.94B trade deficit, and implications for investors.",
+        tags: ['Philippine exports', 'Electronics', 'Semiconductors', 'Trade data', 'Philippines expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-salary-budget-2027',
     publishedAt: new Date('2026-08-15T09:00:00'),
     category: 'labor',
