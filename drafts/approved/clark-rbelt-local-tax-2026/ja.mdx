@@ -1,0 +1,156 @@
+---
+layout: ../../layouts/BaseLayout.astro
+title: "クラーク進出企業の地方税、最大2%に整理:RBELT実務ガイド"
+description: "CREATE MORE後の地方税をJMC 01-2026が整理。クラーク登録企業が確認すべきRBELTの対象、税率、SCITとの違いを解説します。"
+publishedAt: 2026-08-13
+draft: true
+author: geanoff
+category: incentives
+region: clark
+tags: ["RBELT", "CREATE MORE", "クラーク進出", "地方税", "税制優遇"]
+faq:
+  - q: "RBELTの税率は必ず2%ですか？"
+    a: "いいえ。法律上は登録事業の総所得に対して2%以下で、実際の税率は対象LGUが条例で定めます。"
+  - q: "5%のSCITを選ぶ企業にもRBELTはかかりますか？"
+    a: "原則としてかかりません。RBELTはITHまたはEDR期間中の登録企業を対象とし、SCIT適用企業には課されません。"
+sources:
+  - source: "https://www.dof.gov.ph/clearer-rules-on-local-tax-application-to-improve-ease-of-doing-business-and-stimulate-economic-growth/"
+    sourceNote: "JMC 01-2026の対象、上限税率、地方税との関係"
+    collectedAt: "2026-08-13"
+    verifiedAt: "2026-08-13"
+  - source: "https://lawphil.net/statutes/repacts/ra2024/ra_12066_2024.html"
+    sourceNote: "CREATE MORE法のRBELTおよびSCIT条文"
+    collectedAt: "2026-08-13"
+    verifiedAt: "2026-08-13"
+  - source: "https://www.grantthornton.com.ph/insights/articles-and-updates1/lets-talk-tax/all-eyes-on-jmc-no-1-the-definitive-rbelt-mandate/"
+    sourceNote: "JMC 01-2026の移行企業を含む実務解説。RBELT導入の歴史的経緯(投資奨励法〜PEZA5%GIE〜CREATE〜CREATE MORE)と、条例未制定のままRBELTを事実上徴収するLGUが存在する点への注意喚起も記載"
+    collectedAt: "2026-08-16"
+    verifiedAt: "2026-08-16"
+  - source: "https://www.lawphil.net/statutes/repacts/ra1991/ra_7160_1991.html"
+    sourceNote: "Local Government Code of 1991(共和国法第7160号)。LGUの地方事業税・不動産税の課税権の法的根拠"
+    collectedAt: "2026-08-16"
+    verifiedAt: "2026-08-16"
+  - source: "https://www.officialgazette.gov.ph/2007/03/20/republic-act-no-9400/"
+    sourceNote: "共和国法第9400号(RA 7227改正法)。クラーク・スービックのSCIT収入のうち2%を周辺LGUへ配分する仕組みの法的根拠"
+    collectedAt: "2026-08-16"
+    verifiedAt: "2026-08-16"
+  - source: "https://mtfcounsel.com/2025/08/07/explaining-the-2-local-tax-on-business-enterprises/"
+    sourceNote: "RBELT導入前の地方税免除の運用実態と、CREATE法の文言上の解釈の揺れ(手数料・課徴金の扱い)についての解説"
+    collectedAt: "2026-08-16"
+    verifiedAt: "2026-08-16"
+---
+
+<div class="max-w-3xl mx-auto px-4 py-12">
+
+# クラーク進出企業の地方税、最大2%に整理:RBELT実務ガイド
+
+## はじめに
+
+クラーク経済特区の税制を調べると、「国税・地方税の代わりに5%」という説明と、「地方税が別途かかる」という説明が混在します。原因は、企業が選ぶ優遇制度と登録時期によって扱いが異なるためです。2026年3月30日に発効したJoint Memorandum Circular(JMC) No. 01-2026を基に、判断軸を整理します。
+
+## この記事で分かる4つのポイント
+
+<div class="bg-navy-50 border border-navy-200 rounded-lg p-8 my-12"><div class="space-y-6">
+  <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">1</div><p class="text-gray-800">RBELTは登録事業の総所得に対して最大2%です</p></div>
+  <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">2</div><p class="text-gray-800">対象は原則としてITHまたはEDRを利用する登録企業です</p></div>
+  <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">3</div><p class="text-gray-800">SCIT適用企業にはRBELTを課さない仕組みです</p></div>
+  <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">4</div><p class="text-gray-800">最終的には登録証明書、選択制度、LGU条例の3点確認が必要です</p></div>
+</div></div>
+
+## フィリピンの地方税制度の全体像
+
+RBELTの位置づけを理解するには、まずフィリピンの地方税制度そのものを押さえておく必要があります。
+
+フィリピンでは、州・市・町(LGU、地方自治体)が独自に条例を制定し、事業者に課税する権限を持ちます。この権限は1987年憲法第10条第5節で認められ、具体的な税目・上限税率はLocal Government Code(地方自治法、1991年制定、共和国法第7160号)で定められています。代表的な地方税は次の2つです。
+
+- **地方事業税(Local Business Tax)**: 市区町村が事業者の売上総額に応じて課す税。業種ごとの税率表が条例で定められます。
+- **不動産税(Real Property Tax)**: 土地・建物等の評価額に対して州・市が課す税。
+
+一方、経済特区(PEZA登録区域やクラーク・スービックなどのフリーポート)に登録する企業には、長年「地方税は実質かからない」という理解が一般的でした。背景には、1960年代の投資奨励法に始まる法人所得税免除(ITH)の枠組みに加え、1990年代からPEZA登録企業に導入された「総所得の5%(Gross Income Earned税、のちのSCIT)」が、国税・地方税の両方に代わる(in lieu of all taxes)という位置づけだったことがあります。5%さえ納めれば、LGUへ地方事業税や不動産税を個別に納める必要はない、という運用が長く続いてきました。
+
+この前提は2021年のCREATE法(共和国法第11534号、5%課税をSCITと呼び直した法律)でも維持されましたが、2024年のCREATE MORE法(共和国法第12066号)で状況が変わります。CREATE MOREは、ITH(法人所得税免除)や新設のEDR(強化控除制度)を選ぶ登録企業について、「法人所得税は免除される一方、LGUが課す地方税・手数料・課徴金は対象外(=課税されうる)」という立て付けを明確化しました。SCIT(総所得5%)を選ぶ企業は従来どおり地方税も含めて代替されますが、ITH・EDRを選ぶ企業は地方税を個別に負担しうる、という違いが生まれたのです(なお、当初のCREATE法の条文は「手数料・課徴金」への言及が曖昧で、LGUごとに解釈が割れていたという指摘もあります)。
+
+この「地方税をどう扱うか」という空白を埋めるために導入されたのが、本記事のテーマであるRBELTです。CREATE MORE法が国税法(NIRC)第294条を改正し、ITH・EDR期間中の登録企業に対して、LGUが条例により総所得の2%を上限とする地方税を課せる、という選択肢を新設しました。ただし、これは自動的に発生する税ではなく、対象LGUの議会(Sanggunian)が独自に条例を制定して初めて課税が可能になる仕組みです。全国一律に運用が始まるわけではなく、自治体ごとに「導入するかどうか」「税率を何%にするか」を個別に判断する点が、進出企業にとって最も重要な前提になります。
+
+2026年3月23日付でDILG(内務自治省)・DOF(財務省)・DTI(貿易産業省)が連名でJoint Memorandum Circular(JMC)No. 01-2026を発出し(同年3月30日発効)、この制度の運用ルールを整理しました。PEZA管轄だけでも登録エコゾーンは426件におよぶとされ、全LGUで条例制定・運用の足並みが揃うまでには時間がかかる見込みです。
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8">
+  <h4 class="font-bold text-gray-900 mb-3">クラーク特有の事情:RA 9400による「2%シェア」との違い</h4>
+  <p class="text-gray-700 leading-relaxed">クラーク(およびスービック)では、RBELTとは別に、SCIT(総所得5%)を選ぶ登録企業の税収の一部を周辺LGUへ還元する仕組みが以前から存在します。共和国法第9400号(RA 7227の改正法)により、SCITの5%のうち2%相当がCDC(クラーク開発公社)やSBMA(スービック湾都市開発公社)経由で、アンヘレス市・マバラカット市・ポラック町(パンパンガ州)、バンバン町・カパス町(タルラック州)など周辺LGUへ配分される仕組みです。これはSCIT企業を対象とした国レベルの収益分配の仕組みであり、ITH・EDR企業を対象にLGUが条例で課すRBELTとは制度も対象企業も異なります。クラーク進出企業は、自社がSCITを選ぶかITH・EDRを選ぶかによって、関係してくる地方税制度そのものが変わる点を押さえておく必要があります。</p>
+</div>
+
+## RBELTとは何か
+
+RBELT(Registered Business Enterprise Local Tax)は、CREATE MORE法で導入された登録企業向け地方税です。ITH(法人所得税免除)またはEDR(強化控除制度)の期間中、対象LGUは条例により、登録プロジェクト・活動の総所得に対して2%以下の税率を設定できます。
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8">
+  <h4 class="font-bold text-gray-900 mb-3">RBELTが導入された場合は地方税を一本化</h4>
+  <p class="text-gray-700 leading-relaxed">JMCは、RBELTを地方事業税、固定資産税を含む地方税・手数料・課徴金の代わりと位置づけています。LGUが条例でRBELTを導入した後に、同じ登録事業へ対象外の地方税を重ねて請求することはできません。</p>
+</div>
+
+## ITH・EDR・SCITで扱いが変わる
+
+制度選択を混同すると、事業計画の税負担がずれます。
+
+| 適用制度 | 国税の基本的な扱い | RBELT |
+|---|---|---|
+| ITH | 登録事業の法人所得税を免除 | LGU条例により最大2% |
+| EDR | 課税所得に20%税率と追加控除 | LGU条例により最大2% |
+| SCIT | 総所得に5%、国税・地方税等に代替 | RBELTは課されない |
+
+SCITは原則として適格な輸出企業が選べる制度です。一方、国内市場向け企業やEDRを選ぶ企業ではRBELTが事業採算に直接影響します。単に「クラーク登録企業」とまとめず、プロジェクトごとの優遇証明と選択制度を確認する必要があります。
+
+## クラーク進出企業が確認すべき3点
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8">
+  <h4 class="font-bold text-gray-900 mb-3">候補地より前に税区分を確認する</h4>
+  <p class="text-gray-700 leading-relaxed">クラークではCDCが投資促進機関として登録を扱いますが、地方税の実務には関係LGUも関わります。登録予定の活動、適用制度、施設の所有・利用形態を整理し、CDCと税務専門家へ同じ前提で照会することが重要です。</p>
+</div>
+
+1. Certificate of Registration and Tax Incentivesの対象活動を確認する
+2. ITH・EDR・SCITのどれを、いつから適用するかを確定する
+3. 所在地LGUのRBELT条例、税率、申告・納付方法を確認する
+
+土地を投資促進機関が所有し、登録企業が実質的に使用する場合は、登録企業が課税対象者と扱われる可能性もJMCで示されています。賃貸だから固定資産関連の論点がない、と早合点しない方が安全です。
+
+## 他地域のRBELT条例制定状況:バタンガス・セブ・パンパンガの比較
+
+RBELTは対象LGUの条例が制定されて初めて課税される仕組みのため、実際の税率や運用状況は地域ごとに異なります。クラーク進出を検討する際の目安として、経済特区の集積地であるバタンガス・セブと、クラークが属するパンパンガの状況を調べました。
+
+| 地域 | 対象となりうる主なLGU | RBELT条例の制定状況(2026年8月時点) | 実際の税率 |
+|---|---|---|---|
+| バタンガス | バタンガス州・バタンガス市など(PEZAエコゾーンを多数抱える工業集積地) | 条例制定を裏付ける公開情報は確認できず | 情報未公開 |
+| セブ | セブ市・セブ州・ラプラプ市など(IT-BPO・製造業の集積地) | 条例制定を裏付ける公開情報は確認できず | 情報未公開 |
+| パンパンガ(クラーク圏) | アンヘレス市・マバラカット市・ポラック町 | 条例制定を裏付ける公開情報は確認できず | 情報未公開 |
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8">
+  <h4 class="font-bold text-gray-900 mb-3">「情報未公開」であること自体が実務上重要</h4>
+  <p class="text-gray-700 leading-relaxed">JMC 01-2026自体が、RBELTは「自動的に発生する税ではなく、Sanggunian(議会)による条例制定が前提」と明記しています。税務専門家の解説でも、条例を経ないままRBELTを事実上徴収しようとするLGUが存在し、後の還付トラブルにつながりうる点が指摘されています。制度施行から日が浅いこともあり、本記事執筆時点(2026年8月)では、バタンガス・セブ・パンパンガ(クラーク圏)いずれについても、条例制定や具体的な税率を裏付ける公開資料は確認できませんでした。裏を返せば、「近隣の税率がこれくらいだから自社もそれくらいだろう」という推測は現時点では成り立ちません。進出予定のLGUに対して、条例の有無と税率を個別に確認する作業を省略しないことが重要です。</p>
+</div>
+
+## よくある質問
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">RBELTの税率は必ず2%ですか？</h3><p class="text-gray-700">いいえ。法律上は登録事業の総所得に対して2%以下で、実際の税率は対象LGUが条例で定めます。</p></div>
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">5%のSCITを選ぶ企業にもRBELTはかかりますか？</h3><p class="text-gray-700">原則としてかかりません。RBELTはITHまたはEDR期間中の登録企業を対象とし、SCIT適用企業には課されません。</p></div>
+
+## まとめ
+
+<div class="bg-navy-900 text-white p-10 rounded-xl my-12"><ol class="space-y-6">
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">1</span><p class="text-white">登録プロジェクトごとに適用制度を確認する</p></li>
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">2</span><p class="text-white">RBELTを最大2%として採算シナリオに織り込む</p></li>
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">3</span><p class="text-white">CDC・LGU・専門家の回答を同じ前提条件で突き合わせる</p></li>
+</ol></div>
+
+## 出典・参考情報
+
+- <a href="https://www.dof.gov.ph/clearer-rules-on-local-tax-application-to-improve-ease-of-doing-business-and-stimulate-economic-growth/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Department of Finance: JMC No. 01-2026の概要</a>
+- <a href="https://lawphil.net/statutes/repacts/ra2024/ra_12066_2024.html" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Lawphil: Republic Act No. 12066(CREATE MORE Act)</a>
+- <a href="https://www.grantthornton.com.ph/insights/articles-and-updates1/lets-talk-tax/all-eyes-on-jmc-no-1-the-definitive-rbelt-mandate/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Grant Thornton Philippines: JMC No. 1の実務解説</a>
+- <a href="https://www.lawphil.net/statutes/repacts/ra1991/ra_7160_1991.html" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Lawphil: Republic Act No. 7160(Local Government Code of 1991)</a>
+- <a href="https://www.officialgazette.gov.ph/2007/03/20/republic-act-no-9400/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Official Gazette: Republic Act No. 9400(クラーク・スービックのLGU収益配分)</a>
+- <a href="https://mtfcounsel.com/2025/08/07/explaining-the-2-local-tax-on-business-enterprises/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">MTF Counsel: RBELT導入前の地方税運用実態の解説</a>
+
+記事公開日：2026年8月13日
+
+</div>
