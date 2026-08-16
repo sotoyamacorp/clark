@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-submarine-cable-customs-2026',
+    publishedAt: new Date('2026-08-17T09:00:00'),
+    category: 'infrastructure',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン海底ケーブル船、関税手続き簡素化:CAO 02-2026',
+        description: 'CAO 02-2026で外国の海底ケーブル敷設・修理船の一時輸入を簡素化。免税範囲、再輸出条件、データセンター事業への意味を解説します。',
+        tags: ['海底ケーブル', 'CAO 02-2026', 'データセンター', 'デジタルインフラ', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippines Streamlines Customs for Cable Ships Under CAO 02-2026',
+        description: 'CAO 02-2026 simplifies temporary admission of foreign cable ships. We explain duty relief, re-export conditions, and implications for data centers.',
+        tags: ['Submarine cables', 'CAO 02-2026', 'Data centers', 'Digital infrastructure', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'clark-heatcon-composite-repair-2026',
+    publishedAt: new Date('2026-08-17T08:30:00'),
+    category: 'investment',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'Boeing供給企業Heatcon、クラークに複合材修理拠点',
+        description: 'Heatcon Asiaがクラークで25年契約。航空機の複合材修理・製造・材料流通の集積が生む事業機会を解説します。',
+        tags: ['Heatcon', '航空MRO', '複合材', 'Boeing', 'クラーク進出'],
+      },
+      en: {
+        title: 'Boeing supplier Heatcon establishes a composite repair base in Clark',
+        description: 'Heatcon Asia signs 25-year lease in Clark. Explains the business opportunities arising from the agglomeration of aircraft composite repair, manufacturing, and materials distribution.',
+        tags: ['Heatcon', 'Aircraft MRO', 'Composite materials', 'Boeing', 'Clark expansion'],
+      },
+    },
+  },
+  {
     slug: 'clark-rbelt-local-tax-2026',
     publishedAt: new Date('2026-08-16T09:00:00'),
     category: 'incentives',
