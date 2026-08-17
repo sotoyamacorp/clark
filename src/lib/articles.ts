@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-national-single-window-2026',
+    publishedAt: new Date('2026-08-18T09:00:00'),
+    category: 'policy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン輸出入、National Single Window始動:何が変わるか',
+        description: '輸出入許認可を一つの電子窓口に集約するNSWが試験稼働。72機関の段階導入と日本企業の準備を解説します。',
+        tags: ['National Single Window', 'フィリピン貿易', '通関', '貿易円滑化', 'ASEAN'],
+      },
+      en: {
+        title: 'Philippines Launches National Single Window: What Importers Should Prepare',
+        description: 'The Philippines has piloted a single digital gateway for trade permits. We explain the 72-agency rollout and what businesses should prepare.',
+        tags: ['National Single Window', 'Philippine trade', 'Customs', 'Trade facilitation', 'ASEAN'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-mterra-solar-bess-2026',
+    publishedAt: new Date('2026-08-18T08:30:00'),
+    category: 'infrastructure',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'MTerra Solarが8月商用化へ:蓄電池併設が企業電力に与える意味',
+        description: '世界最大級の太陽光・蓄電池一体施設がフィリピンで商用化へ。規模、電力安定化、企業調達への影響を解説します。',
+        tags: ['MTerra Solar', '蓄電池', '再生可能エネルギー', '電力調達', 'フィリピン進出'],
+      },
+      en: {
+        title: 'MTerra Solar Targets August Operations: What Its Battery Means for Business',
+        description: "One of the world's largest integrated solar and battery projects is nearing operations. We explain its scale and implications for corporate power.",
+        tags: ['MTerra Solar', 'Battery storage', 'Renewable energy', 'Power procurement', 'Philippines investment'],
+      },
+    },
+  },
+  {
     slug: 'philippines-submarine-cable-customs-2026',
     publishedAt: new Date('2026-08-17T09:00:00'),
     category: 'infrastructure',
