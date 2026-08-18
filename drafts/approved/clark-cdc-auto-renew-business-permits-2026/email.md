@@ -5,7 +5,7 @@
 
 Clark Development Corporation(CDC)が、良好な状態にある適格ロケーターの事業許可を毎年自動更新する制度を始めました。開始時点の対象は220社です。
 
-記事では、従来の3年周期との違い、自動更新でも残る税務・報告・安全・環境上の義務、日本企業が維持すべき許認可管理を整理しました。
+記事では、従来の3年周期との違い、自動更新でも残る税務・報告・安全・環境上の義務、日本企業が維持すべき許認可管理に加え、PEZA・SBMA・BOIとの手続き比較、フィリピン全体のEase of Doing Business施策の全体像も整理しました。
 
 ▼続きはこちら
 https://ph.sotoyamacorp.com/articles/clark-cdc-auto-renew-business-permits-2026/

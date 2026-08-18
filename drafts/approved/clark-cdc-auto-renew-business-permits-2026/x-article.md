@@ -29,6 +29,10 @@ https://ph.sotoyamacorp.com/articles/clark-cdc-auto-renew-business-permits-2026/
 
 クラークではCDCがエステートマネージャー兼投資促進機関として域内許可を担います。マニラなど一般地域のLGU事業許可とは手続き主体が違います。
 
+## PEZA・SBMA・BOIとの違いも押さえておく
+
+地味に重要なのがここです。FIRB(財政インセンティブ審査会)は2025年12月、CDCを「eBARのような仕組みを持つ初のIPA」と評価し、他のIPAへの導入を推奨しました。PEZA(全国430以上のエコゾーンを管轄)やSBMA(スービック)には、同種の自動更新の発表は今のところ確認できていません。一方でPEZAは立地の選択肢が圧倒的に広く、BOIは特定の区域に縛られません。手続きの快適さだけで進出先を決めるのは早計です。
+
 新規進出時は、自動更新だけでなく、初回登録、土地・建物、建築、輸出入、税制優遇まで含めて比較するのが重要です。
 
 https://ph.sotoyamacorp.com/articles/clark-cdc-auto-renew-business-permits-2026/
