@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'clark-ciac-locator-process-2026',
+    publishedAt: new Date('2026-08-19T09:00:00'),
+    category: 'policy',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク航空都市へ進出する6段階:CIACロケーター手続き',
+        description: 'CIACへの意向書から賃貸契約、CDCの許認可、操業開始までを日本企業向けに整理します。',
+        tags: ['CIAC', 'Clark Aviation Capital', 'クラーク進出', 'CDC', 'ロケーター'],
+      },
+      en: {
+        title: 'Six steps to become a locator in Clark Aviation Capital',
+        description: "A practical guide to CIAC's letter of intent, lease process, CDC registration, permits and start of operations.",
+        tags: ['CIAC', 'Clark Aviation Capital', 'Clark investment', 'CDC', 'locator'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-green-lane-investments-2026',
+    publishedAt: new Date('2026-08-19T08:30:00'),
+    category: 'policy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピンGreen Lane投資3510億ペソ:申請実務を解説',
+        description: '2026年上期の認定17件とGreen Laneの対象、必要書類、税制優遇との違いを解説します。',
+        tags: ['Green Lane', 'フィリピン投資', 'BOI', 'EO18', '許認可'],
+      },
+      en: {
+        title: 'Philippine Green Lane investments reach PHP351 billion',
+        description: 'What the 17 projects certified in H1 2026 mean, who qualifies, what documents are required and what Green Lane does not provide.',
+        tags: ['Green Lane', 'Philippine investment', 'BOI', 'EO18', 'permits'],
+      },
+    },
+  },
+  {
     slug: 'philippines-national-single-window-2026',
     publishedAt: new Date('2026-08-18T09:00:00'),
     category: 'policy',
