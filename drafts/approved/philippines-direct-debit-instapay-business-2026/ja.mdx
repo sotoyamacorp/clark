@@ -1,0 +1,194 @@
+---
+layout: ../../layouts/BaseLayout.astro
+title: "フィリピン決済3機能開始、法人送金上限は50万ペソ"
+description: "Direct Debit PHなど新決済3機能を解説。法人送金上限50万ペソと日本企業の請求・資金管理への影響を整理します。"
+publishedAt: 2026-08-18
+draft: true
+author: geanoff
+category: policy
+region: philippines
+tags: ["フィリピン決済", "Direct Debit PH", "InstaPay", "法人送金", "フィリピン進出"]
+faq:
+  - q: "InstaPay for Businessでは誰でも50万ペソまで送金できますか？"
+    a: "いいえ。50万ペソへの上限拡大は登録済み法人向けです。利用可否、審査、手数料、操作方法は取引金融機関に確認する必要があります。"
+  - q: "Direct Debit PHを導入すれば未回収はなくなりますか？"
+    a: "なくなりません。口座残高不足、顧客の取消し、登録不備などに備え、再請求、消込、通知、例外処理の運用が必要です。"
+sources:
+  - source: "https://www.pna.gov.ph/articles/1280598"
+    sourceNote: "2026年7月29日に始まった3機能の仕組み、参加金融機関、法人送金上限、2028年目標"
+    collectedAt: "2026-08-18"
+    verifiedAt: "2026-08-18"
+  - source: "https://www.bsp.gov.ph/PaymentAndSettlement/2024_Report_on_E-payments_Measurement.pdf"
+    sourceNote: "2024年のデジタル決済比率、用途別比率、InstaPay・B2B決済の成長率"
+    collectedAt: "2026-08-18"
+    verifiedAt: "2026-08-18"
+  - source: "https://www.bsp.gov.ph/SitePages/PaymentsAndSettlements/PaymentsAndSettlements.aspx"
+    sourceNote: "BSPの決済制度、NRPS、InstaPayとPESONetの位置付け"
+    collectedAt: "2026-08-18"
+    verifiedAt: "2026-08-18"
+  - source: "https://www.pna.gov.ph/articles/1277563"
+    sourceNote: "BSP Circular No. 1238とMemorandum No. M-2026-025の少額加盟店決済手数料方針"
+    collectedAt: "2026-08-18"
+    verifiedAt: "2026-08-18"
+  - source: "https://businessmirror.com.ph/2025/01/23/2024-sees-robust-growth-for-instapay-pesonet/"
+    sourceNote: "InstaPay単体の2024年取引件数・金額(前年比+64.9%、BSPデータに基づく報道)"
+    collectedAt: "2026-08-19"
+    verifiedAt: "2026-08-19"
+  - source: "https://fintechnews.sg/131823/thailand/promptpay-as-a-blueprint-to-modernize-trade-finance-and-infrastructure/"
+    sourceNote: "タイPromptPayの2024年取引規模(Emerging Payments Association Asia集計に基づく報道)"
+    collectedAt: "2026-08-19"
+    verifiedAt: "2026-08-19"
+  - source: "https://en.antaranews.com/news/391269/bank-indonesia-records-us15-trillion-in-bi-fast-transfers"
+    sourceNote: "インドネシアBI-FASTの2024年取引件数・金額(インドネシア中央銀行発表に基づく報道)"
+    collectedAt: "2026-08-19"
+    verifiedAt: "2026-08-19"
+  - source: "https://www.paynet.my/about-us/media-centre/press-release/8-44-billion-transactions-processed-in-2025-as-digital-payments-become-malaysians-preferred-way-to-pay.html"
+    sourceNote: "マレーシアDuitNowの2024年取引件数(PayNet公式プレスリリース)"
+    collectedAt: "2026-08-19"
+    verifiedAt: "2026-08-19"
+  - source: "https://tazapay.com/blog/local-payment-methods-in-singapore-how-paynow-works-in-an-international-payment-gateway"
+    sourceNote: "シンガポールPayNowの2023年取引件数・金額(直近公表値、MAS集計に基づく報道)"
+    collectedAt: "2026-08-19"
+    verifiedAt: "2026-08-19"
+  - source: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2257087&reg=3&lang=2"
+    sourceNote: "インドUPIの2024年取引件数(インド政府広報局PIB発表)"
+    collectedAt: "2026-08-19"
+    verifiedAt: "2026-08-19"
+---
+
+<div class="max-w-3xl mx-auto px-4 py-12">
+
+# フィリピン決済3機能開始、法人送金上限は50万ペソ
+
+## はじめに
+
+フィリピン中央銀行(BSP)とPhilippine Payments Management Inc.(PPMI、民間主導の決済運営組織)は2026年7月29日、Direct Debit PH、InstaPay Cash-In、InstaPay for Businessを始めました。
+
+これは新しいアプリが1つ増えたという話ではありません。定期回収、本人名義口座間の資金移動、法人の即時送金という、企業実務で詰まりやすかった3つの場面を既存の銀行・電子マネー網でつなぐ施策です。
+
+## この記事で分かる4つのポイント
+
+<div class="bg-navy-50 border border-navy-200 rounded-lg p-8 my-12"><div class="space-y-6">
+  <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">1</div><p class="text-gray-800">Direct Debit PHは顧客の事前承認に基づく定期的な自動引き落としです</p></div>
+  <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">2</div><p class="text-gray-800">InstaPay Cash-Inは本人名義の銀行・電子マネー口座間の入金を相互接続します</p></div>
+  <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">3</div><p class="text-gray-800">登録済み法人のInstaPay送金上限は5万ペソから50万ペソへ10倍になりました</p></div>
+  <div class="flex items-center gap-4"><div class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center text-navy-950 font-bold text-sm">4</div><p class="text-gray-800">導入判断では手数料だけでなく承認、消込、例外処理まで設計します</p></div>
+</div></div>
+
+## 3つの機能は何を変えるのか
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">機能</th><th class="p-3 text-left">従来の主な課題</th><th class="p-3 text-left">新しい仕組み</th><th class="p-3 text-left">主な企業用途</th></tr></thead>
+    <tbody>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">Direct Debit PH</td><td class="p-3">毎回の振込依頼、回収漏れ</td><td class="p-3">正式な委任に基づき期日に自動回収</td><td class="p-3">公共料金、会費、ローン、保険、サブスク</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">InstaPay Cash-In</td><td class="p-3">銀行・ウォレットごとの入金経路</td><td class="p-3">本人名義口座間を参加機関横断で移動</td><td class="p-3">ウォレット補充、資金集約</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">InstaPay for Business</td><td class="p-3">即時送金の5万ペソ上限</td><td class="p-3">登録済み法人は最大50万ペソ</td><td class="p-3">仕入、経費、返金、緊急支払</td></tr>
+    </tbody>
+  </table>
+</div>
+
+Direct Debit PHは、顧客が請求者に「指定日に口座から回収してよい」という正式なmandate(引き落とし委任)を与える仕組みです。売り手側には入金予測と回収業務の改善、買い手側には支払忘れの低減が期待できます。
+
+InstaPay Cash-Inの開始時点の参加機関として、AllBank、BPI、China Bank、GoTyme Bank、G-Xchange(GCash)、MariBank、ShopeePay、UnionBankが公表されています。全ての銀行・ウォレットが初日から対応するわけではありません。
+
+InstaPay for Businessでは、登録済み法人の1回当たり上限が5万ペソから50万ペソへ10倍になりました。ただし、これは全利用者の上限一律引き上げではありません。法人登録や取引金融機関の提供条件を確認する必要があります。
+
+## デジタル決済は過半数を超えた
+
+BSPの年次測定では、小売決済件数に占めるデジタル比率は次のように上昇しました。
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">年</th><th class="p-3 text-right">デジタル決済比率(件数)</th></tr></thead>
+    <tbody>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">2020</td><td class="p-3 text-right">20.1%</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">2021</td><td class="p-3 text-right">30.3%</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">2022</td><td class="p-3 text-right">42.1%</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">2023</td><td class="p-3 text-right">52.8%</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">2024</td><td class="p-3 text-right">57.4%</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="text-xs text-gray-500 mt-2">出典: BSP「2024 Report on E-payments Measurement」</p>
+
+2024年は金額ベースでも59.0%でした。BSPは2028年までに件数比率60〜70%を目指しています。
+
+一方、用途別では差があります。2024年の個人・企業からの支払い(P2X)は72.2%がデジタルでしたが、企業からの支払い(B2X)は19.8%でした。B2Bのデジタル決済件数は2023年の約1.60億件から2024年の約2.05億件へ28.1%増えましたが、法人実務にはなお現金・小切手・個別振込の余地が残ります。
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h4 class="font-bold text-gray-900 mb-3">即時化だけでは経理は楽にならない</h4><p class="text-gray-700 leading-relaxed">送金が速くなっても、請求番号、支払目的、承認者、受取確認が会計データにつながらなければ、手作業の消込は残ります。決済手段と経理フローを同時に設計することが重要です。</p></div>
+
+## 周辺国のリアルタイム送金システムとの比較
+
+InstaPayの位置づけを判断する材料として、ASEAN主要国とインドのリアルタイム送金システムを比較します。断定的な優劣ではなく、開始時期と取引規模の違いを事実として整理します。
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">国・地域</th><th class="p-3 text-left">システム</th><th class="p-3 text-left">開始年</th><th class="p-3 text-left">運営主体</th><th class="p-3 text-right">直近の年間取引件数</th><th class="p-3 text-right">前年比</th></tr></thead>
+    <tbody>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">フィリピン</td><td class="p-3">InstaPay</td><td class="p-3">2018年4月</td><td class="p-3">BSP・PPMI(清算:BancNet)</td><td class="p-3 text-right">約1.60億件(2024年)</td><td class="p-3 text-right">+64.9%</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">タイ</td><td class="p-3">PromptPay</td><td class="p-3">2017年1月</td><td class="p-3">タイ中央銀行・NITMX</td><td class="p-3 text-right">約243億件(2024年)</td><td class="p-3 text-right">未確認</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">インドネシア</td><td class="p-3">BI-FAST</td><td class="p-3">2021年12月</td><td class="p-3">インドネシア中央銀行(BI)</td><td class="p-3 text-right">約34億件(2024年)</td><td class="p-3 text-right">+62.4%</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">マレーシア</td><td class="p-3">DuitNow</td><td class="p-3">2018年</td><td class="p-3">PayNet</td><td class="p-3 text-right">約35億件(2024年)</td><td class="p-3 text-right">2019年比30倍</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">シンガポール</td><td class="p-3">PayNow</td><td class="p-3">2017年7月(銀行)/2021年2月(ノンバンク)</td><td class="p-3">MAS・シンガポール銀行協会(ABS)</td><td class="p-3 text-right">約4.37億件(2023年、最新公表値)</td><td class="p-3 text-right">+28%以上(2023年)</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">インド</td><td class="p-3">UPI</td><td class="p-3">2016年4月(試験)/8月(本稼働)</td><td class="p-3">NPCI(インド準備銀行監督)</td><td class="p-3 text-right">約1,720億件(2024年)</td><td class="p-3 text-right">+46%</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="text-xs text-gray-500 mt-2">出典: BSP・PPMI公表データおよびInstaPay/PESONet 2024年実績の現地報道、Bank of Thailand/NITMX集計に基づく報道、インドネシア中央銀行(BI)発表の現地報道、PayNet公式発表、MAS集計に基づく報道、NPCI/インド政府広報局(PIB)発表を基に作成。取引件数は各国のリアルタイム送金システム単体の年間件数(可能な限り直近の公表値)。</p>
+
+InstaPayは2018年開始で、開始時期自体はタイのPromptPay(2017年)やインドのUPI(2016年)と近い時期です。一方、2024年の年間取引件数は約1.60億件で、UPI(約1,720億件)やPromptPay(約243億件)、DuitNow・BI-FAST(ともに30億件台)と比べると規模は小さくなっています。ただし各国の人口規模(インド約14億人、インドネシア約2.8億人、フィリピン約1.1億人、タイ約7,100万人、マレーシア約3,400万人、シンガポール約600万人)が大きく異なるため、この件数だけで単純に優劣を判断することはできません。伸び率で見ると、InstaPayは2023年から2024年にかけて64.9%増と、比較対象国の中でも高い水準です。
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h4 class="font-bold text-gray-900 mb-3">見るべきは取引件数の規模より伸び率と法人利用の広がり</h4><p class="text-gray-700 leading-relaxed">周辺国と比べた取引件数の絶対値よりも重要なのは、フィリピンで法人向け機能(InstaPay for Business、Direct Debit PH)が2026年に入ってようやく整備され始めた段階にあるという点です。UPIやDuitNowのように法人・個人双方で高頻度利用がすでに定着した国と比べ、フィリピンはこれからB2B・B2C双方でデジタル決済が伸びる余地が大きい市場と言えます。</p></div>
+
+## 日本企業が導入前に確認する7項目
+
+1. 取引銀行が各機能に対応しているか
+2. 法人口座の登録要件と1回・1日当たり上限
+3. 顧客からmandateを取得・保管・取り消す手順
+4. 残高不足や失敗時の再請求・通知ルール
+5. ERP、請求書番号、入金明細との消込方法
+6. 送金手数料と少額決済の料金条件
+7. 不正利用、権限分離、返金、監査ログの管理
+
+BSPは2026年6月、少額の加盟店決済を無料とする枠組みと個人間送金の料金パラメーターを示しました。ただし、各サービスの実際の料金は取引金融機関や利用条件で異なります。「制度上使える」と「自社コストが下がる」を分けて検証します。
+
+## こういう企業にとって重要
+
+- 毎月定額を回収する通信、教育、保険、SaaS企業
+- 複数の銀行・電子マネー口座を使うEC、小売、物流企業
+- 5万ペソを超える仕入・経費を即時に支払う現地法人
+- 小切手や手作業の入金消込を減らしたいシェアードサービス部門
+
+まず取引件数、平均単価、失敗率、消込工数を現在値として測り、対象顧客・支払先を限定した小規模導入から始めると効果を比較しやすくなります。
+
+## よくある質問
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">InstaPay for Businessでは誰でも50万ペソまで送金できますか？</h3><p class="text-gray-700">いいえ。50万ペソへの上限拡大は登録済み法人向けです。利用可否、審査、手数料、操作方法は取引金融機関に確認する必要があります。</p></div>
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">Direct Debit PHを導入すれば未回収はなくなりますか？</h3><p class="text-gray-700">なくなりません。口座残高不足、顧客の取消し、登録不備などに備え、再請求、消込、通知、例外処理の運用が必要です。</p></div>
+
+## まとめ
+
+<div class="bg-navy-900 text-white p-10 rounded-xl my-12"><ol class="space-y-6">
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">1</span><p class="text-white">3機能は定期回収、口座間移動、法人即時送金の隙間を埋めます</p></li>
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">2</span><p class="text-white">法人上限50万ペソは資金実務を広げますが、対象条件の確認が必要です</p></li>
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">3</span><p class="text-white">決済、承認、消込、例外処理を一つの業務フローとして設計します</p></li>
+</ol></div>
+
+## 出典・参考情報
+
+- <a href="https://www.pna.gov.ph/articles/1280598" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">PNA: BSP, PPMI launch new digital payment services</a>
+- <a href="https://www.bsp.gov.ph/PaymentAndSettlement/2024_Report_on_E-payments_Measurement.pdf" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">BSP: 2024 Report on E-payments Measurement</a>
+- <a href="https://www.bsp.gov.ph/SitePages/PaymentsAndSettlements/PaymentsAndSettlements.aspx" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">BSP: Payments and Settlements</a>
+- <a href="https://www.pna.gov.ph/articles/1277563" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">PNA: BSP sets zero fees for small merchant e-payments</a>
+- <a href="https://businessmirror.com.ph/2025/01/23/2024-sees-robust-growth-for-instapay-pesonet/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">BusinessMirror: 2024 sees robust growth for InstaPay, PESONet</a>
+- <a href="https://fintechnews.sg/131823/thailand/promptpay-as-a-blueprint-to-modernize-trade-finance-and-infrastructure/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Fintech Singapore: Thailand's PromptPay as a Blueprint to Modernize Trade Finance and Infrastructure</a>
+- <a href="https://en.antaranews.com/news/391269/bank-indonesia-records-us15-trillion-in-bi-fast-transfers" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Antara News: Bank Indonesia records US$1.5 trillion in BI-FAST transfers</a>
+- <a href="https://www.paynet.my/about-us/media-centre/press-release/8-44-billion-transactions-processed-in-2025-as-digital-payments-become-malaysians-preferred-way-to-pay.html" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">PayNet: 8.44 Billion Digital Transactions Processed (DuitNow figures)</a>
+- <a href="https://tazapay.com/blog/local-payment-methods-in-singapore-how-paynow-works-in-an-international-payment-gateway" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Tazapay: PayNow: Revolutionizing Singapore's Digital Payment System</a>
+- <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2257087&reg=3&lang=2" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">PIB India: UPI completes 10 years, world's largest real-time payments platform</a>
+
+記事公開日：2026年8月18日
+
+</div>
