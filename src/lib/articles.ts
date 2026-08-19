@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'clark-wfzo-global-network-2026',
+    publishedAt: new Date('2026-08-20T09:00:00'),
+    category: 'investment',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラークが経済特区の国際団体WFZOと会談、海外発信での連携を打診',
+        description: '2026年8月、クラーク開発公社(CDC)が163カ国・約1600の経済特区が加盟するWFZOと会談。申し出の中身と、進出企業にとっての実務的な意味を整理します。',
+        tags: ['WFZO', 'CDC', 'クラーク経済特区', '国際提携', '投資誘致'],
+      },
+      en: {
+        title: 'Clark Meets Global Free Zone Body WFZO Over International Exposure',
+        description: "In August 2026, Clark Development Corporation met with the World Free Zones Organization, which offered to feature Clark on its global platforms. What it does and doesn't mean for investors.",
+        tags: ['WFZO', 'CDC', 'Clark Freeport Zone', 'International partnership', 'Investment promotion'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-rcoa-100kw-retail-power-2026',
+    publishedAt: new Date('2026-08-20T08:30:00'),
+    category: 'policy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン電力自由化100kWへ:企業の切替判断を解説',
+        description: '2026年6月のRCOA・RAP基準引下げで対象が拡大。契約比較と切替前の確認事項を解説します。',
+        tags: ['RCOA', 'RAP', 'フィリピン電力', 'ERC', '電力小売自由化'],
+      },
+      en: {
+        title: 'Philippine retail power threshold falls to 100 kW',
+        description: 'RCOA and RAP expanded in June 2026. A practical guide to eligibility, supplier comparisons and switching risks for businesses.',
+        tags: ['RCOA', 'RAP', 'Philippine electricity', 'ERC', 'retail competition'],
+      },
+    },
+  },
+  {
     slug: 'clark-ciac-locator-process-2026',
     publishedAt: new Date('2026-08-19T09:00:00'),
     category: 'policy',
