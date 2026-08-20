@@ -17,6 +17,6 @@
 を、煽らずフラットに整理しています。
 
 続きはこちらからご覧ください。
-[本番URL・公開後に確定]
+https://ph.sotoyamacorp.com/articles/philippines-credit-rating-outlook-2026/
 
 クラークフィリピン通信

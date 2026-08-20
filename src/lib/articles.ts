@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-peza-investment-approvals-2026',
+    publishedAt: new Date('2026-08-21T09:00:00'),
+    category: 'investment',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'PEZA投資承認1,519億ペソ、7カ月で前年比67%増:業種・国別動向',
+        description: 'PEZAの2026年1〜7月投資承認額は1,519億ペソ、前年比67%増。業種別・投資国別の内訳、通期目標3,000億ペソへの進捗ペース、承認額と投資実行の違いを解説します。',
+        tags: ['PEZA', '投資承認', 'フィリピン進出', '経済特区', '外資投資動向'],
+      },
+      en: {
+        title: 'PEZA Approves ₱151.9B in Investments, Up 67% YoY: Sector Breakdown',
+        description: "PEZA approved ₱151.9B in investments from January-July 2026, up 67% YoY. We break down the sectors, source countries, pace toward the ₱300B annual target, and why approvals aren't guaranteed capital.",
+        tags: ['PEZA', 'Investment approvals', 'Philippines expansion', 'Economic zones', 'FDI trends'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-credit-rating-outlook-2026',
+    publishedAt: new Date('2026-08-21T08:30:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン格付け見通し引き下げ:Fitch・S&Pが表明、投資適格級は維持',
+        description: '2026年4月、Fitchが見通しをネガティブへ、S&Pをポジティブから安定的へ引き下げ。格下げではなく見通し変更で、投資適格級BBB台は維持。日本企業への実務的な意味を解説。',
+        tags: ['フィリピン格付け', 'Fitch', 'S&P', '信用リスク', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippines Credit Outlook Cut by Fitch and S&P: Investment Grade Intact',
+        description: "In April 2026, Fitch moved the Philippines' outlook to negative and S&P to stable — not a downgrade. Ratings stayed investment grade. What it means for Japanese businesses.",
+        tags: ['Philippines credit rating', 'Fitch', 'S&P', 'sovereign risk', 'Philippines expansion'],
+      },
+    },
+  },
+  {
     slug: 'clark-wfzo-global-network-2026',
     publishedAt: new Date('2026-08-20T09:00:00'),
     category: 'investment',
