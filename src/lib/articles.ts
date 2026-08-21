@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'clark-cdc-auto-renew-business-permits-2026',
+    publishedAt: new Date('2026-08-22T09:00:00'),
+    category: 'policy',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク事業許可、220社が自動更新:対象条件と実務',
+        description: 'CDCが適格ロケーター220社の事業許可を自動更新。従来の3年更新との違い、対象外にならないための確認事項を解説します。',
+        tags: ['クラーク進出', 'CDC', '事業許可', '自動更新', '規制対応'],
+      },
+      en: {
+        title: 'Clark Auto-Renews Business Permits for 220 Locators: A Compliance Guide',
+        description: 'CDC has started automatic annual permit renewal for 220 qualified locators. Here is what changed and what companies must still manage.',
+        tags: ['Clark investment', 'CDC', 'Business permits', 'Automatic renewal', 'Compliance'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-manufacturing-pmi-2026',
+    publishedAt: new Date('2026-08-22T08:30:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン製造業PMI、7月51.8で5カ月ぶり高水準:供給網リスクも残る',
+        description: '2026年7月のフィリピン製造業PMIは51.8、3カ月連続拡大で5カ月ぶり高水準に。半年間の推移とASEAN比較、供給網・コスト圧力、日本企業への示唆を解説します。',
+        tags: ['製造業PMI', 'フィリピン経済', 'サプライチェーン', 'ASEAN', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippines Manufacturing PMI Hits 51.8, a 5-Month High — But Supply Risks Remain',
+        description: "July 2026's Philippines Manufacturing PMI rose to 51.8, a third straight month of growth. See the 6-month trend, ASEAN comparison, and what it means for Japanese firms.",
+        tags: ['Manufacturing PMI', 'Philippine Economy', 'Supply Chain', 'ASEAN', 'Philippines Expansion'],
+      },
+    },
+  },
+  {
     slug: 'clark-food-hub-2026',
     publishedAt: new Date('2026-08-22T09:00:00'),
     category: 'infrastructure',
