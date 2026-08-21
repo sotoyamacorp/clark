@@ -21,6 +21,6 @@
 を、単月の数字に一喜一憂せず、複数月のトレンドで整理しています。
 
 続きはこちらからご覧ください。
-[本番URL・公開後に確定]
+https://ph.sotoyamacorp.com/articles/philippines-manufacturing-pmi-2026/
 
 引き続きクラークフィリピン通信をよろしくお願いいたします。
