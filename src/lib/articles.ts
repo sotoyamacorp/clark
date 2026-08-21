@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'clark-food-hub-2026',
+    publishedAt: new Date('2026-08-22T09:00:00'),
+    category: 'infrastructure',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'クラーク国立フードハブ、建設加速 コールドチェーンに商機',
+        description: 'フィリピン農業省がクラーク国立フードハブの建設を加速。40ヘクタールで着工し2027年末の一部稼働を目指します。コールドチェーン・食品加工分野の日本企業への商機を解説します。',
+        tags: ['クラーク国立フードハブ', 'コールドチェーン', '食料安全保障', '農業物流', 'クラーク進出'],
+      },
+      en: {
+        title: 'Clark National Food Hub construction accelerates: an opening for cold chain investors',
+        description: 'The Philippine Department of Agriculture is fast-tracking the Clark National Food Hub, targeting a 2027 partial launch on 40 hectares. What it means for cold chain and food processing firms.',
+        tags: ['Clark National Food Hub', 'Cold chain', 'Food security', 'Agri-logistics', 'Clark expansion'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-bank-lending-growth-2026',
+    publishedAt: new Date('2026-08-22T08:30:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン銀行融資、5月12.1%から6月9.8%に鈍化:進出企業が読むべき資金調達環境',
+        description: 'フィリピン銀行融資は2026年5月に前年比12.1%(15カ月ぶり高水準)まで加速後、6月は9.8%に鈍化。BSP統計を基に月次推移・業種別動向・進出企業への意味を解説します。',
+        tags: ['フィリピン銀行融資', 'BSP', 'フィリピン経済', '資金調達', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippine Bank Lending: From 12.1% in May to 9.8% in June — What Investors Should Watch',
+        description: 'Philippine bank lending growth accelerated to 12.1% y/y in May 2026, a 15-month high, then slowed to 9.8% in June. A BSP-based month-by-month read for expanding firms.',
+        tags: ['Philippine Bank Lending', 'BSP', 'Philippine Economy', 'Financing', 'Philippines Expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-peza-investment-approvals-2026',
     publishedAt: new Date('2026-08-21T09:00:00'),
     category: 'investment',
