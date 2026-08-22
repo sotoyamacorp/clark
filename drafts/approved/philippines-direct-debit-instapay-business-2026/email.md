@@ -8,6 +8,6 @@
 記事では、3機能の違い、デジタル決済比率の推移、請求・資金管理・経理消込で日本企業が確認すべき実務項目を整理しました。
 
 ▼続きはこちら
-{{PRODUCTION_URL}}
+https://ph.sotoyamacorp.com/articles/philippines-direct-debit-instapay-business-2026/
 
 フィリピン・クラーク通信

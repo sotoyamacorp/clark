@@ -18,7 +18,7 @@
 
 詳しい推移、参加金融機関、3機能の比較表、他国比較はこちら。
 
-{{PRODUCTION_URL}}
+https://ph.sotoyamacorp.com/articles/philippines-direct-debit-instapay-business-2026/
 
 ## 導入前に見るべきこと
 
@@ -38,4 +38,4 @@
 
 詳しい表・出典・日本企業向けの実務チェックは本編へ。
 
-{{PRODUCTION_URL}}
+https://ph.sotoyamacorp.com/articles/philippines-direct-debit-instapay-business-2026/
