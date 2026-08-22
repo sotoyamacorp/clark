@@ -33,6 +33,7 @@ export interface Article {
   publishedAt: Date;
   category: string;
   region: ArticleRegion;
+  draft?: boolean;
   translations: Record<Locale, ArticleTranslation>;
 }
 
