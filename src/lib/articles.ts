@@ -39,6 +39,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-direct-debit-instapay-business-2026',
+    publishedAt: new Date('2026-08-23T09:00:00'),
+    category: 'policy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン決済3機能開始、法人送金上限は50万ペソ',
+        description: 'Direct Debit PHなど新決済3機能を解説。法人送金上限50万ペソと日本企業の請求・資金管理への影響を整理します。',
+        tags: ['フィリピン決済', 'Direct Debit PH', 'InstaPay', '法人送金', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippines Launches Three Payment Services; Business InstaPay Limit Rises to PHP500,000',
+        description: 'What Direct Debit PH, InstaPay Cash-In, and the PHP500,000 business transfer limit mean for billing and treasury operations.',
+        tags: ['Philippine payments', 'Direct Debit PH', 'InstaPay', 'business transfers', 'Philippines expansion'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-construction-cost-permits-2026',
+    publishedAt: new Date('2026-08-23T08:30:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン建築許可11.6%減、建設単価6.7%上昇',
+        description: '2026年5月の建築許可件数は前年比11.6%減、平均建設単価は6.7%上昇。資材価格と進出企業の予算管理を解説します。',
+        tags: ['フィリピン建設', '建築許可', '建設費', '資材価格', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippine Building Permits Fall 11.6% as Average Cost Rises 6.7%',
+        description: 'May 2026 building permits fell 11.6% y/y while average construction cost rose 6.7%. What investors should build into budgets and contracts.',
+        tags: ['Philippine construction', 'Building permits', 'Construction cost', 'Material prices', 'Philippines investment'],
+      },
+    },
+  },
+  {
     slug: 'clark-cdc-auto-renew-business-permits-2026',
     publishedAt: new Date('2026-08-22T09:00:00'),
     category: 'policy',
