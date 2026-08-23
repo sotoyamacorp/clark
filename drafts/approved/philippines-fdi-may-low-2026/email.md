@@ -8,6 +8,6 @@
 一方、BOI・PEZAの承認投資は増えています。記事ではこの違いを整理し、投資計画を「実行済み」と誤読しないための確認方法、資金調達と契約の実務を解説します。
 
 ▼続きはこちら
-{{ARTICLE_URL}}
+https://ph.sotoyamacorp.com/articles/philippines-fdi-may-low-2026/
 
 フィリピン・クラーク通信
