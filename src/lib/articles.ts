@@ -40,6 +40,42 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'clark-pax-silica-community-consultation-2026',
+    publishedAt: new Date('2026-08-24T09:00:00'),
+    category: 'policy',
+    region: 'clark',
+    translations: {
+      ja: {
+        title: 'Pax Silica、住民協議が焦点:進出企業のESG実務',
+        description: 'Aeta住民・農家の懸念とBCDAの説明、FPIC制度を整理し、Pax Silica関連企業が確認すべきESG実務を解説します。',
+        tags: ['Pax Silica', 'New Clark City', 'Aeta', 'FPIC', 'ESG'],
+      },
+      en: {
+        title: 'Pax Silica Community Consultation: ESG Due Diligence',
+        description: "A practical guide to Aeta and farmer concerns, BCDA's position, FPIC rules, and ESG checks for companies considering Pax Silica.",
+        tags: ['Pax Silica', 'New Clark City', 'Aeta', 'FPIC', 'ESG'],
+      },
+    },
+  },
+  {
+    slug: 'philippines-fdi-may-low-2026',
+    publishedAt: new Date('2026-08-24T08:30:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピンFDI、5月2.1億ドル:11年ぶり低水準',
+        description: '2026年5月のFDI純流入は2.1億ドル、1〜5月は前年比33.4%減。承認投資との違いと進出判断を解説します。',
+        tags: ['フィリピンFDI', '海外直接投資', 'BSP', '投資承認', 'フィリピン進出'],
+      },
+      en: {
+        title: 'Philippine FDI falls to $210m in May, an 11-year low',
+        description: 'May 2026 FDI was $210m and January-May inflows fell 33.4%. We explain why approval data differ and what investors should do.',
+        tags: ['Philippine FDI', 'foreign direct investment', 'BSP', 'investment approvals', 'Philippines expansion'],
+      },
+    },
+  },
+  {
     slug: 'philippines-direct-debit-instapay-business-2026',
     publishedAt: new Date('2026-08-23T09:00:00'),
     category: 'policy',
