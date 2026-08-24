@@ -1,0 +1,148 @@
+---
+layout: ../../layouts/BaseLayout.astro
+title: "フィリピンNational ID認証、1カ月で21.1万口座"
+description: "LANDBANK・OFBankが物理IDなしで21.1万口座を開設。NIDASの仕組みと金融・雇用実務への影響を解説します。"
+publishedAt: 2026-08-25
+draft: true
+author: geanoff
+category: policy
+region: philippines
+tags: ["PhilSys", "National ID", "NIDAS", "金融包摂", "eKYC"]
+faq:
+  - q: "「物理IDなし」は本人確認なしという意味ですか？"
+    a: "いいえ。カード画像の提出に代えて、National IDの登録情報をPSAの認証サービスで照合します。金融機関のKYC・AML義務がなくなるわけではありません。"
+  - q: "NIDASとは何ですか？"
+    a: "National ID Authentication Servicesの略称です。National IDに登録された本人情報を、PSAの基盤でリアルタイムに認証するためのサービス群です。"
+  - q: "民間企業もNIDASを導入できますか？"
+    a: "PSAは政府機関や民間の依拠当事者向けにオンボーディングを進めています。利用にはPSAとの手続き、システム接続、同意・プライバシー・業法対応が必要です。"
+sources:
+  - source: "https://pia.gov.ph/press-release/landbank-ofbank-id-free-account-opening-reaches-over-211000-filipinos-in-just-one-month/"
+    sourceNote: "LANDBANK・OFBankのID不要口座開設が1カ月で21.1万件を超えた発表"
+    collectedAt: "2026-08-25"
+    verifiedAt: "2026-08-25"
+  - source: "https://psa.gov.ph/content/psa-pushes-use-national-id-authentication-strengthen-identity-verification-financial"
+    sourceNote: "AUB HelloMoneyとGCashにおけるNational ID認証の利用実績"
+    collectedAt: "2026-08-25"
+    verifiedAt: "2026-08-25"
+  - source: "https://psa.gov.ph/content/digital-national-id-accepted-valid-id-mobile-banking-e-wallet-services"
+    sourceNote: "Digital National IDを受理する銀行・電子ウォレットと利用方法"
+    collectedAt: "2026-08-25"
+    verifiedAt: "2026-08-25"
+  - source: "https://www.bsp.gov.ph/Regulations/Issuances/2022/M-2022-003.pdf"
+    sourceNote: "BSPによるPhilSys ID・ePhilIDのKYC受理に関する金融機関向け覚書"
+    collectedAt: "2026-08-25"
+    verifiedAt: "2026-08-25"
+  - source: "https://www.bsp.gov.ph/Regulations/Published%20Issuances/Images/Circular_1170.pdf"
+    sourceNote: "BSPのe-KYC規則とデジタル本人確認の管理要件"
+    collectedAt: "2026-08-25"
+    verifiedAt: "2026-08-25"
+---
+
+<div class="max-w-3xl mx-auto px-4 py-12">
+
+# フィリピンNational ID認証、1カ月で21.1万口座
+
+## はじめに
+
+フィリピンの口座開設が、「身分証の写真をアップロードする手続き」から「政府のNational ID基盤でその場で本人を照合する手続き」へ動いています。
+
+LANDBANK（Land Bank of the Philippines）とOFBankは2026年7月に、物理的なIDカードを提示しなくてもNational ID Authentication Services（NIDAS）で本人確認できる口座開設を始めました。Philippine Information Agencyによると、開始から1カ月で21万1,000件を超える口座が開設されています。
+
+重要なのは、これは「本人確認を省略した口座」ではないことです。紙やカードの画像に頼らず、Philippine Statistics Authority（PSA、フィリピン統計庁）の登録情報をリアルタイムに照合する仕組みです。
+
+## この記事で分かる4つのポイント
+
+<div class="bg-navy-50 border border-navy-200 rounded-lg p-8 my-8 space-y-5">
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">①</span><p>LANDBANK・OFBankで、物理IDを提出しない口座開設が1カ月で21.1万件を超えました。</p></div>
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">②</span><p>NIDASはPSAのNational ID登録情報を使い、本人性をリアルタイムで照合します。</p></div>
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">③</span><p>カード提出が不要になっても、銀行のKYC・AML、同意、記録管理は残ります。</p></div>
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">④</span><p>金融だけでなく、給与口座、従業員登録、保険、通信の本人確認にも応用余地があります。</p></div>
+</div>
+
+## NIDASは何を変えるのか
+
+National IDはPhilSys（Philippine Identification System）に登録された氏名、生年月日、顔などの本人情報を基礎にします。NIDASは、サービス提供者が利用者の同意を得たうえで、提示情報がPSAの登録情報と一致するかを確かめる仕組みです。
+
+LANDBANK・OFBank・PSA・Department of Information and Communications Technology（DICT）は、NIDASを使うための契約を締結しました。銀行側は、利用者がカード画像を持っているかではなく、政府の本人情報と合致するかを確認できます。
+
+## 従来のKYCとの違い
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">方式</th><th class="p-3 text-left">利用者が示すもの</th><th class="p-3 text-left">照合方法</th><th class="p-3 text-left">主な課題</th></tr></thead>
+    <tbody>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">物理IDの提出</td><td class="p-3">カード原本・画像</td><td class="p-3">目視、OCR、偽造検知</td><td class="p-3">未取得、期限切れ、画質、偽造</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">Digital National IDの提示</td><td class="p-3">デジタルID画面・情報</td><td class="p-3">提示内容と必要情報を確認</td><td class="p-3">真正性確認と運用の統一</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">NIDAS認証</td><td class="p-3">同意と必要な本人情報</td><td class="p-3">PSA登録情報とのオンライン照合</td><td class="p-3">接続、可用性、例外処理、監査</td></tr>
+    </tbody>
+  </table>
+</div>
+
+NIDASは「KYCをなくす」ものではなく、KYCの証拠を作る方法を変えます。Bangko Sentral ng Pilipinas（BSP、フィリピン中央銀行）はPhilSysの本人確認書類を受理するよう金融機関に求め、Circular No. 1170ではe-KYCのリスク管理、記録、監視などを定めています。
+
+## 2024年から2026年までの進展
+
+<div class="bg-white border border-navy-200 rounded-lg p-6 my-8">
+  <h3 class="font-bold text-gray-900 mb-5">National IDを使った金融オンボーディングの広がり</h3>
+  <div class="space-y-5">
+    <div><div class="flex justify-between text-sm mb-1"><span>2024年：Digital National IDを銀行・e-walletで受理</span><span>基盤整備</span></div><div class="h-5 bg-navy-100 rounded"><div class="h-5 bg-navy-700 rounded" style="width:34%"></div></div></div>
+    <div><div class="flex justify-between text-sm mb-1"><span>2024年9月〜2025年4月：AUB HelloMoney</span><span>169,847件</span></div><div class="h-5 bg-navy-100 rounded"><div class="h-5 bg-accent-500 rounded" style="width:80.5%"></div></div></div>
+    <div><div class="flex justify-between text-sm mb-1"><span>2026年7〜8月：LANDBANK・OFBank</span><span>211,000件超</span></div><div class="h-5 bg-navy-100 rounded"><div class="h-5 bg-accent-500 rounded" style="width:100%"></div></div></div>
+  </div>
+  <p class="text-xs text-gray-500 mt-4">出典：PSA、PIA。期間・対象・母数が異なるため、棒の長さは普及速度の厳密な比較ではありません。GCashでは2025年時点で口座開設者の56%がNational IDを利用したとPSAが公表しています。</p>
+</div>
+
+過去の実績と今回の21.1万件は、集計期間や対象サービスが異なります。単純な成長率にはできません。それでも、Digital National IDの「受理」から、NIDASによるリアルタイム認証へ実装が一段進んだことは確認できます。
+
+## 日本企業にとっての事業機会
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">業種・業務</th><th class="p-3 text-left">想定ユースケース</th><th class="p-3 text-left">導入時の確認</th></tr></thead>
+    <tbody>
+<tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">銀行・fintech</td><td class="p-3">口座、送金、融資申込</td><td class="p-3">BSP規則、AML、なりすまし対策</td></tr>
+<tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">雇用・給与</td><td class="p-3">従業員確認、給与口座連携</td><td class="p-3">本人同意、未認証者の代替手順</td></tr>
+<tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">保険・通信</td><td class="p-3">契約者・SIM利用者の確認</td><td class="p-3">業法、データ最小化、監査証跡</td></tr>
+<tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">システム提供</td><td class="p-3">e-KYC、照合、例外処理</td><td class="p-3">PSA接続、可用性、権限管理</td></tr>
+    </tbody>
+  </table>
+</div>
+
+クラークのBPO、製造、ホテル、サービス企業にとっては、従業員の給与口座や大量採用時の本人確認を簡素化できる可能性があります。ただし、今回公表された21.1万件は全国のLANDBANK・OFBank口座であり、Clark Freeport固有の実績ではありません。
+
+## 導入前に確認する6項目
+
+1. **依拠当事者の手続き**：PSAとの契約・審査・技術接続の対象になるかを確認します。
+2. **利用者の同意**：何を照合し、何を保存するかを明示します。
+3. **業法とAML**：BSP等の監督規則に照らし、NIDAS以外に必要な確認を整理します。
+4. **例外処理**：一致しない、National ID未登録、通信障害のケースに代替手順を用意します。
+5. **データ最小化**：業務に不要な個人情報を取得・保存しない設計にします。
+6. **監査証跡**：認証結果、同意、担当者、時刻を追跡できるようにします。
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-3">こういう企業にとって重要</h3><p class="text-gray-700 leading-relaxed">フィリピンで大量の顧客・従業員をオンライン登録する銀行、fintech、BPO、人材、保険、通信、EC企業です。カード画像の回収工数だけでなく、認証失敗率、完了率、処理時間、詐欺損失を測ることで投資判断ができます。</p></div>
+
+## よくある質問
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">物理IDなしは、本人確認なしという意味ですか？</h3><p class="text-gray-700">いいえ。カード画像の代わりに、PSAが管理するNational IDの登録情報で本人性を照合します。</p></div>
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">NIDASとは？</h3><p class="text-gray-700">National ID Authentication Servicesの略称で、National ID登録情報を使うオンライン本人認証サービスです。</p></div>
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">民間企業も使えますか？</h3><p class="text-gray-700">対象になり得ますが、PSAとのオンボーディング、システム接続、同意・プライバシー・業法対応が必要です。</p></div>
+
+## まとめ
+
+<div class="bg-navy-900 text-white p-10 rounded-xl my-12"><ol class="space-y-6">
+<li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">1</span><p class="text-white">LANDBANK・OFBankのNIDAS口座開設は、開始1カ月で21.1万件を超えました。</p></li>
+<li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">2</span><p class="text-white">本人確認を省くのではなく、物理カードからPSAのリアルタイム照合へ方法を変えています。</p></li>
+<li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">3</span><p class="text-white">日本企業は業法、同意、例外処理、監査まで含む業務設計として導入を評価すべきです。</p></li>
+</ol></div>
+
+## 出典・参考情報
+
+- <a href="https://pia.gov.ph/press-release/landbank-ofbank-id-free-account-opening-reaches-over-211000-filipinos-in-just-one-month/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">PIA: LANDBANK・OFBankのID不要口座開設</a>
+- <a href="https://psa.gov.ph/content/psa-pushes-use-national-id-authentication-strengthen-identity-verification-financial" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">PSA: 金融機関でのNational ID認証</a>
+- <a href="https://psa.gov.ph/content/digital-national-id-accepted-valid-id-mobile-banking-e-wallet-services" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">PSA: Digital National IDの金融サービスでの受理</a>
+- <a href="https://www.bsp.gov.ph/Regulations/Issuances/2022/M-2022-003.pdf" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">BSP Memorandum No. M-2022-003</a>
+- <a href="https://www.bsp.gov.ph/Regulations/Published%20Issuances/Images/Circular_1170.pdf" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">BSP Circular No. 1170</a>
+
+下書き作成日：2026年8月25日
+
+</div>
