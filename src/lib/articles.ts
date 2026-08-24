@@ -40,6 +40,24 @@ export interface Article {
 // 記事データを手動定義（将来的には外部ファイルから読み込み）
 export const articles: Article[] = [
   {
+    slug: 'philippines-tourism-3-7m-2026',
+    publishedAt: new Date('2026-08-25T09:00:00'),
+    category: 'economy',
+    region: 'philippines',
+    translations: {
+      ja: {
+        title: 'フィリピン訪問客370万人:観光需要と進出機会',
+        description: '2026年1〜7月の訪問客は370万人で4.25%増。ASEAN比較、回復度、ホテル・小売・決済への示唆を解説します。',
+        tags: ['フィリピン観光', '訪問客', 'ホテル投資', 'ASEAN比較', 'サービス業'],
+      },
+      en: {
+        title: 'Philippines reaches 3.7m visitors: where business demand is',
+        description: 'Visitor arrivals rose 4.25% to 3.7m in Jan-Jul 2026. We compare ASEAN recovery and implications for hotels, retail and payments.',
+        tags: ['Philippine tourism', 'visitor arrivals', 'hotel investment', 'ASEAN comparison', 'services'],
+      },
+    },
+  },
+  {
     slug: 'clark-pax-silica-community-consultation-2026',
     publishedAt: new Date('2026-08-24T09:00:00'),
     category: 'policy',
