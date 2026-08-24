@@ -13,7 +13,7 @@
 ちなみに国別の送出客数(2024年)では、1位韓国・2位米国に次いで日本は3位(388,316人)。地味に押さえておきたいポイントとして、この訪問客数には出張・MICE目的の渡航者も含まれている可能性が高いです(DOT/PSAの統計はUNWTOの国際基準で「出張」も渡航目的の一つとして扱っています)。
 
 回復推移とASEAN比較表：
-{{ARTICLE_URL}}
+https://ph.sotoyamacorp.com/articles/philippines-tourism-3-7m-2026/
 
 ## 全国の成長率を、そのままホテル売上に置かない
 
@@ -24,4 +24,4 @@
 Clarkは、空港からの短い移動、MICE、ゴルフ、Pampangaの食文化、New Clark CityやSubicとの周遊が差別化軸です。マニラの縮小版ではなく、Central Luzonならではの商品を作れるかがポイントだと思います。
 
 詳しい表、客源市場の変化、実務指標は本編へ：
-{{ARTICLE_URL}}
+https://ph.sotoyamacorp.com/articles/philippines-tourism-3-7m-2026/

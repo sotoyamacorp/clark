@@ -8,6 +8,6 @@
 記事では、客源市場の変化、ASEAN比較、ホテル・小売・飲食・決済事業が地域別に確認すべき6指標、クラークの差別化軸を整理しました。
 
 ▼続きはこちら
-{{ARTICLE_URL}}
+https://ph.sotoyamacorp.com/articles/philippines-tourism-3-7m-2026/
 
 フィリピン・クラーク通信
