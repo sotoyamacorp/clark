@@ -1,0 +1,191 @@
+---
+layout: ../../layouts/BaseLayout.astro
+title: "New Clark City水道PPP、25年計画を読む"
+description: "Maynilad・K-Water・BCDAの水道・下水PPPを整理。未確定事項と進出企業が確認すべき供給条件を解説します。"
+publishedAt: 2026-08-29
+draft: true
+author: geanoff
+category: infrastructure
+region: clark
+tags: ["New Clark City", "水道PPP", "Maynilad", "K-Water", "BCDA"]
+faq:
+  - q: "New Clark Cityの水道PPPは契約済みですか？"
+    a: "2026年8月29日時点で確認できるのは、Maynilad取締役会が投資を承認したことです。PSE開示はoriginal proponent status、競争手続き、最終契約、投資額、料金を確定事項としていません。"
+  - q: "25年の事業期間はいつ始まりますか？"
+    a: "Mayniladの開示は25年を想定していますが、起算日や建設・運営開始日は示していません。最終契約とBCDAの事業日程を確認する必要があります。"
+  - q: "進出企業は何を確認すべきですか？"
+    a: "候補区画ごとの供給開始日、日量・時間当たり供給能力、水圧、水質、下水受入容量、接続費、基本料金・従量料金、停水時の代替手段を確認すべきです。"
+sources:
+  - source: "https://edge.pse.com.ph/downloadHtml.do?file_id=1961333"
+    sourceNote: "2026年8月26日のMaynilad取締役会承認、BCDA・K-WaterとのPPP、25年想定、未確定ステータス"
+    collectedAt: "2026-08-29"
+    verifiedAt: "2026-08-29"
+  - source: "https://www.mayniladwater.com.ph/market-disclosures/"
+    sourceNote: "Maynilad公式の市場開示一覧、New Clark City案件の17-C掲載"
+    collectedAt: "2026-08-29"
+    verifiedAt: "2026-08-29"
+  - source: "https://bcda.gov.ph/sites/default/files/2023-08/NCC%20%28Water%29%20-%20IAESP.pdf"
+    sourceNote: "BCDAの過去の水・下水事業要件。200,000m3/日の水需要、150,000m3/日の下水処理、許認可・設備要件"
+    collectedAt: "2026-08-29"
+    verifiedAt: "2026-08-29"
+  - source: "https://bcda.gov.ph/sites/default/files/documents/2019%20Accomplishments.pdf"
+    sourceNote: "2019年の初期給水設備、井戸2,000m3/日、貯水3,000m3等の整備実績"
+    collectedAt: "2026-08-29"
+    verifiedAt: "2026-08-29"
+  - source: "https://bcda.gov.ph/sites/default/files/2025-09/BCDA%202024%20Annual%20Report_Big%2C%20Bold%20Moves.pdf"
+    sourceNote: "BCDAとK-WaterのAI浄水・漏水低減等の協力、New Clark Cityの水インフラ方針"
+    collectedAt: "2026-08-29"
+    verifiedAt: "2026-08-29"
+  - source: "https://www.philstar.com/business/2026/08/28/2552224/maynilad-approves-investment-new-clark-city-water-supply/amp/"
+    sourceNote: "2026年8月28日の報道、Maynilad承認とBCDAが示した将来水需要150MLDの説明"
+    collectedAt: "2026-08-29"
+    verifiedAt: "2026-08-29"
+---
+
+<div class="max-w-3xl mx-auto px-4 py-12">
+
+# New Clark City水道PPP、25年計画を読む
+
+## はじめに
+
+工場やデータセンターの立地では、道路や税優遇だけでなく「必要な量の水が、いつ、どの条件で届くか」が投資判断を左右します。
+
+Maynilad Water Servicesは2026年8月26日、New Clark Cityの水道・下水インフラ事業への投資を取締役会で承認しました。相手はBases Conversion and Development Authority（BCDA、New Clark Cityを開発する国有企業）と韓国の公営水企業Korea Water Resources Corporation（K-Water）で、25年の官民連携（PPP）を想定しています。
+
+かみ砕くと、New Clark City全体の取水、浄水、配水、下水回収・処理を長期で整える提案です。ただし、**取締役会の投資承認は事業契約の締結や受注確定ではありません**。現時点で公表されていない投資額、料金、容量、着工日を確定事項のように扱わないことが重要です。
+
+## この記事で分かる5つのポイント
+
+<div class="bg-navy-50 border border-navy-200 rounded-lg p-8 my-8 space-y-5">
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">①</span><p>Maynilad取締役会が承認したのは、BCDA・K-Waterとの25年PPPへの投資です。</p></div>
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">②</span><p>original proponent status、最終契約、投資額、料金、着工日はまだ公表されていません。</p></div>
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">③</span><p>BCDAの過去計画は将来水需要20万m3/日、下水処理15万m3/日を想定しました。</p></div>
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">④</span><p>過去の30年・約100億ペソ計画と今回の25年提案は、同じ条件とは確認できません。</p></div>
+  <div class="flex items-center gap-4"><span class="flex-shrink-0 w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center font-bold text-navy-950">⑤</span><p>進出企業は区画別の供給開始、容量、水圧、水質、接続費、停水時BCPを確認すべきです。</p></div>
+</div>
+
+## まず、何が決まり、何が未確定か
+
+PSE（フィリピン証券取引所）へのMaynilad開示は短いですが、確定情報と未確定情報を分けられます。
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">項目</th><th class="p-3 text-left">2026年8月29日時点</th><th class="p-3 text-left">読み方</th></tr></thead>
+    <tbody>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">Maynilad社内承認</td><td class="p-3">取締役会が投資を承認</td><td class="p-3">会社として案件を進める意思決定</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">当事者</td><td class="p-3">BCDA、K-Water、Maynilad</td><td class="p-3">提案上のPPP構成</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">期間</td><td class="p-3">25年を想定</td><td class="p-3">起算日・建設期間は未公表</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">事業範囲</td><td class="p-3">水道・下水サービス</td><td class="p-3">個別施設・段階容量は未公表</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">契約・受注</td><td class="p-3">確定開示なし</td><td class="p-3">競争手続きと最終契約を待つ</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">投資額・料金</td><td class="p-3">現行開示に記載なし</td><td class="p-3">過去計画の数字を流用しない</td></tr>
+    </tbody>
+  </table>
+</div>
+
+「unsolicited proposal（民間提案）」とは、政府が仕様を定めて入札を始める前に、民間側が事業案を持ち込む方式です。提案者にoriginal proponent statusが与えられても、通常は競争手続きや政府承認、契約交渉が続きます。Maynilad自身も、今後material developmentが生じれば追加開示するとしています。
+
+## 過去計画と今回提案を混同しない
+
+BCDAが過去に公表した水・下水事業の募集資料では、30年（条件により20年延長）、総事業費約100億ペソ、水需要20万m3/日、下水処理15万m3/日を想定していました。
+
+今回のMaynilad開示は25年です。期間が異なるため、過去資料の100億ペソや20万m3/日を「今回の契約条件」とは書けません。過去計画は都市の最終需要を考えるための**参照値**です。
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">比較項目</th><th class="p-3 text-left">BCDA過去募集資料</th><th class="p-3 text-left">2026年Maynilad開示</th></tr></thead>
+    <tbody>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3">想定期間</td><td class="p-3">30年、条件付き延長</td><td class="p-3">25年</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3">事業費</td><td class="p-3">約100億ペソ</td><td class="p-3">未公表</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3">将来水需要</td><td class="p-3">約20万m3/日</td><td class="p-3">未公表</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3">将来下水処理</td><td class="p-3">約15万m3/日</td><td class="p-3">未公表</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3">参加企業</td><td class="p-3">当時の競争・契約主体</td><td class="p-3">BCDA、K-Water、Mayniladの提案</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## 水需要は段階的に増える
+
+BCDAの2019年実績資料では、SEA Games向け初期設備として追加井戸2,000m3/日、貯水タンク3,000m3などが整備されました。一方、過去の都市全体計画は最終的に20万m3/日の需要を想定しています。
+
+<div class="bg-white border border-navy-200 rounded-lg p-6 my-8">
+  <h3 class="font-bold text-gray-900 mb-5">公表資料にある容量のスケール</h3>
+  <div class="space-y-4">
+    <div><div class="flex justify-between text-sm mb-1"><span>2019年追加井戸</span><span>2,000m3/日</span></div><div class="h-5 bg-navy-100 rounded"><div class="h-5 bg-accent-500 rounded" style="width:10%"></div></div></div>
+    <div><div class="flex justify-between text-sm mb-1"><span>過去計画の最終下水処理</span><span>150,000m3/日</span></div><div class="h-5 bg-navy-100 rounded"><div class="h-5 bg-navy-700 rounded" style="width:75%"></div></div></div>
+    <div><div class="flex justify-between text-sm mb-1"><span>過去計画の最終水需要</span><span>200,000m3/日</span></div><div class="h-5 bg-navy-100 rounded"><div class="h-5 bg-navy-900 rounded" style="width:100%"></div></div></div>
+  </div>
+  <p class="text-xs text-gray-500 mt-4">出典：BCDA 2019 Accomplishments、過去のWater and Wastewater IAESP。初期設備と都市全体の最終需要を比較したスケール図であり、現在の総供給能力を示すものではありません。</p>
+</div>
+
+この差は「不足が確定した」という意味ではありません。井戸、河川水、浄水場、配水網、下水処理場を、住宅・行政・工業・商業の増加に合わせて段階整備する必要があることを示します。
+
+## 3社の役割はどうなり得るか
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">主体</th><th class="p-3 text-left">公表済みの位置づけ</th><th class="p-3 text-left">今後確認すること</th></tr></thead>
+    <tbody>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">BCDA</td><td class="p-3">土地・都市開発を担う政府側当事者</td><td class="p-3">承認、競争手続き、契約、料金監督</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3 font-semibold">K-Water</td><td class="p-3">共同提案者、韓国の公営水企業</td><td class="p-3">設計、AI浄水、運営、資金の分担</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3 font-semibold">Maynilad</td><td class="p-3">共同提案者、投資を取締役会承認</td><td class="p-3">出資、建設、運営、顧客対応の分担</td></tr>
+    </tbody>
+  </table>
+</div>
+
+BCDA年次報告は、K-Waterとの協力でAIを使った浄水・漏水低減を検討していると説明しています。ただし、今回PPPの機器構成やKPIに同じ技術が入るかは、契約資料が出るまで未確定です。
+
+## マニラの既存網とNew Clark Cityの違い
+
+Mayniladの主力は、人口と配管網がすでに密集するMetro Manila西地区です。New Clark Cityは、需要地点が段階的に増えるグリーンフィールド都市です。
+
+<div class="my-8 overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-navy-900 text-white"><th class="p-3 text-left">論点</th><th class="p-3 text-left">Metro Manila既存網</th><th class="p-3 text-left">New Clark City</th></tr></thead>
+    <tbody>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3">需要</td><td class="p-3">高密度で既に存在</td><td class="p-3">街区・工場ごとに段階増加</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3">主課題</td><td class="p-3">老朽管、漏水、既存顧客</td><td class="p-3">先行投資、利用率、拡張順序</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-white"><td class="p-3">設計</td><td class="p-3">既存網の更新・増強</td><td class="p-3">スマート計測と新規網を組み込みやすい</td></tr>
+      <tr class="border-b border-navy-100 border-dashed bg-navy-50"><td class="p-3">企業の注意</td><td class="p-3">地域別供給実績</td><td class="p-3">候補区画への完成時期と暫定供給</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## 日本企業が確認する8項目
+
+1. **事業ステータス**：original proponent status、競争手続き、契約締結を分けて確認します。
+2. **区画別供給日**：都市全体の計画ではなく、自社候補地へ配管が届く日を確認します。
+3. **必要容量**：平均日量だけでなく、ピーク時間の水量・水圧を提示します。
+4. **水質仕様**：飲用、食品、半導体、冷却など用途別の前処理要件を確認します。
+5. **下水受入条件**：量、温度、pH、COD/BOD、前処理、超過料金を確認します。
+6. **料金と接続費**：基本料、従量、最低引取、接続工事、改定式を分けます。
+7. **許認可と責任分担**：NWRBの水利権・許可、環境許可、工場側設備の境界を明確にします。
+8. **BCP**：貯水、井戸、給水車、再生水、停水時の生産停止手順を設計します。
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-3">こういう企業にとって重要</h3><p class="text-gray-700 leading-relaxed">半導体・電子部品、食品・飲料、医薬品、データセンター、ホテル、病院、大規模住宅、コールドチェーンの企業です。水量が大きい企業ほど、都市全体の構想ではなく、区画別のguaranteed capacityとサービス開始日を契約書で確認する必要があります。</p></div>
+
+## よくある質問
+
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">すでにMayniladの受注は確定しましたか？</h3><p class="text-gray-700">確認できるのはMaynilad社内の投資承認です。最終契約や事業者選定の確定開示ではありません。</p></div>
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">25年はいつから数えますか？</h3><p class="text-gray-700">起算日は公表されていません。契約締結、建設開始、運営開始のどこを起点にするかは最終資料で確認します。</p></div>
+<div class="border-l-4 border-accent-500 bg-white p-6 shadow-sm my-8"><h3 class="font-bold text-gray-900 mb-2">20万m3/日は今回の確定容量ですか？</h3><p class="text-gray-700">いいえ。BCDAの過去募集資料にある都市全体の最終需要想定で、今回提案の確定容量ではありません。</p></div>
+
+## まとめ
+
+<div class="bg-navy-900 text-white p-10 rounded-xl my-12"><ol class="space-y-6">
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">1</span><p class="text-white">MayniladはBCDA・K-Waterとの25年水道・下水PPPへの投資を社内承認しました。</p></li>
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">2</span><p class="text-white">受注、投資額、容量、料金、日程は未確定で、過去計画の数字と分けて扱います。</p></li>
+  <li class="flex items-center gap-4"><span class="flex-shrink-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center font-bold text-sm text-navy-950">3</span><p class="text-white">進出企業は候補区画ごとの供給保証、下水条件、接続費、BCPを契約前に確認します。</p></li>
+</ol></div>
+
+## 出典・参考情報
+
+- <a href="https://edge.pse.com.ph/downloadHtml.do?file_id=1961333" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">PSE Edge：Maynilad Board Approval of Investment in New Clark City Project</a>
+- <a href="https://www.mayniladwater.com.ph/market-disclosures/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">Maynilad：Market Disclosures</a>
+- <a href="https://bcda.gov.ph/sites/default/files/2023-08/NCC%20%28Water%29%20-%20IAESP.pdf" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">BCDA：Water and Wastewater Infrastructure Project IAESP</a>
+- <a href="https://bcda.gov.ph/sites/default/files/documents/2019%20Accomplishments.pdf" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">BCDA：2019 Accomplishments</a>
+- <a href="https://bcda.gov.ph/sites/default/files/2025-09/BCDA%202024%20Annual%20Report_Big%2C%20Bold%20Moves.pdf" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">BCDA Annual Report 2024</a>
+- <a href="https://www.philstar.com/business/2026/08/28/2552224/maynilad-approves-investment-new-clark-city-water-supply/amp/" target="_blank" rel="noopener noreferrer" class="text-accent-700 underline hover:text-accent-500">The Philippine Star：Maynilad approves New Clark City water investment</a>
+
+下書き作成日：2026年8月29日
+
+</div>
